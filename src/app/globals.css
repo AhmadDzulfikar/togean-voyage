@@ -21,6 +21,53 @@
   }
 }
 
+/* ========================================
+   UTILITY CLASSES
+======================================== */
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ========================================
+   FONT CLASSES
+======================================== */
+
+@layer components {
+  .font-canto {
+    font-family: var(--font-canto-local, var(--font-canto));
+  }
+
+  .font-avenir {
+    font-family: var(--font-avenir-local, var(--font-avenir));
+  }
+}
+
+/* ========================================
+   SPOTLIGHT CAROUSEL STYLES
+======================================== */
+
+@layer components {
+  .spotlight-carousel__heading {
+    font-family: var(--font-canto-local, var(--font-canto));
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.2;
+  }
+
+  .spotlight-carousel__subheading {
+    font-family: var(--font-avenir-local, var(--font-avenir));
+    font-weight: 500;
+  }
+}
+
 @layer base {
   body {
     background: var(--background);

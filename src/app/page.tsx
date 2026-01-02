@@ -1,9 +1,15 @@
 import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar";
+import SpotlightCarousel from "@/components/SpotlightCarousel";
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <SpotlightCarousel />
+      </main>
+    </>
   );
 }
