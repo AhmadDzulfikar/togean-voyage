@@ -213,8 +213,8 @@ export default function SpotlightCarousel() {
                             }}
                             data-index={index}
                             className={`spotlight-carousel__slide flex-shrink-0 w-[85vw] md:w-[676px] snap-center transition-all duration-500 ${index === activeIndex
-                                    ? "opacity-100 scale-100 grayscale-0"
-                                    : "md:opacity-40 md:grayscale md:scale-95 opacity-100 grayscale-0 scale-100"
+                                ? "opacity-100 scale-100 grayscale-0"
+                                : "md:opacity-40 md:grayscale md:scale-95 opacity-100 grayscale-0 scale-100"
                                 }`}
                         >
                             {/* Card */}
@@ -238,7 +238,7 @@ export default function SpotlightCarousel() {
                                         <p className="text-xs uppercase tracking-wider text-gray-500 mb-2">
                                             TOGEAN ISLANDS
                                         </p>
-                                        <h3 className="font-canto text-xl mb-3">{slide.title}</h3>
+                                        <h3 className="font-canto text-xl mb-3 text-gray-900">{slide.title}</h3>
                                         <p className="text-sm text-gray-600 leading-relaxed mb-4">
                                             {slide.description}
                                         </p>
@@ -360,8 +360,8 @@ export default function SpotlightCarousel() {
                             onClick={() => goToSlide(index)}
                             aria-label={`Go to slide ${index + 1}`}
                             className={`w-2.5 h-2.5 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-[#6b4c3b] focus:ring-offset-2 ${index === activeIndex
-                                    ? "bg-[#6b4c3b]"
-                                    : "bg-gray-300 hover:bg-gray-400"
+                                ? "bg-[#6b4c3b]"
+                                : "bg-gray-300 hover:bg-gray-400"
                                 }`}
                         />
                     ))}
