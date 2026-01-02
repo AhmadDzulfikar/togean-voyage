@@ -110,9 +110,11 @@ function AccordionItem({
                     opacity: isOpen ? 1 : 0,
                 }}
             >
-                <p className="px-2 pb-4 font-avenir text-sm leading-relaxed text-neutral-600">
-                    {feature.description}
-                </p>
+                <div className="pt-3 pb-4 px-4">
+                    <p className="font-avenir text-sm leading-relaxed text-neutral-600">
+                        {feature.description}
+                    </p>
+                </div>
             </div>
         </div>
     );
