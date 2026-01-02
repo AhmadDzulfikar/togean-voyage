@@ -1,0 +1,158 @@
+"use client";
+
+/**
+ * Program Carousel Section
+ * 
+ * Displays a square-card infinite carousel of featured programs.
+ * Uses embla-carousel-react.
+ * 
+ * - Desktop: ~5 slides visible, centered
+ * - Mobile: 1 slide visible, centered
+ * - Infinite loop
+ */
+
+import React, { useCallback, useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import useEmblaCarousel from "embla-carousel-react";
+
+const programs = [
+    { name: "Snorkeling & diving", image: "/program-snorkeling.webp" },
+    { name: "Relaxing & sunbathing", image: "/program-relaxing.webp" },
+    { name: "Hiking & viewpoints", image: "/program-hiking.webp" },
+    { name: "Local community immersion", image: "/program-community.webp" },
+    { name: "Wildlife spotting", image: "/program-wildlife.webp" },
+    { name: "Beach exploration & hidden coves", image: "/program-beach.webp" },
+    { name: "Stargazing", image: "/program-stargazing.webp" },
+];
+
+export default function ProgramCarousel() {
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        loop: true,
+        align: "center",
+        containScroll: "trimSnaps",
+    });
+
+    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+    const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+    const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+    const scrollTo = useCallback((index: number) => emblaApi && emblaApi.scrollTo(index), [emblaApi]);
+
+    const onSelect = useCallback(() => {
+        if (!emblaApi) return;
+        setSelectedIndex(emblaApi.selectedScrollSnap());
+    }, [emblaApi]);
+
+    useEffect(() => {
+        if (!emblaApi) return;
+        onSelect();
+        setScrollSnaps(emblaApi.scrollSnapList());
+        emblaApi.on("select", onSelect);
+        emblaApi.on("reInit", onSelect);
+    }, [emblaApi, onSelect]);
+
+    return (
+        <section className="bg-white py-16 md:py-24">
+            <div className="mx-auto max-w-[1400px]">
+                {/* Header */}
+                <div className="text-center mb-10 md:mb-14 px-4">
+                    <h2 className="font-canto text-3xl md:text-4xl lg:text-5xl mb-4 text-neutral-900 leading-tight">
+                        Ways to explore: Signature Programs
+                    </h2>
+                    <Link
+                        href="/programs"
+                        className="inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-[#6b4c3b] hover:text-[#4a3429] transition-colors group font-avenir font-medium"
+                    >
+                        <span className="group-hover:underline underline-offset-4">
+                            Curated Activities: Explore All
+                        </span>
+                        <svg
+                            className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                            />
+                        </svg>
+                    </Link>
+                </div>
+
+                {/* Carousel Wrapper */}
+                <div className="relative group">
+                    {/* Viewport */}
+                    <div className="overflow-hidden" ref={emblaRef}>
+                        <div className="flex touch-pan-y">
+                            {programs.map((program, index) => (
+                                <div
+                                    key={index}
+                                    className="flex-[0_0_100%] md:flex-[0_0_22%] min-w-0 pl-4 md:pl-6 relative"
+                                >
+                                    <div className="aspect-square relative overflow-hidden group/card cursor-pointer rounded-sm">
+                                        <Image
+                                            src={program.image}
+                                            alt={program.name}
+                                            fill
+                                            className="object-cover transition-transform duration-700 ease-out group-hover/card:scale-110"
+                                            sizes="(max-width: 768px) 80vw, 25vw"
+                                        />
+                                        {/* Gradient Overlay (Bottom only) */}
+                                        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
+
+                                        {/* Text Content */}
+                                        <div className="absolute inset-x-0 bottom-0 p-5 md:p-7 pointer-events-none">
+                                            <h3 className="font-canto font-bold text-white text-lg md:text-2xl leading-tight text-left max-w-[95%] drop-shadow-sm">
+                                                {program.name}
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Navigation Arrows (Desktop) */}
+                    <button
+                        onClick={scrollPrev}
+                        className="hidden md:flex absolute -left-4 lg:left-8 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center rounded-full bg-white/90 hover:bg-white border border-gray-200 shadow-sm transition-all z-10 text-neutral-700 hover:text-neutral-900 focus:outline-none"
+                        aria-label="Previous slide"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button
+                        onClick={scrollNext}
+                        className="hidden md:flex absolute -right-4 lg:right-8 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center rounded-full bg-white/90 hover:bg-white border border-gray-200 shadow-sm transition-all z-10 text-neutral-700 hover:text-neutral-900 focus:outline-none"
+                        aria-label="Next slide"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+
+                {/* Pagination Dots */}
+                <div className="flex justify-center gap-3 mt-8 md:mt-10">
+                    {scrollSnaps.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => scrollTo(index)}
+                            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${index === selectedIndex
+                                ? "bg-[#6b4c3b] scale-110"
+                                : "bg-gray-300 hover:bg-gray-400"
+                                }`}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
