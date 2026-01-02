@@ -1,3 +1,14 @@
+/**
+ * Kapal Safety & Experience Section
+ * 
+ * Introductory section describing the boat fleet and crew hospitality.
+ * 
+ * Section naming convention:
+ * - Destination (SpotlightCarousel)
+ * - Kapal Safety & Experience (this component)
+ * - Local Community (LocalCommunity)
+ */
+
 import React from 'react';
 
 const BoatsHospitalityIntro = () => {
