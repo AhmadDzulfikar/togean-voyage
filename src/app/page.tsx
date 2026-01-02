@@ -4,14 +4,14 @@
  * Section naming convention:
  * - Hero: Top video section
  * - Destination: SpotlightCarousel section
- * - Kapal Safety & Experience: BoatsHospitalityIntro section
+ * - Safety & Experience Ship: KapalSafetyExperience section
  * - Local Community: LocalCommunity zig-zag parallax section
  */
 
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import SpotlightCarousel from "@/components/SpotlightCarousel";
-import BoatsHospitalityIntro from "@/components/BoatsHospitalityIntro";
+import KapalSafetyExperience from "@/components/KapalSafetyExperience";
 import LocalCommunity from "@/components/LocalCommunity";
 
 export default function Home() {
@@ -22,8 +22,8 @@ export default function Home() {
         <Hero />
         {/* Destination Section */}
         <SpotlightCarousel />
-        {/* Kapal Safety & Experience Section */}
-        <BoatsHospitalityIntro />
+        {/* Safety & Experience Ship Section */}
+        <KapalSafetyExperience />
         {/* Local Community Section */}
         <LocalCommunity />
       </main>
