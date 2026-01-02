@@ -337,12 +337,24 @@ export default function LocalCommunity() {
                     </h2>
                     <Link
                         href="/local-community"
-                        className="inline-block mt-4 md:mt-6 font-avenir text-sm md:text-base 
-                                   text-neutral-500 hover:text-neutral-700
-                                   transition-colors duration-300
-                                   hover:underline underline-offset-4"
+                        className="inline-flex items-center gap-2 mt-4 md:mt-6 text-sm md:text-base uppercase tracking-wider text-[#6b4c3b] hover:text-[#4a3429] transition-colors group"
                     >
-                        Curated Connections: Explore All
+                        <span className="group-hover:underline underline-offset-4">
+                            Curated Connections: Explore All
+                        </span>
+                        <svg
+                            className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                            />
+                        </svg>
                     </Link>
                 </div>
 
