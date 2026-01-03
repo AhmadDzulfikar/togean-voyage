@@ -12,6 +12,7 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import SpotlightCarousel from "@/components/SpotlightCarousel";
 import ProgramCarousel from "@/components/ProgramCarousel";
+import WildlifeCarousel from "@/components/WildlifeCarousel";
 import KapalSafetyExperience from "@/components/KapalSafetyExperience";
 import LocalCommunity from "@/components/LocalCommunity";
 
@@ -25,6 +26,8 @@ export default function Home() {
         <SpotlightCarousel />
         {/* Program Section */}
         <ProgramCarousel />
+        {/* Wildlife Section */}
+        <WildlifeCarousel />
         {/* Safety & Experience Ship Section */}
         <KapalSafetyExperience />
         {/* Local Community Section */}
