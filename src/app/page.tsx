@@ -16,6 +16,7 @@ import WildlifeCarousel from "@/components/WildlifeCarousel";
 import KapalSafetyExperience from "@/components/KapalSafetyExperience";
 import LocalCommunity from "@/components/LocalCommunity";
 import BlogSection from "@/components/BlogSection";
+import FooterSection from "@/components/FooterSection";
 
 export default function Home() {
   return (
@@ -35,6 +36,8 @@ export default function Home() {
         <LocalCommunity />
         {/* Blog Section */}
         <BlogSection />
+        {/* Footer Section */}
+        <FooterSection />
       </main>
     </>
   );
