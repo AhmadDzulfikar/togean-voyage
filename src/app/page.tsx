@@ -26,10 +26,10 @@ export default function Home() {
         <SpotlightCarousel />
         {/* Program Section */}
         <ProgramCarousel />
-        {/* Wildlife Section */}
-        <WildlifeCarousel />
         {/* Safety & Experience Ship Section */}
         <KapalSafetyExperience />
+        {/* Wildlife Section */}
+        <WildlifeCarousel />
         {/* Local Community Section */}
         <LocalCommunity />
       </main>
