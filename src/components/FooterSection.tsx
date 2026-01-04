@@ -1,14 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { cantoFont, avenirFont } from "@/app/fonts";
 
 export default function FooterSection() {
     return (
-        <footer className="bg-[#1a1a1a] text-white pt-16 pb-12 md:pt-24 md:pb-20">
+        <footer className="bg-[#1a1a1a] text-white pt-12 pb-8 md:pt-16 md:pb-12">
             <div className="mx-auto px-6 md:px-12 max-w-[1280px]">
                 {/* Top Row: Logo */}
-                <div className="flex flex-col md:flex-row justify-between items-start mb-16 md:mb-24">
+                <div className="flex flex-col md:flex-row justify-between items-start mb-12 md:mb-16">
                     {/* Logo */}
                     <div className="relative w-[140px] md:w-[200px] lg:w-[280px] h-auto aspect-square">
                         <Image
@@ -28,20 +27,20 @@ export default function FooterSection() {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
                     {/* Column A: Brand Info */}
                     <div className="md:col-span-4 lg:col-span-4">
-                        <h3 className={`${cantoFont.className} text-2xl lg:text-3xl mb-6 text-white`}>
+                        <h3 className="font-canto text-2xl lg:text-3xl mb-6 text-white">
                             Togean Voyages
                         </h3>
-                        <p className={`${avenirFont.className} text-base leading-relaxed text-white/80 max-w-sm`}>
+                        <p className="font-avenir text-base leading-relaxed text-white/80 max-w-sm">
                             Experience the untouched beauty of the Togean Islands. We curate slow travel journeys that connect you with nature, culture, and the serenity of the sea.
                         </p>
                     </div>
 
                     {/* Column B: Infos */}
                     <div className="md:col-span-4 lg:col-span-4">
-                        <h3 className={`${cantoFont.className} text-2xl lg:text-3xl mb-6 text-white`}>
+                        <h3 className="font-canto text-2xl lg:text-3xl mb-6 text-white">
                             Infos
                         </h3>
-                        <ul className={`${avenirFont.className} space-y-3 text-base text-white/80`}>
+                        <ul className="font-avenir space-y-3 text-base text-white/80">
                             <li>Graha STR, Jl. Ampera Raya No.11B, Jakarta</li>
                             <li>Jl. Soekarno Hatta, No 13A, Manggarai Barat.</li>
                             <li>PT Build Creative Realm</li>
@@ -50,10 +49,10 @@ export default function FooterSection() {
 
                     {/* Column C: Contact Us */}
                     <div className="md:col-span-4 lg:col-span-4">
-                        <h3 className={`${cantoFont.className} text-2xl lg:text-3xl mb-6 text-white`}>
+                        <h3 className="font-canto text-2xl lg:text-3xl mb-6 text-white">
                             Contact Us
                         </h3>
-                        <ul className={`${avenirFont.className} space-y-4 text-base text-white/80`}>
+                        <ul className="font-avenir space-y-4 text-base text-white/80">
                             {/* WhatsApp */}
                             <li className="flex items-center gap-3">
                                 <span className="shrink-0 w-5 flex justify-center">
