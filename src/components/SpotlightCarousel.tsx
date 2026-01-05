@@ -172,14 +172,14 @@ export default function SpotlightCarousel() {
             {/* Header */}
             <div className="text-center mb-8 md:mb-12 px-4">
                 <h2 className="spotlight-carousel__heading text-3xl md:text-4xl lg:text-5xl mb-4">
-                    In the spotlight: Signature Voyages
+                    In the spotlight: Signature Destinations
                 </h2>
                 <Link
                     href="/voyages"
                     className="spotlight-carousel__subheading inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-[#6b4c3b] hover:text-[#4a3429] transition-colors group"
                 >
                     <span className="group-hover:underline underline-offset-4">
-                        Curated Experiences: Signature Voyages
+                        Curated Experiences: Signature Destinations
                     </span>
                     <svg
                         className="w-4 h-4 transition-transform group-hover:translate-x-1"
