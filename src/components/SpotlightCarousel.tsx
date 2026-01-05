@@ -4,54 +4,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { destinations } from "@/data/destinations";
+
 // Carousel slide data
-const slides = [
-    {
-        id: 1,
-        image: "/gambarsatu.webp",
-        title: "TogeanVoyages Laamu",
-        description:
-            "Breathe easy in the remote yet accessible tropical island resort of Six Senses Laamu, an enchanting atoll of magical corals and azure lagoons.",
-        actionText: "Lose yourself in paradise found.",
-        actionHref: "/voyages/laamu",
-    },
-    {
-        id: 2,
-        image: "/gambardua.webp",
-        title: "TogeanVoyages Laamu",
-        description:
-            "Breathe easy in the remote yet accessible tropical island resort of Six Senses Laamu, an enchanting atoll of magical corals and azure lagoons.",
-        actionText: "Lose yourself in paradise found.",
-        actionHref: "/voyages/laamu",
-    },
-    {
-        id: 3,
-        image: "/gambartiga.webp",
-        title: "TogeanVoyages Laamu",
-        description:
-            "Breathe easy in the remote yet accessible tropical island resort of Six Senses Laamu, an enchanting atoll of magical corals and azure lagoons.",
-        actionText: "Lose yourself in paradise found.",
-        actionHref: "/voyages/laamu",
-    },
-    {
-        id: 4,
-        image: "/gambarempat.webp",
-        title: "TogeanVoyages Laamu",
-        description:
-            "Breathe easy in the remote yet accessible tropical island resort of Six Senses Laamu, an enchanting atoll of magical corals and azure lagoons.",
-        actionText: "Lose yourself in paradise found.",
-        actionHref: "/voyages/laamu",
-    },
-    {
-        id: 5,
-        image: "/gambarlima.webp",
-        title: "TogeanVoyages Laamu",
-        description:
-            "Breathe easy in the remote yet accessible tropical island resort of Six Senses Laamu, an enchanting atoll of magical corals and azure lagoons.",
-        actionText: "Lose yourself in paradise found.",
-        actionHref: "/voyages/laamu",
-    },
-];
+const slides = destinations.slice(0, 5).map((dest, index) => {
+    const ctas = [
+        "Discover sunrise reefs",
+        "Drift into calm bays",
+        "Explore reef gardens",
+        "Witness volcanic dawn",
+        "Find golden solitude"
+    ];
+
+    return {
+        id: index + 1,
+        image: dest.image,
+        title: dest.name,
+        description: dest.description,
+        actionText: ctas[index],
+        actionHref: `/destinations/${dest.slug}`,
+    };
+});
 
 // Easing function for smooth animation
 const easeInOutCubic = (t: number): number =>
@@ -175,7 +148,7 @@ export default function SpotlightCarousel() {
                     In the spotlight: Signature Destinations
                 </h2>
                 <Link
-                    href="/voyages"
+                    href="/destinations"
                     className="spotlight-carousel__subheading inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-[#6b4c3b] hover:text-[#4a3429] transition-colors group"
                 >
                     <span className="group-hover:underline underline-offset-4">
