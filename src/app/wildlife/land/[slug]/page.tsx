@@ -1,11 +1,20 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { wildlifeSpecies } from "@/data/wildlifeSpecies";
 
-export default async function WildlifeDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateStaticParams() {
+    return wildlifeSpecies
+        .filter((s) => s.habitat === "land")
+        .map((species) => ({
+            slug: species.slug,
+        }));
+}
+
+export default async function LandWildlifeDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const species = wildlifeSpecies.find((s) => s.slug === slug);
 
@@ -41,6 +50,15 @@ export default async function WildlifeDetailPage({ params }: { params: Promise<{
                     <p className="font-avenir text-lg text-neutral-600 leading-relaxed border-t border-neutral-200 pt-8">
                         More details regarding the {species.name} and where to find them in Togean will be coming soon.
                     </p>
+                </div>
+
+                <div className="mt-12">
+                    <Link
+                        href="/wildlife"
+                        className="inline-block px-8 py-3 bg-neutral-900 text-white font-avenir tracking-wider uppercase text-sm hover:bg-neutral-800 transition-colors"
+                    >
+                        Back to Wildlife Gallery
+                    </Link>
                 </div>
             </main>
 

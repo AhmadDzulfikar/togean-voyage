@@ -119,7 +119,7 @@ export default function WildlifeGallery({ species }: WildlifeGalleryProps) {
                             {/* Details Button */}
                             <div className="mt-auto pt-2">
                                 <Link
-                                    href={`/wildlife/${species.slug}`}
+                                    href={`/wildlife/${species.habitat}/${species.slug}`}
                                     className="font-avenir text-sm font-medium text-neutral-900 hover:text-neutral-600 hover:underline underline-offset-4 transition-colors inline-flex items-center gap-1"
                                 >
                                     Details &gt;
