@@ -40,7 +40,7 @@ export const blogPosts: BlogPost[] = [
             "Plunge into the crystal-clear waters of the Togeans. We reveal the top snorkeling locations where you can spot giant clams, sea turtles, and an endless variety of tropical fish. Prepare for an underwater journey like no other.",
     },
     {
-        slug: "village-visit",
+        slug: "village-visit-etiquette-and-support-local-communities",
         image: "/blog-3.webp",
         locationLabel: "Togean",
         date: "Mar 10, 2026",

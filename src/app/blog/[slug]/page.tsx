@@ -1,39 +1,149 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { blogPosts } from "@/components/BlogSection";
-import { cantoFont, avenirFont } from "@/app/fonts";
+import { blogPosts } from "@/data/blogPosts";
 import Navbar from "@/components/Navbar";
+import FooterSection from "@/components/FooterSection";
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-    const post = blogPosts.find((p) => p.slug === params.slug);
+interface PageProps {
+    params: Promise<{
+        slug: string;
+    }>;
+}
+
+export async function generateStaticParams() {
+    return blogPosts.map((post) => ({
+        slug: post.slug,
+    }));
+}
+
+export default async function BlogDetailPage({ params }: PageProps) {
+    const { slug } = await params;
+    const post = blogPosts.find((p) => p.slug === slug);
 
     if (!post) {
         notFound();
     }
 
-    return (
-        <>
-            <Navbar />
-            <article className="min-h-screen pt-24 pb-16 bg-white text-black">
-                <div className="mx-auto px-4 md:px-8 max-w-[800px]">
-                    {/* Header */}
-                    <div className="text-center mb-12">
-                        <div className={`${avenirFont.className} text-sm text-gray-500 uppercase tracking-widest mb-4`}>
-                            {post.locationLabel} | {post.date} | {post.category}
+    // Simple parser to handle content and placeholders
+    const renderContent = (content: string) => {
+        const parts = content.split(/(\[\[IMAGE_.*?\]\])/);
+
+        return parts.map((part, index) => {
+            if (part === "[[IMAGE_VILLAGE]]") {
+                return (
+                    <figure key={index} className="my-10">
+                        <div className="relative aspect-[3/2] w-full overflow-hidden rounded-sm">
+                            <Image
+                                src="/blog/village-visit-etiquette/village.png"
+                                alt="Respectful village visit"
+                                fill
+                                className="object-cover"
+                            />
                         </div>
-                        <h1 className={`${cantoFont.className} text-4xl md:text-6xl leading-tight mb-8`}>
+                        <figcaption className="mt-3 font-avenir text-sm text-neutral-500 text-center italic">
+                            Connecting with locals on the village jetty
+                        </figcaption>
+                    </figure>
+                );
+            }
+            if (part === "[[IMAGE_OCEAN]]") {
+                return (
+                    <figure key={index} className="my-10">
+                        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-sm">
+                            <Image
+                                src="/blog/village-visit-etiquette/ocean.png"
+                                alt="Togean ocean scene"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                        <figcaption className="mt-3 font-avenir text-sm text-neutral-500 text-center italic">
+                            Protecting the pristine environment for future generations
+                        </figcaption>
+                    </figure>
+                );
+            }
+
+            // Text processing
+            // We'll split by newlines to handle paragraphs and headings
+            const lines = part.split("\n");
+            return (
+                <div key={index}>
+                    {lines.map((line, lineIndex) => {
+                        const trimLine = line.trim();
+                        if (!trimLine) return <div key={lineIndex} className="h-4" />; // Spacer
+
+                        if (trimLine.startsWith("### ")) {
+                            // Heading 3
+                            return (
+                                <h3 key={lineIndex} className="font-canto text-2xl md:text-3xl text-neutral-900 mt-10 mb-6">
+                                    {trimLine.replace("### ", "")}
+                                </h3>
+                            );
+                        }
+
+                        if (trimLine.startsWith("- ")) {
+                            // List item
+                            return (
+                                <ul key={lineIndex} className="list-disc pl-5 mb-4 font-avenir text-lg text-neutral-700 leading-relaxed">
+                                    <li className="pl-2">{trimLine.replace("- ", "")}</li>
+                                </ul>
+                            );
+                        }
+
+                        // Paragraph split by colon for "Bold: Text" pattern? 
+                        // The user text has "The Vibe: ..."
+                        if (trimLine.includes(": ")) {
+                            const [boldPart, ...rest] = trimLine.split(": ");
+                            if (["The Vibe", "The Fix", "The Rule", "Pro Tip", "Don't", "Do", "Buy Local Products", "Be a Zero-Waste Warrior", "Hire Local Guides"].includes(boldPart)) {
+                                return (
+                                    <p key={lineIndex} className="font-avenir text-lg text-neutral-700 mb-6 leading-relaxed">
+                                        <strong className="font-medium text-neutral-900">{boldPart}:</strong> {rest.join(": ")}
+                                    </p>
+                                );
+                            }
+                        }
+
+                        // Regular paragraph
+                        return (
+                            <p key={lineIndex} className="font-avenir text-lg text-neutral-700 mb-6 leading-relaxed">
+                                {trimLine}
+                            </p>
+                        );
+                    })}
+                </div>
+            );
+        });
+    };
+
+    return (
+        <div className="bg-white min-h-screen text-neutral-900">
+            <Navbar />
+            <main className="pt-32 pb-24 px-4 md:px-8">
+                <article className="max-w-[900px] mx-auto">
+                    {/* Header */}
+                    <header className="mb-12 text-center">
+                        <div className="font-avenir text-sm uppercase tracking-[0.2em] text-neutral-500 mb-6 flex justify-center gap-4">
+                            <span>{post.locationLabel}</span>
+                            <span>|</span>
+                            <span>{post.date}</span>
+                            <span>|</span>
+                            <span>{post.category}</span>
+                        </div>
+                        <h1 className="font-canto text-4xl md:text-5xl lg:text-6xl text-neutral-900 leading-tight mb-8">
                             {post.title}
                         </h1>
-                    </div>
+                        <p className="font-avenir text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+                            {post.excerpt}
+                        </p>
+                    </header>
 
-                    {/* Featured Image */}
-                    <div className="relative w-full aspect-video mb-12 overflow-hidden bg-gray-100">
+                    {/* Hero Image */}
+                    <div className="relative aspect-[16/9] w-full mb-16 rounded-sm overflow-hidden">
                         <Image
-                            src={post.image}
+                            src={post.heroImage}
                             alt={post.title}
                             fill
                             className="object-cover"
@@ -42,44 +152,29 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     </div>
 
                     {/* Content */}
-                    <div className={`${avenirFont.className} text-lg leading-relaxed text-gray-800 space-y-6`}>
-                        {/* 
-                Since this is a static array demo, we don't have full body content. 
-                We will repeat the excerpt and add some dummy text to simulate a full article 
-                matching the requested "editorial" feel.
-             */}
-                        <p className="font-bold text-xl">{post.excerpt}</p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        </p>
-                        <p>
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                        </p>
-                        <div className="my-8 relative h-[300px] w-full">
-                            <Image
-                                src={post.image}
-                                alt="Detail view"
-                                fill
-                                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                            />
-                            <p className="absolute bottom-2 left-2 text-white text-xs bg-black/50 px-2 py-1">Additional photography</p>
-                        </div>
-                        <p>
-                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-                        </p>
+                    <div className="prose prose-lg max-w-none">
+                        {renderContent(post.content)}
                     </div>
 
-                    {/* Back Link */}
-                    <div className="mt-16 pt-8 border-t border-gray-200 text-center">
+                    {/* Bottom Nav */}
+                    <div className="mt-20 pt-10 border-t border-neutral-200 flex justify-between items-center">
                         <Link
                             href="/"
-                            className={`${avenirFont.className} uppercase tracking-widest text-sm border-b border-black pb-1 hover:text-gray-600 hover:border-gray-600 transition-colors`}
+                            className="font-avenir text-sm uppercase tracking-widest text-neutral-500 hover:text-neutral-900 transition-colors"
                         >
                             ← Back to Home
                         </Link>
+                        {/* Optional View All if /blog exists, otherwise could loop back to home or just be empty */}
+                        {/* <Link 
+                            href="/blog" 
+                            className="font-avenir text-sm uppercase tracking-widest text-neutral-500 hover:text-neutral-900 transition-colors"
+                        >
+                            View All Posts →
+                        </Link> */}
                     </div>
-                </div>
-            </article>
-        </>
+                </article>
+            </main>
+            <FooterSection />
+        </div>
     );
 }

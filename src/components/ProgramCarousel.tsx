@@ -16,15 +16,7 @@ import Link from "next/link";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 
-const programs = [
-    { name: "Snorkeling & diving", image: "/program-snorkeling.webp" },
-    { name: "Relaxing & sunbathing", image: "/program-relaxing.webp" },
-    { name: "Hiking & viewpoints", image: "/program-hiking.webp" },
-    { name: "Local community immersion", image: "/program-community.webp" },
-    { name: "Wildlife spotting", image: "/program-wildlife.webp" },
-    { name: "Beach exploration & hidden coves", image: "/program-beach.webp" },
-    { name: "Stargazing", image: "/program-stargazing.webp" },
-];
+import { programs } from "@/data/programs";
 
 export default function ProgramCarousel() {
     const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -94,7 +86,11 @@ export default function ProgramCarousel() {
                                     key={index}
                                     className="flex-[0_0_100%] md:flex-[0_0_22%] min-w-0 pl-4 md:pl-6 relative"
                                 >
-                                    <div className="aspect-square relative overflow-hidden group/card cursor-pointer rounded-sm">
+                                    <Link
+                                        href={`/programs/${program.slug}`}
+                                        className="block aspect-square relative overflow-hidden group/card cursor-pointer rounded-sm"
+                                        aria-label={`View program: ${program.name}`}
+                                    >
                                         <Image
                                             src={program.image}
                                             alt={program.name}
@@ -111,7 +107,7 @@ export default function ProgramCarousel() {
                                                 {program.name}
                                             </h3>
                                         </div>
-                                    </div>
+                                    </Link>
                                 </div>
                             ))}
                         </div>
