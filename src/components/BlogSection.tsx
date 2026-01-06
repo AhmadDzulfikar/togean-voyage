@@ -30,7 +30,7 @@ export const blogPosts: BlogPost[] = [
             "Discover the vibrant marine life of the Togean Islands. From colorful coral gardens to playful reef fish, learn how to observe these wonders respectfully without disturbing their natural habitat. Our guide ensures a sustainable adventure for everyone.",
     },
     {
-        slug: "snorkeling-spots",
+        slug: "best-snorkeling-spots-togean-luwuk",
         image: "/blog-2.webp",
         locationLabel: "Togean",
         date: "Feb 15, 2026",

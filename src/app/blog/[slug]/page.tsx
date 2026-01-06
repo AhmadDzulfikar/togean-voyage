@@ -48,6 +48,8 @@ export default async function BlogDetailPage({ params }: PageProps) {
                     </figure>
                 );
             }
+
+
             if (part === "[[IMAGE_OCEAN]]") {
                 return (
                     <figure key={index} className="my-10">
@@ -61,6 +63,40 @@ export default async function BlogDetailPage({ params }: PageProps) {
                         </div>
                         <figcaption className="mt-3 font-avenir text-sm text-neutral-500 text-center italic">
                             Protecting the pristine environment for future generations
+                        </figcaption>
+                    </figure>
+                );
+            }
+            if (part === "[[IMAGE_REEF]]") {
+                return (
+                    <figure key={index} className="my-10">
+                        <div className="relative aspect-[3/2] w-full overflow-hidden rounded-sm">
+                            <Image
+                                src="/blog/best-snorkeling-spots-togean-luwuk/reef.png"
+                                alt="Vibrant coral reef"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                        <figcaption className="mt-3 font-avenir text-sm text-neutral-500 text-center italic">
+                            Exploring the colorful underwater gardens
+                        </figcaption>
+                    </figure>
+                );
+            }
+            if (part === "[[IMAGE_TURTLES]]") {
+                return (
+                    <figure key={index} className="my-10">
+                        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-sm">
+                            <Image
+                                src="/blog/best-snorkeling-spots-togean-luwuk/turtles.png"
+                                alt="Sea turtle swimming"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                        <figcaption className="mt-3 font-avenir text-sm text-neutral-500 text-center italic">
+                            A peaceful encounter with a sea turtle
                         </figcaption>
                     </figure>
                 );

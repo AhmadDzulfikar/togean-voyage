@@ -64,5 +64,66 @@ Whether it is a boat trip to jellyfish lake or a hike in Luwuk, try to hire loca
 ### The Bottom Line
 Visiting the villages in Togean and Luwuk is not just about sightseeing. It is about connection. Walk slow, smile big, and approach everything with curiosity and respect. You will leave with more than just photos. You will leave with friends.
 `
+    },
+    {
+        title: "Best snorkeling spots and what you might see",
+        slug: "best-snorkeling-spots-togean-luwuk",
+        heroImage: "/blog/best-snorkeling-spots-togean-luwuk/hero.png",
+        locationLabel: "Togean",
+        date: "Feb 15, 2026",
+        category: "Journal",
+        excerpt: "Plunge into the crystal-clear waters of the Togeans. We reveal the top snorkeling locations where you can spot giant clams, sea turtles, and vibrant coral gardens that seem to go on forever.",
+        content: `
+Plunge into the crystal-clear waters of the Togeans. We reveal the top snorkeling locations where you can spot giant clams, sea turtles, and vibrant coral gardens that seem to go on forever.
+
+The Togean Islands and Luwuk are located in the heart of the "Coral Triangle." This means you are about to jump into some of the most biodiverse waters on the planet. You do not need a scuba tank to see the magic here because the shallow reefs are absolutely teeming with life.
+
+Here are the spots you simply cannot miss.
+
+### 1. California Reef (Togean)
+This is the superstar of Togean snorkeling. It is located near Pulau Papan and Kadidiri. The water here is so clear that it feels like swimming in a giant swimming pool.
+- The Vibe: The reef wall drops off dramatically into the deep blue. You can float right over the edge and watch schools of fish dance below you.
+- Why go: It is accessible and offers high visibility almost every day. It is perfect for beginners and pros alike.
+
+### 2. Mariona Lake (Togean)
+Get ready for something strange and wonderful. Mariona Lake is home to thousands of stingless jellyfish.
+- The Experience: You swim in a quiet green lake surrounded by dense jungle. It feels like swimming in a lava lamp full of soft orange blobs.
+- The Rule: Do not wear fins here. The jellyfish are fragile and your fins can hurt them. Just float and enjoy the surreal silence.
+
+### 3. Reef No. 4 (Togean)
+Located near Malenge, this spot is a favorite for coral lovers.
+- The Vibe: This is often called "The Aquarium" by locals. The variety of hard and soft corals here is mind-blowing.
+- Why go: It is usually less crowded than other spots. You might have the whole reef to yourself.
+
+[[IMAGE_REEF]]
+
+### 4. Kilo 5 Beach (Luwuk)
+You do not always need a boat to find great snorkeling. In Luwuk, you can find Kilo 5 Beach just 5 kilometers from the city center.
+- The Vibe: It is a white sandy beach with calm water. You can grab a snorkel and swim out just a few meters to find colorful fish.
+- Why go: It is the perfect spot for a quick underwater fix without a full-day commitment. Plus there are local food stalls nearby for a post-swim snack.
+
+### What You Might See
+The marine life here is like a character lineup from Finding Nemo. Keep your eyes peeled for these underwater celebrities:
+
+🐢 Sea Turtles
+Hawksbill and Green Turtles love these waters. You will often see them sleeping on the reef or gliding up for air. If you see one, stay calm and do not chase it. They might just swim right next to you.
+
+[[IMAGE_TURTLES]]
+
+🐚 Giant Clams
+These are not your average seashells. Some of these clams are massive and have neon purple or blue lips. They are fascinating to look at but remember they are sensitive creatures.
+
+🐠 Nudibranchs
+Look closely at the rocks and sponges. You might spot these tiny and colorful sea slugs. They come in neon pink, blue, and yellow patterns. They are small but incredible.
+
+🐟 Schooling Fish
+You will be surrounded by clouds of Anthias, Fusiliers, and maybe even a school of Barracuda if you look into the deep.
+
+⚠️ A Quick Note on Coral Etiquette
+Please help us keep these reefs beautiful forever.
+- Never touch the coral. Even a light touch can kill it.
+- Do not stand on the reef. If you need to rest, float on your back or find a sandy patch.
+- Use reef-safe sunscreen. Chemicals in normal sunscreen can bleach the corals.
+`
     }
 ];
