@@ -43,7 +43,7 @@ export default function Navbar() {
                 ref={headerRef}
                 className={`transition-colors duration-300 w-full z-50 ${isScrolled
                     ? "fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm"
-                    : "relative bg-transparent"
+                    : "relative bg-white border-b border-neutral-200"
                     }`}
             >
                 <div className="flex items-center justify-between px-5 md:px-10 py-4 md:py-6">
@@ -53,16 +53,13 @@ export default function Navbar() {
                         aria-label="Open menu"
                     >
                         <span
-                            className={`block w-6 h-0.5 transition-all duration-300 ${isScrolled ? "bg-gray-800" : "bg-white"
-                                }`}
+                            className="block w-6 h-0.5 transition-all duration-300 bg-gray-800"
                         />
                         <span
-                            className={`block w-6 h-0.5 transition-all duration-300 ${isScrolled ? "bg-gray-800" : "bg-white"
-                                }`}
+                            className="block w-6 h-0.5 transition-all duration-300 bg-gray-800"
                         />
                         <span
-                            className={`block w-6 h-0.5 transition-all duration-300 ${isScrolled ? "bg-gray-800" : "bg-white"
-                                }`}
+                            className="block w-6 h-0.5 transition-all duration-300 bg-gray-800"
                         />
                     </button>
 
@@ -74,8 +71,7 @@ export default function Navbar() {
                                 alt="Togean Voyage Logo"
                                 width={180}
                                 height={180}
-                                className={`w-[110px] md:w-[140px] lg:w-[180px] h-auto object-contain transition-all duration-300 ${isScrolled ? "" : "brightness-0 invert"
-                                    }`}
+                                className="w-[110px] md:w-[140px] lg:w-[180px] h-auto object-contain transition-all duration-300"
                                 priority
                             />
                         </Link>
@@ -84,10 +80,7 @@ export default function Navbar() {
                     {/* Book Now Button */}
                     <Link
                         href="/book"
-                        className={`inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-medium tracking-wide transition-all duration-300 font-avenir ${isScrolled
-                            ? "border border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white"
-                            : "border border-white text-white hover:bg-white hover:text-gray-800"
-                            }`}
+                        className="inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-medium tracking-wide transition-all duration-300 font-avenir border border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white"
                     >
                         {/* WhatsApp Icon */}
                         <svg
