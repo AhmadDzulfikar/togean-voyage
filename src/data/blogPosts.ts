@@ -125,5 +125,65 @@ Please help us keep these reefs beautiful forever.
 - Do not stand on the reef. If you need to rest, float on your back or find a sandy patch.
 - Use reef-safe sunscreen. Chemicals in normal sunscreen can bleach the corals.
 `
+    },
+    {
+        title: "Responsible wildlife encounters and reef etiquette in Togean",
+        slug: "responsible-wildlife-encounters-reef-etiquette-togean",
+        heroImage: "/blog/responsible-wildlife-encounters-reef-etiquette-togean/hero.png",
+        locationLabel: "Togean",
+        date: "Jan 03, 2026",
+        category: "Journal",
+        excerpt: "Discover the vibrant marine life of the Togean Islands. From colorful coral gardens to playful reef fish, learn how to observe these wonders responsibly so they remain pristine for generations to come.",
+        content: `
+Discover the vibrant marine life of the Togean Islands. From colorful coral gardens to playful reef fish, learn how to observe these wonders responsibly so they remain pristine for generations to come.
+
+The Togean Islands are a biodiversity hotspot. This means you are visiting a very busy and very fragile ecosystem. The coral reefs here are not just rocks. They are living cities built by tiny animals. When you dive or snorkel here, you are a guest in their home.
+
+Here is your guide to exploring the wild side of Togean without leaving a trace.
+
+### The Golden Rules of the Reef
+The underwater world is magical but it is also sensitive. A single careless kick can destroy coral that took decades to grow.
+
+1. Watch Your Fins
+It is easy to get distracted by a beautiful fish and forget where your feet are.
+- The Problem: Kicking the coral breaks it and kills the polyps.
+- The Fix: Try to keep your body horizontal in the water. If you need to adjust your mask or rest, look for a sandy patch on the bottom or simply float on your back. Never stand on the coral reef.
+
+2. Look But Do Not Touch
+We know the starfish look cool and the clams are fascinating.
+- The Problem: Touching marine life can remove their protective slime coating. This exposes them to bacteria and infection. Also, some things down there might sting you!
+- The Fix: Keep your hands folded across your chest or by your sides. The best way to interact with nature here is with your eyes and your camera.
+
+[[IMAGE_REEF_ETIQUETTE]]
+
+3. Choose Reef-Safe Sunscreen
+This is a big one. Common sunscreens contain chemicals like Oxybenzone that are toxic to coral reefs.
+- The Problem: These chemicals can cause coral bleaching even in small amounts.
+- The Fix: Check the label before you pack. Look for "Zinc Oxide" or "Titanium Dioxide" based sunscreens. If you can, wear a rash guard or a swim shirt. It protects your skin better than lotion and keeps the chemicals out of the water.
+
+### Wildlife Wisdom: Beyond the Reef
+The adventure continues on land. The Togean jungle is home to unique creatures like the massive Coconut Crab and the Togean Macaque.
+
+[[IMAGE_JUNGLE]]
+
+Respect the Coconut Crabs (Kenari Crabs)
+These giants are the largest land-living arthropods in the world. You might see them scuttling around at night.
+- The Etiquette: Please do not try to pick them up for a selfie. They are strong and they can get stressed easily. Just observe them from a distance and marvel at their size.
+- A Note on Food: These crabs are endangered in many parts of the world. We encourage you to appreciate them alive in the wild rather than ordering them for dinner.
+
+Birdwatching Etiquette
+If you are lucky, you might spot the Togean Hawk-Owl or Hornbills.
+- The Etiquette: Keep your voice down. Loud noises will scare the birds away before you get a good look. Patience is your best friend in the jungle.
+
+### The "Plastic Free" Promise
+Islands have a hard time dealing with trash.
+- The Reality: There are no big recycling plants here.
+- Your Role: Please minimize your plastic use. Refill your water bottle at your resort instead of buying new plastic bottles every day. If you bring plastic snacks to a picnic on a deserted island, make sure you bring the wrappers back with you.
+
+### Summary
+Being a responsible traveler in Togean is easy. It just takes a little awareness. By following these simple steps, you ensure that the coral stays colorful and the turtles keep swimming for years to come.
+
+Take nothing but pictures. Leave nothing but bubbles. Kill nothing but time.
+`
     }
 ];

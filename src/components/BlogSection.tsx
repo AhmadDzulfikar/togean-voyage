@@ -20,7 +20,7 @@ export interface BlogPost {
 // --- Data ---
 export const blogPosts: BlogPost[] = [
     {
-        slug: "wildlife-encounters",
+        slug: "responsible-wildlife-encounters-reef-etiquette-togean",
         image: "/blog-1.webp",
         locationLabel: "Togean",
         date: "Jan 03, 2026",
