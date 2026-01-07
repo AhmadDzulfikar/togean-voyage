@@ -3,7 +3,6 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
-import { cantoFont, avenirFont } from "@/app/fonts";
 
 // --- Data ---
 
@@ -91,7 +90,7 @@ function AccordionItem({
                 aria-controls={`accordion-content-${feature.id}`}
                 className="w-full flex items-center justify-between py-4 px-2 text-left focus:outline-none focus:ring-2 focus:ring-[#6b4c3b] focus:ring-offset-2 rounded"
             >
-                <span className={`font-canto text-lg text-neutral-900 ${cantoFont.className}`}>
+                <span className="font-canto text-lg text-neutral-900">
                     {feature.title}
                 </span>
                 <svg
@@ -119,7 +118,7 @@ function AccordionItem({
                 }}
             >
                 <div className="pt-3 pb-4 px-4">
-                    <p className={`font-avenir text-sm leading-relaxed text-neutral-600 ${avenirFont.className}`}>
+                    <p className="font-avenir text-sm leading-relaxed text-neutral-600">
                         {feature.description}
                     </p>
                 </div>
@@ -129,27 +128,55 @@ function AccordionItem({
 }
 
 export default function AccommodationSection() {
-    // Carousel state
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-    const [selectedIndex, setSelectedIndex] = useState(0);
-    const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+    // --- Desktop Carousel State ---
+    const [desktopRef, desktopApi] = useEmblaCarousel({
+        loop: true,
+        align: "start",
+        containScroll: "trimSnaps"
+    });
+    const [desktopSelectedIndex, setDesktopSelectedIndex] = useState(0);
+    const [desktopScrollSnaps, setDesktopScrollSnaps] = useState<number[]>([]);
 
-    const onSelect = useCallback(() => {
-        if (!emblaApi) return;
-        setSelectedIndex(emblaApi.selectedScrollSnap());
-    }, [emblaApi]);
+    const onSelectDesktop = useCallback(() => {
+        if (!desktopApi) return;
+        setDesktopSelectedIndex(desktopApi.selectedScrollSnap());
+    }, [desktopApi]);
 
     useEffect(() => {
-        if (!emblaApi) return;
-        onSelect();
-        setScrollSnaps(emblaApi.scrollSnapList());
-        emblaApi.on("select", onSelect);
-        emblaApi.on("reInit", onSelect);
-    }, [emblaApi, onSelect]);
+        if (!desktopApi) return;
+        onSelectDesktop();
+        setDesktopScrollSnaps(desktopApi.scrollSnapList());
+        desktopApi.on("select", onSelectDesktop);
+        desktopApi.on("reInit", onSelectDesktop);
+    }, [desktopApi, onSelectDesktop]);
 
-    const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
-    const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
-    const scrollTo = useCallback((index: number) => emblaApi && emblaApi.scrollTo(index), [emblaApi]);
+    const scrollPrevDesktop = useCallback(() => desktopApi && desktopApi.scrollPrev(), [desktopApi]);
+    const scrollNextDesktop = useCallback(() => desktopApi && desktopApi.scrollNext(), [desktopApi]);
+    const scrollToDesktop = useCallback((index: number) => desktopApi && desktopApi.scrollTo(index), [desktopApi]);
+
+    // --- Mobile Carousel State ---
+    const [mobileRef, mobileApi] = useEmblaCarousel({
+        loop: true,
+        align: "start",
+        containScroll: "trimSnaps"
+    });
+    const [mobileSelectedIndex, setMobileSelectedIndex] = useState(0);
+    const [mobileScrollSnaps, setMobileScrollSnaps] = useState<number[]>([]);
+
+    const onSelectMobile = useCallback(() => {
+        if (!mobileApi) return;
+        setMobileSelectedIndex(mobileApi.selectedScrollSnap());
+    }, [mobileApi]);
+
+    useEffect(() => {
+        if (!mobileApi) return;
+        onSelectMobile();
+        setMobileScrollSnaps(mobileApi.scrollSnapList());
+        mobileApi.on("select", onSelectMobile);
+        mobileApi.on("reInit", onSelectMobile);
+    }, [mobileApi, onSelectMobile]);
+
+    const scrollToMobile = useCallback((index: number) => mobileApi && mobileApi.scrollTo(index), [mobileApi]);
 
     // Accordion state
     const [openAccordionId, setOpenAccordionId] = useState<string | null>(null);
@@ -165,7 +192,7 @@ export default function AccommodationSection() {
                 <div className="hidden md:grid grid-cols-2 gap-8 lg:gap-12">
                     {/* Left Column: Carousel */}
                     <div className="relative h-[600px] lg:h-[750px] group">
-                        <div className="overflow-hidden h-full rounded-sm" ref={emblaRef}>
+                        <div className="overflow-hidden h-full rounded-sm" ref={desktopRef}>
                             <div className="flex h-full touch-pan-y">
                                 {slides.map((slide, idx) => (
                                     <div key={idx} className="flex-[0_0_100%] min-w-0 relative h-full">
@@ -180,8 +207,8 @@ export default function AccommodationSection() {
                                         {/* Overlay */}
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
                                         <div className="absolute bottom-0 left-0 p-8 w-full text-white">
-                                            <h3 className={`${cantoFont.className} text-3xl mb-2`}>{slide.title}</h3>
-                                            <p className={`${avenirFont.className} text-sm text-gray-200`}>{slide.description}</p>
+                                            <h3 className="font-canto text-3xl mb-2">{slide.title}</h3>
+                                            <p className="font-avenir text-sm text-gray-200">{slide.description}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -191,24 +218,24 @@ export default function AccommodationSection() {
                         {/* Navigation Buttons */}
                         <button
                             className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all opacity-0 group-hover:opacity-100"
-                            onClick={scrollPrev}
+                            onClick={scrollPrevDesktop}
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" /></svg>
                         </button>
                         <button
                             className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all opacity-0 group-hover:opacity-100"
-                            onClick={scrollNext}
+                            onClick={scrollNextDesktop}
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" /></svg>
                         </button>
 
                         {/* Dots */}
                         <div className="absolute bottom-4 right-4 flex space-x-2">
-                            {scrollSnaps.map((_, index) => (
+                            {desktopScrollSnaps.map((_, index) => (
                                 <button
                                     key={index}
-                                    className={`w-1.5 h-1.5 rounded-full transition-all ${index === selectedIndex ? "bg-white w-3" : "bg-white/50"}`}
-                                    onClick={() => scrollTo(index)}
+                                    className={`w-1.5 h-1.5 rounded-full transition-all ${index === desktopSelectedIndex ? "bg-white w-3" : "bg-white/50"}`}
+                                    onClick={() => scrollToDesktop(index)}
                                 />
                             ))}
                         </div>
@@ -216,20 +243,20 @@ export default function AccommodationSection() {
 
                     {/* Right Column: Content */}
                     <div className="pr-6 lg:pr-8 pl-4 flex flex-col justify-center">
-                        <h2 className={`${cantoFont.className} text-3xl md:text-4xl lg:text-5xl leading-tight text-neutral-900`}>
+                        <h2 className="font-canto text-3xl md:text-4xl lg:text-5xl leading-tight text-neutral-900">
                             Stay easy, feel at home
                         </h2>
-                        <p className={`mt-6 md:mt-8 ${avenirFont.className} text-sm md:text-base leading-relaxed text-neutral-600 max-w-lg`}>
+                        <p className="mt-6 md:mt-8 font-avenir text-sm md:text-base leading-relaxed text-neutral-600 max-w-lg">
                             Unhurried stays, island-simple comfort, and warm hosts. You explore by day, then unwind on land in thoughtfully chosen guest houses.
                         </p>
 
                         <div className="mt-10 md:mt-12 grid grid-cols-2 gap-x-8 gap-y-8 lg:gap-x-12 lg:gap-y-10">
                             {features.map((feature) => (
                                 <div key={feature.id}>
-                                    <h3 className={`${cantoFont.className} text-xl md:text-2xl text-neutral-800`}>
+                                    <h3 className="font-canto text-xl md:text-2xl text-neutral-800">
                                         {feature.title}
                                     </h3>
-                                    <p className={`mt-3 ${avenirFont.className} text-sm leading-relaxed text-neutral-500`}>
+                                    <p className="mt-3 font-avenir text-sm leading-relaxed text-neutral-500">
                                         {feature.description}
                                     </p>
                                 </div>
@@ -242,7 +269,7 @@ export default function AccommodationSection() {
                 <div className="md:hidden">
                     {/* Carousel on Top */}
                     <div className="relative aspect-[4/3] w-full mb-8 rounded-sm overflow-hidden text-white">
-                        <div className="overflow-hidden h-full" ref={emblaRef}>
+                        <div className="overflow-hidden h-full" ref={mobileRef}>
                             <div className="flex h-full touch-pan-y">
                                 {slides.map((slide, idx) => (
                                     <div key={idx} className="flex-[0_0_100%] min-w-0 relative h-full">
@@ -255,8 +282,8 @@ export default function AccommodationSection() {
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
                                         <div className="absolute bottom-0 left-0 p-6 w-full">
-                                            <h3 className={`${cantoFont.className} text-2xl mb-1`}>{slide.title}</h3>
-                                            <p className={`${avenirFont.className} text-xs text-gray-200`}>{slide.description}</p>
+                                            <h3 className="font-canto text-2xl mb-1">{slide.title}</h3>
+                                            <p className="font-avenir text-xs text-gray-200">{slide.description}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -264,11 +291,11 @@ export default function AccommodationSection() {
                         </div>
                         {/* Dots */}
                         <div className="absolute bottom-4 right-4 flex space-x-2">
-                            {scrollSnaps.map((_, index) => (
+                            {mobileScrollSnaps.map((_, index) => (
                                 <button
                                     key={index}
-                                    className={`w-1.5 h-1.5 rounded-full transition-all ${index === selectedIndex ? "bg-white w-3" : "bg-white/50"}`}
-                                    onClick={() => scrollTo(index)}
+                                    className={`w-1.5 h-1.5 rounded-full transition-all ${index === mobileSelectedIndex ? "bg-white w-3" : "bg-white/50"}`}
+                                    onClick={() => scrollToMobile(index)}
                                 />
                             ))}
                         </div>
@@ -276,10 +303,10 @@ export default function AccommodationSection() {
 
                     {/* Text Content */}
                     <div className="px-2">
-                        <h2 className={`${cantoFont.className} text-3xl leading-tight text-neutral-900 text-center`}>
+                        <h2 className="font-canto text-3xl leading-tight text-neutral-900 text-center">
                             Stay easy, feel at home
                         </h2>
-                        <p className={`mt-6 ${avenirFont.className} text-sm leading-relaxed text-neutral-600 text-center`}>
+                        <p className="mt-6 font-avenir text-sm leading-relaxed text-neutral-600 text-center">
                             Unhurried stays, island-simple comfort, and warm hosts. You explore by day, then unwind on land in thoughtfully chosen guest houses.
                         </p>
 
