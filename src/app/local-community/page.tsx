@@ -1,100 +1,95 @@
 "use client";
 
-import Image from "next/image";
+import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
-import { localCommunityExperiences } from "@/data/localCommunityExperiences";
-import BackToSection from "@/components/BackToSection";
+import ZigzagScrollSections, { ZigzagItem } from "@/components/ZigzagScrollSections";
+
+const localCommunityItems: ZigzagItem[] = [
+    {
+        id: "village-walks",
+        title: "Village Walks and Warm Hellos",
+        body: "A slow stroll through stilt villages, smiles from kids, and quick chats with families. Learn simple greetings, see daily life by the water, and feel how hospitality shapes every small moment.",
+        imageSrc: "/local-community/activity-1.webp",
+        imageAlt: "Village walks and interactions in Togean",
+    },
+    {
+        id: "sea-gypsy",
+        title: "Sea Gypsy Culture and Craft",
+        body: "Meet Bajau communities with a deep bond to the ocean. Watch how boats, nets, and handwork are made, listen to local stories, and understand traditions that keep island life resilient and proud.",
+        imageSrc: "/local-community/activity-2.webp",
+        imageAlt: "Bajau sea gypsy culture and boats",
+    },
+    {
+        id: "shared-meals",
+        title: "Shared Meals, Local Flavors",
+        body: "Join a simple island meal and discover how food becomes connection. Fresh fish, coconut, and home recipes, served with laughter. It is not about luxury plating, it is about warmth and care.",
+        imageSrc: "/local-community/activity-3.webp",
+        imageAlt: "Shared meal with locals",
+    },
+    {
+        id: "respectful-photos",
+        title: "Respectful Photos and Real Connection",
+        body: "The best portraits begin with permission and conversation. Ask first, take it slow, and share the moment. You will leave with better photos, but more importantly, with genuine human connection.",
+        imageSrc: "/local-community/activity-4.webp",
+        imageAlt: "Respectful photography and connection",
+    },
+];
 
 export default function LocalCommunityPage() {
     return (
-        <>
+        <div className="bg-white min-h-screen text-neutral-900 flex flex-col">
             <Navbar />
-            <main className="bg-white min-h-screen pt-8 pb-24 md:pb-32 px-4 md:px-8">
-                <div className="mx-auto max-w-[1280px]">
-                    <BackToSection href="/#local-community" label="Back to Local Community" />
-                    {/* Header */}
-                    {/* Header */}
-                    <div className="mb-16 md:mb-24 pt-10 md:pt-16">
-                        <span className="block font-avenir text-sm md:text-base uppercase tracking-[0.2em] text-neutral-500 mb-4">
-                            Togean Voyages
-                        </span>
-                        <h1 className="font-canto text-4xl md:text-5xl lg:text-6xl text-[#6b4c3b] mb-4">
+
+            <main className="flex-grow w-full">
+                {/* Hero Section */}
+                <div className="relative w-full min-h-[100vh] flex flex-col justify-center items-center text-center px-4 md:px-8 text-white overflow-hidden">
+                    {/* Background Image */}
+                    <div className="absolute inset-0 z-0 select-none pointer-events-none">
+                        <Image
+                            src="/local-community/hero.webp"
+                            alt="Local Community Hero"
+                            fill
+                            className="object-cover"
+                            priority
+                            quality={90}
+                        />
+                        {/* Overlay for readability */}
+                        <div className="absolute inset-0 bg-black/40" />
+                    </div>
+
+                    {/* Back Button (Absolute Top-Left within Hero) */}
+                    <div className="absolute top-24 left-4 md:left-8 z-20">
+                        <Link
+                            href="/#local-community"
+                            className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-white/80 hover:text-white transition-colors"
+                        >
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 19l-7-7 7-7m8 14l-7-7 7-7" />
+                            </svg>
+                            Back
+                        </Link>
+                    </div>
+
+                    {/* Hero Content */}
+                    <div className="relative z-10 max-w-4xl mx-auto pt-10">
+                        <h1 className="font-canto text-5xl md:text-7xl lg:text-8xl mb-6 tracking-tight leading-none drop-shadow-md">
                             Local Community
                         </h1>
-                        <span className="block font-avenir text-neutral-500 text-lg">
-                            {localCommunityExperiences.length} Experiences
-                        </span>
-                    </div>
-
-                    {/* Experiences List */}
-                    <div className="flex flex-col gap-0">
-                        {localCommunityExperiences.map((experience, index) => (
-                            <div
-                                key={experience.slug}
-                                className="group border-t border-neutral-200 py-12 md:py-20 first:border-t-0 first:pt-0"
-                            >
-                                <div className="flex flex-col md:flex-row gap-8 md:gap-16 lg:gap-20 items-start">
-
-                                    {/* Image Section */}
-                                    <div className="w-full md:w-[480px] lg:w-[520px] shrink-0 overflow-hidden relative aspect-[16/10]">
-                                        <Link href={`/local-community/${experience.slug}`} className="block h-full w-full cursor-pointer">
-                                            <Image
-                                                src={experience.image}
-                                                alt={experience.title}
-                                                fill
-                                                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                                                priority={index < 2}
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                            />
-                                        </Link>
-                                    </div>
-
-                                    {/* Text Section */}
-                                    <div className="flex-1 flex flex-col justify-center py-2">
-                                        {/* Meta info */}
-                                        <div className="flex flex-wrap items-center gap-3 mb-3 md:mb-4">
-                                            <span className="font-avenir text-xs text-neutral-400 uppercase tracking-[0.2em]">
-                                                {experience.location}
-                                            </span>
-                                            <span className="w-1 h-1 rounded-full bg-neutral-300" />
-                                            <span className="font-avenir text-xs text-neutral-400 uppercase tracking-[0.15em]">
-                                                {experience.duration}
-                                            </span>
-                                        </div>
-
-                                        <h2 className="font-canto text-3xl md:text-4xl text-[#1a1a1a] mb-4 md:mb-6">
-                                            <Link href={`/local-community/${experience.slug}`} className="hover:text-opacity-80 transition-colors">
-                                                {experience.title}
-                                            </Link>
-                                        </h2>
-
-                                        <p className="font-avenir text-base md:text-lg text-neutral-600 leading-relaxed mb-4 md:mb-6 max-w-xl">
-                                            {experience.shortDescription}
-                                        </p>
-
-                                        <p className="font-avenir text-xs text-neutral-400 uppercase tracking-wider mb-6 md:mb-8">
-                                            Best for: {experience.bestFor}
-                                        </p>
-
-                                        <div>
-                                            <Link
-                                                href={`/local-community/${experience.slug}`}
-                                                className="inline-block font-avenir text-sm uppercase tracking-widest text-[#1a1a1a] border border-neutral-300 rounded-full px-8 py-3 hover:bg-[#1a1a1a] hover:text-white transition-colors duration-300"
-                                            >
-                                                View Details
-                                            </Link>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        ))}
+                        <p className="font-avenir text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed drop-shadow-sm text-white/90">
+                            Experience the heart of Togean and Luwuk through the people who call it home. Discover a culture built on warmth, shared stories, and the timeless rhythm of coastal life.
+                        </p>
                     </div>
                 </div>
+
+                {/* Zigzag Scroll Sections */}
+                <ZigzagScrollSections items={localCommunityItems} />
+
             </main>
+
             <FooterSection />
-        </>
+        </div>
     );
 }

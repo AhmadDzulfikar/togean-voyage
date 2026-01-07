@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
-import BoatZigzagScroll from "@/components/BoatZigzagScroll";
+import ZigzagScrollSections from "@/components/ZigzagScrollSections";
 import { boatDetails } from "@/data/boatDetails";
 
 export default function BoatPage() {
@@ -42,7 +42,7 @@ export default function BoatPage() {
                 </div>
 
                 {/* Zigzag Scroll Section */}
-                <BoatZigzagScroll items={boatDetails} />
+                <ZigzagScrollSections items={boatDetails} />
 
             </main>
 

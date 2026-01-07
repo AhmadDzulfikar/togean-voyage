@@ -3,7 +3,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 
-type ZigzagItem = {
+export type ZigzagItem = {
     id: string;
     title: string;
     body: string;
@@ -11,11 +11,11 @@ type ZigzagItem = {
     imageAlt: string;
 };
 
-type BoatZigzagScrollProps = {
+type ZigzagScrollSectionsProps = {
     items: ZigzagItem[];
 };
 
-export default function BoatZigzagScroll({ items }: BoatZigzagScrollProps) {
+export default function ZigzagScrollSections({ items }: ZigzagScrollSectionsProps) {
     // Refs for elements
     const blockRefs = useRef<(HTMLDivElement | null)[]>([]);
     const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
