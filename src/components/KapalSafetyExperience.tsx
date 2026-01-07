@@ -14,6 +14,7 @@
  */
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
 // Feature items data
@@ -129,6 +130,36 @@ export default function KapalSafetyExperience() {
 
     return (
         <section className="bg-white py-16 md:py-24 lg:py-32">
+            {/* Section Header */}
+            <div className="text-center mb-10 md:mb-14 px-4">
+                <Link href="/boat-and-accomodations">
+                    <h2 className="font-canto text-3xl md:text-4xl lg:text-5xl mb-4 hover:text-neutral-700 transition-colors cursor-pointer">
+                        On board and ashore: Boat and Accommodation
+                    </h2>
+                </Link>
+                <Link
+                    href="/boat-and-accomodations"
+                    className="inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-[#6b4c3b] hover:text-[#4a3429] transition-colors group"
+                >
+                    <span className="group-hover:underline underline-offset-4">
+                        Curated Comfort: Explore All
+                    </span>
+                    <svg
+                        className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                        />
+                    </svg>
+                </Link>
+            </div>
+
             {/* Desktop/Tablet Layout */}
             <div className="hidden md:block">
                 <div className="mx-auto max-w-7xl">
