@@ -65,12 +65,12 @@ export const wildlifeLandDetails: LandWildlifeDetail[] = [
         habitat: "Forests (Nocturnal)",
         commonLocations: "Forests of Malenge Island (and surrounding small islands)",
         notesShort: "Tiny primate (~12cm). Nocturnal with huge eyes. Local guides can help spot them.",
-        slug: "togian-tarsier",
+        slug: "togean-tarsier",
         images: {
-            hero: "/wildlife/land/togian-tarsier/hero.webp",
+            hero: "/wildlife/land/togean-tarsier/hero.webp",
             gallery: [
-                "/wildlife/land/togian-tarsier/gallery-1.webp",
-                "/wildlife/land/togian-tarsier/gallery-2.webp"
+                "/wildlife/land/togean-tarsier/gallery-1.webp",
+                "/wildlife/land/togean-tarsier/gallery-2.webp"
             ]
         },
         expandedContent: {
@@ -245,12 +245,12 @@ export const wildlifeLandDetails: LandWildlifeDetail[] = [
         habitat: "Coastal/Forest (Nesting)",
         commonLocations: "Taima Sanctuary, Tompotika coast (Banggai)",
         notesShort: "Sulawesi endemic, lays eggs in hot sand. Luwuk Banggai mascot. Best seen in mornings with conservation guides.",
-        slug: "maleo",
+        slug: "burung-maleo",
         images: {
-            hero: "/wildlife/land/maleo/hero.webp",
+            hero: "/wildlife/land/burung-maleo/hero.webp",
             gallery: [
-                "/wildlife/land/maleo/gallery-1.webp",
-                "/wildlife/land/maleo/gallery-2.webp"
+                "/wildlife/land/burung-maleo/gallery-1.webp",
+                "/wildlife/land/burung-maleo/gallery-2.webp"
             ]
         },
         expandedContent: {
