@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Hero() {
     return (
-        <section className="hero">
+        <section className="hero relative">
             {/* Background Video */}
             <video
                 className="hero__video"
@@ -28,6 +28,9 @@ export default function Hero() {
                     yourself, others, and the world around you.
                 </p>
             </div>
+
+            {/* Sentinel for IntersectionObserver */}
+            <div id="hero-sentinel" className="absolute bottom-0 left-0 w-full h-px pointer-events-none" />
         </section>
     );
 }

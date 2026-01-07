@@ -3,64 +3,117 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+    const pathname = usePathname();
+    const isHomePage = pathname === "/";
+
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isTransparent, setIsTransparent] = useState(isHomePage);
     const [navbarHeight, setNavbarHeight] = useState(0);
     const headerRef = useRef<HTMLElement>(null);
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // Assuming menu state is needed, adding basic toggle support just in case, or keeping it static if it was static before. The previous code didn't have menu logic but had a button. keeping it simple.
 
+    // Handle scroll for non-home pages or fallback
     useEffect(() => {
+        if (isHomePage) return;
+
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 0);
         };
 
         window.addEventListener("scroll", handleScroll, { passive: true });
-        // Check initial scroll position
         handleScroll();
 
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [isHomePage]);
 
+    // Handle IntersectionObserver for Home page
+    useEffect(() => {
+        if (!isHomePage) {
+            setIsTransparent(false);
+            return;
+        }
+
+        // Initial check
+        setIsTransparent(true);
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // If sentinel is intersecting (visible), we are in hero -> transparent
+                // If sentinel is NOT intersecting, we passed hero -> solid
+                setIsTransparent(entry.isIntersecting);
+            },
+            { threshold: 0 } // Trigger as soon as even 1px is visible
+        );
+
+        const sentinel = document.getElementById("hero-sentinel");
+        if (sentinel) {
+            observer.observe(sentinel);
+        }
+
+        return () => observer.disconnect();
+    }, [isHomePage]);
+
+    // Measure height for spacer (only used on non-home pages now, or when solid)
     useEffect(() => {
         if (!headerRef.current) return;
-
         const resizeObserver = new ResizeObserver((entries) => {
             for (const entry of entries) {
                 setNavbarHeight(entry.contentRect.height);
             }
         });
-
         resizeObserver.observe(headerRef.current);
         return () => resizeObserver.disconnect();
     }, []);
 
+    // Derived state for styles
+    const isSolid = isHomePage ? !isTransparent : isScrolled;
+
+    // On Home page: Always fixed.
+    // On Other pages: Fixed when scrolled, Relative when top.
+    const positionClass = isHomePage
+        ? "fixed top-0 left-0 right-0"
+        : isScrolled ? "fixed top-0 left-0 right-0" : "relative";
+
+    const bgClass = isSolid
+        ? "bg-white/95 backdrop-blur-sm shadow-sm border-b border-neutral-200"
+        : "bg-transparent border-transparent";
+
+    const textColorClass = isSolid ? "text-gray-800" : (isHomePage ? "text-white" : "text-gray-800");
+    const hamburgerColorClass = isSolid ? "bg-gray-800" : (isHomePage ? "bg-white" : "bg-gray-800");
+    const logoClass = "w-[110px] md:w-[140px] lg:w-[180px] h-auto object-contain transition-all duration-300"; // Keep logo sizing
+
+    // Padding: Reduced when solid or on home page transparent mode (per request "Reduce vertical padding")
+    // Request: "from: py-6 to: py-3 (desktop), py-2 (mobile)"
+    // Previous default was py-4 md:py-6. 
+    // Let's make it tighter overall or just when fixed.
+    // User asked: "Reduce vertical padding ... Navbar height should be reduced ... keep layout same just tighter spacing"
+    const paddingClass = "py-2 md:py-3";
+
     return (
         <>
-            {/* Spacer to prevent layout jump when navbar becomes fixed */}
-            {isScrolled && <div style={{ height: navbarHeight }} />}
+            {/* Spacer: Only needed if position becomes fixed AND we were relative before. 
+                On Home page, we are always fixed, so NO spacer needed (we want overlay).
+                On non-Home, we follow old logic: check isScrolled.
+            */}
+            {!isHomePage && isScrolled && <div style={{ height: navbarHeight }} />}
 
             <header
                 ref={headerRef}
-                className={`transition-colors duration-300 w-full z-50 ${isScrolled
-                    ? "fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm"
-                    : "relative bg-white border-b border-neutral-200"
-                    }`}
+                className={`transition-all duration-300 ease-out z-50 w-full ${positionClass} ${bgClass}`}
             >
-                <div className="flex items-center justify-between px-5 md:px-10 py-4 md:py-6">
+                <div className={`flex items-center justify-between px-5 md:px-10 ${paddingClass}`}>
                     {/* Hamburger Menu */}
                     <button
                         className="flex flex-col justify-center gap-[5px] bg-transparent border-none cursor-pointer p-2 w-10 h-10"
                         aria-label="Open menu"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
-                        <span
-                            className="block w-6 h-0.5 transition-all duration-300 bg-gray-800"
-                        />
-                        <span
-                            className="block w-6 h-0.5 transition-all duration-300 bg-gray-800"
-                        />
-                        <span
-                            className="block w-6 h-0.5 transition-all duration-300 bg-gray-800"
-                        />
+                        <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass}`} />
+                        <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass}`} />
+                        <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass}`} />
                     </button>
 
                     {/* Logo */}
@@ -71,7 +124,7 @@ export default function Navbar() {
                                 alt="Togean Voyage Logo"
                                 width={180}
                                 height={180}
-                                className="w-[110px] md:w-[140px] lg:w-[180px] h-auto object-contain transition-all duration-300"
+                                className={`${logoClass} ${isHomePage && !isSolid ? "brightness-0 invert" : ""}`}
                                 priority
                             />
                         </Link>
@@ -80,7 +133,13 @@ export default function Navbar() {
                     {/* Book Now Button */}
                     <Link
                         href="/book"
-                        className="inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-medium tracking-wide transition-all duration-300 font-avenir border border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white"
+                        className={`inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-medium tracking-wide transition-all duration-300 font-avenir border 
+                            ${isSolid
+                                ? "border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white"
+                                : isHomePage
+                                    ? "border-white text-white hover:bg-white/10"
+                                    : "border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white"
+                            }`}
                     >
                         {/* WhatsApp Icon */}
                         <svg
