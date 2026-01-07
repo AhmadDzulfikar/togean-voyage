@@ -15,7 +15,107 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+
+// Boat Slides Data
+const boatSlides = [
+    { src: "/boat/boat-1.webp", alt: "TogeanVoyage boat - exterior view" },
+    { src: "/boat/boat-2.webp", alt: "TogeanVoyage boat - deck and lounge" },
+    { src: "/boat/boat-3.webp", alt: "TogeanVoyage boat - cabins and comfort" },
+    { src: "/boat/boat-4.webp", alt: "TogeanVoyage boat - at sea golden hour" },
+];
+
+function BoatCarousel({ className }: { className?: string }) {
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        loop: true,
+        align: "center",
+        containScroll: "trimSnaps",
+    });
+
+    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+    const onSelect = useCallback(() => {
+        if (!emblaApi) return;
+        setSelectedIndex(emblaApi.selectedScrollSnap());
+    }, [emblaApi]);
+
+    useEffect(() => {
+        if (!emblaApi) return;
+        setScrollSnaps(emblaApi.scrollSnapList());
+        emblaApi.on("select", onSelect);
+        onSelect();
+        return () => {
+            emblaApi.off("select", onSelect);
+        };
+    }, [emblaApi, onSelect]);
+
+    const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+    const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+    const scrollTo = useCallback((index: number) => emblaApi && emblaApi.scrollTo(index), [emblaApi]);
+
+    return (
+        <div className={`relative group ${className}`}>
+            <div className="overflow-hidden h-full rounded-sm" ref={emblaRef}>
+                <div className="flex h-full touch-pan-y">
+                    {boatSlides.map((slide, index) => (
+                        <div
+                            key={index}
+                            className={`relative flex-[0_0_100%] md:flex-[0_0_70%] h-full px-2 transition-all duration-700 ease-out transform ${index === selectedIndex
+                                ? "opacity-100 grayscale-0 scale-100 z-10"
+                                : "opacity-40 grayscale scale-[0.96] z-0"
+                                }`}
+                        >
+                            <div className="relative w-full h-full overflow-hidden rounded-sm bg-neutral-100 shadow-sm">
+                                <Image
+                                    src={slide.src}
+                                    alt={slide.alt}
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
+                                />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Navigation Arrows (Desktop Only) */}
+            <button
+                className="hidden md:flex absolute top-1/2 left-4 w-12 h-12 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full items-center justify-center text-neutral-900 shadow-lg transition-all opacity-0 group-hover:opacity-100 z-20 -translate-y-1/2"
+                onClick={scrollPrev}
+                aria-label="Previous slide"
+            >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button
+                className="hidden md:flex absolute top-1/2 right-4 w-12 h-12 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full items-center justify-center text-neutral-900 shadow-lg transition-all opacity-0 group-hover:opacity-100 z-20 -translate-y-1/2"
+                onClick={scrollNext}
+                aria-label="Next slide"
+            >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+
+            {/* Pagination Dots */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                {scrollSnaps.map((_, index) => (
+                    <button
+                        key={index}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 shadow-sm ${index === selectedIndex ? "bg-white scale-125" : "bg-white/50 hover:bg-white/80"
+                            }`}
+                        onClick={() => scrollTo(index)}
+                        aria-label={`Go to slide ${index + 1}`}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+}
 
 // Feature items data
 const features = [
@@ -139,7 +239,7 @@ export default function KapalSafetyExperience() {
                 </Link>
                 <Link
                     href="/Boat"
-                    className="inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-[#6b4c3b] hover:text-[#4a3429] transition-colors group"
+                    className="inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-[#CB9275] hover:text-[#B67F63] transition-colors group font-avenir"
                 >
                     <span className="group-hover:underline underline-offset-4">
                         Curated essentials: Explore All
@@ -193,16 +293,9 @@ export default function KapalSafetyExperience() {
                             </div>
                         </div>
 
-                        {/* Right Column: Image (aligned to right edge) */}
-                        <div className="relative h-[600px] lg:h-[750px]">
-                            <Image
-                                src="/kapal-safety-experience.webp"
-                                alt="Luxury wooden boat in turquoise Togean waters"
-                                fill
-                                className="object-cover object-center"
-                                sizes="(max-width: 1024px) 50vw, 50vw"
-                                priority
-                            />
+                        {/* Right Column: Carousel */}
+                        <div className="relative h-[600px] lg:h-[750px] w-full">
+                            <BoatCarousel className="h-full w-full" />
                         </div>
                     </div>
                 </div>
@@ -222,15 +315,9 @@ export default function KapalSafetyExperience() {
                     comfortable, and deeply personal.
                 </p>
 
-                {/* Image */}
-                <div className="mt-8 relative w-full aspect-[4/3]">
-                    <Image
-                        src="/kapal-safety-experience.webp"
-                        alt="Luxury wooden boat in turquoise Togean waters"
-                        fill
-                        className="object-cover"
-                        sizes="100vw"
-                    />
+                {/* Carousel */}
+                <div className="mt-8 w-full aspect-[4/3]">
+                    <BoatCarousel className="h-full w-full" />
                 </div>
 
                 {/* Accordion */}
