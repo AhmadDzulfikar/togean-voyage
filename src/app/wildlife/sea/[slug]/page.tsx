@@ -144,13 +144,21 @@ export default async function SeaWildlifeDetailPage({ params }: { params: Promis
                 </section>
 
                 {/* DISCLAIMER / CTA */}
-                <div className="border-t border-neutral-200 mt-12 py-12 text-center">
-                    <Link
-                        href="/wildlife/sea"
-                        className="inline-block px-8 py-3 bg-neutral-900 text-white font-avenir tracking-wider uppercase text-sm hover:bg-neutral-800 transition-colors"
-                    >
-                        Back to Sea Wildlife
-                    </Link>
+                <div className="border-t border-neutral-200 mt-12 py-12 px-6">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 w-full max-w-xl mx-auto">
+                        <Link
+                            href="/wildlife/sea"
+                            className="w-full md:w-auto text-center px-8 py-3 border border-neutral-900 text-neutral-900 font-avenir tracking-wider uppercase text-sm hover:bg-neutral-50 transition-colors rounded-sm"
+                        >
+                            Back to Sea Wildlife
+                        </Link>
+                        <Link
+                            href="/wildlife"
+                            className="w-full md:w-auto text-center px-8 py-3 bg-neutral-900 text-white font-avenir tracking-wider uppercase text-sm hover:bg-neutral-800 transition-colors rounded-sm"
+                        >
+                            Back to Wildlife Gallery
+                        </Link>
+                    </div>
                 </div>
             </main>
 
