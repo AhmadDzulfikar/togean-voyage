@@ -14,7 +14,37 @@ export default function Navbar() {
     const [isTransparent, setIsTransparent] = useState(isHomePage);
     const [navbarHeight, setNavbarHeight] = useState(0);
     const headerRef = useRef<HTMLElement>(null);
-    const [isMenuOpen, setIsMenuOpen] = useState(false); // Assuming menu state is needed, adding basic toggle support just in case, or keeping it static if it was static before. The previous code didn't have menu logic but had a button. keeping it simple.
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isHidden, setIsHidden] = useState(false);
+    const lastScrollY = useRef(0);
+
+    // Mobile Hide-on-scroll logic
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentY = window.scrollY;
+
+            // Always show near top
+            if (currentY < 10) {
+                setIsHidden(false);
+                lastScrollY.current = currentY;
+                return;
+            }
+
+            // Scroll Down (Hide)
+            if (currentY > lastScrollY.current + 8) {
+                setIsHidden(true);
+            }
+            // Scroll Up (Show)
+            else if (currentY < lastScrollY.current - 8) {
+                setIsHidden(false);
+            }
+
+            lastScrollY.current = currentY;
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     // Handle scroll for non-home pages or fallback
     useEffect(() => {
@@ -106,14 +136,17 @@ export default function Navbar() {
 
             <header
                 ref={headerRef}
-                className={`transition-all duration-300 ease-out z-50 w-full ${positionClass} ${bgClass}`}
+                className={`transition-all duration-300 ease-out z-50 w-full ${positionClass} ${bgClass} ${isHidden ? "-translate-y-full" : "translate-y-0"} md:translate-y-0`}
             >
                 <div className={`flex items-center justify-between px-5 md:px-10 ${paddingClass}`}>
                     {/* Hamburger Menu */}
                     <button
                         className="flex flex-col justify-center gap-[5px] bg-transparent border-none cursor-pointer p-2 w-10 h-10 group"
                         aria-label="Open menu"
-                        onClick={() => setIsMenuOpen(true)}
+                        onClick={() => {
+                            setIsMenuOpen(true);
+                            setIsHidden(false); // Force show when opening menu
+                        }}
                     >
                         <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass} ${isMenuOpen ? "opacity-0" : ""}`} />
                         <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass} ${isMenuOpen ? "opacity-0" : ""}`} />
@@ -134,10 +167,10 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    {/* Book Now Button */}
+                    {/* Book Now Button (Desktop) */}
                     <Link
                         href="/book"
-                        className={`inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-medium tracking-wide transition-all duration-300 font-avenir shadow-sm border 
+                        className={`hidden md:inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-medium tracking-wide transition-all duration-300 font-avenir shadow-sm border 
                             ${isHomePage && !isSolid
                                 ? "bg-white text-neutral-900 border-neutral-200 hover:bg-neutral-50"
                                 : "bg-accent text-white border-transparent hover:bg-accent-dark"
@@ -155,20 +188,16 @@ export default function Navbar() {
                         </svg>
 
                         Book Now
+                    </Link>
 
-                        <svg
-                            className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 hidden lg:block"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
+                    {/* Book Now Button (Mobile) */}
+                    <Link
+                        href="/book"
+                        className={`md:hidden inline-flex items-center gap-1 text-sm font-avenir uppercase tracking-[0.08em] transition-colors duration-300
+                            ${isHomePage && !isSolid ? "text-white" : "text-[#CB9275]"}
+                        `}
+                    >
+                        Book Now &gt;
                     </Link>
                 </div>
             </header>
