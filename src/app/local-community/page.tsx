@@ -10,16 +10,20 @@ export default function LocalCommunityPage() {
     return (
         <>
             <Navbar />
-            <main className="bg-white min-h-screen pt-24 pb-20 md:pt-32 md:pb-24">
-                <div className="mx-auto px-4 md:px-8 max-w-[1280px]">
+            <main className="bg-white min-h-screen pt-8 pb-24 md:pb-32 px-4 md:px-8">
+                <div className="mx-auto max-w-[1280px]">
                     {/* Header */}
-                    <div className="mb-16 md:mb-24 px-2">
-                        <h1 className="font-canto text-4xl md:text-5xl lg:text-6xl text-[#1a1a1a] mb-2 md:mb-4">
+                    {/* Header */}
+                    <div className="mb-16 md:mb-24 pt-10 md:pt-16">
+                        <span className="block font-avenir text-sm md:text-base uppercase tracking-[0.2em] text-neutral-500 mb-4">
+                            Togean Voyages
+                        </span>
+                        <h1 className="font-canto text-4xl md:text-5xl lg:text-6xl text-[#6b4c3b] mb-4">
                             Local Community
                         </h1>
-                        <p className="font-avenir text-sm md:text-base text-neutral-500 uppercase tracking-widest pl-1">
+                        <span className="block font-avenir text-neutral-500 text-lg">
                             {localCommunityExperiences.length} Experiences
-                        </p>
+                        </span>
                     </div>
 
                     {/* Experiences List */}
@@ -27,7 +31,7 @@ export default function LocalCommunityPage() {
                         {localCommunityExperiences.map((experience, index) => (
                             <div
                                 key={experience.slug}
-                                className="group border-t border-neutral-200 py-12 md:py-20 first:border-t-0"
+                                className="group border-t border-neutral-200 py-12 md:py-20 first:border-t-0 first:pt-0"
                             >
                                 <div className="flex flex-col md:flex-row gap-8 md:gap-16 lg:gap-20 items-start">
 
