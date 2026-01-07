@@ -13,13 +13,11 @@ type Item = {
 };
 
 type CollectionSliderProps = {
-    title?: string;
     variant?: "boat" | "stay";
     items: Item[];
 };
 
 export default function CollectionSlider({
-    title,
     variant = "boat",
     items,
 }: CollectionSliderProps) {
@@ -35,16 +33,7 @@ export default function CollectionSlider({
     const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
     return (
-        <section className="relative w-full overflow-hidden bg-neutral-900 border-b border-neutral-800 last:border-0">
-            {/* Optional Header */}
-            {title && (
-                <div className="absolute top-8 left-0 right-0 z-20 pointer-events-none text-center mix-blend-difference text-white px-4">
-                    <h2 className="font-canto text-2xl md:text-3xl lg:text-4xl shadow-black drop-shadow-md">
-                        {title}
-                    </h2>
-                </div>
-            )}
-
+        <section className="relative w-full overflow-hidden bg-neutral-900 rounded-sm">
             {/* Carousel Viewport */}
             <div ref={emblaRef} className="h-[80vh] md:h-[90vh] w-full cursor-grab active:cursor-grabbing">
                 {/* Container */}

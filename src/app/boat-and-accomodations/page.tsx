@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import CollectionSlider from "@/components/CollectionSlider";
@@ -62,32 +63,59 @@ export default function BoatAndAccommodationPage() {
         <div className="bg-white min-h-screen text-neutral-900 flex flex-col">
             <Navbar />
 
-            <main className="flex-grow pt-32 pb-0 w-full">
-                {/* Page Header */}
-                <div className="text-center max-w-4xl mx-auto mb-16 px-6">
-                    <h1 className="font-canto text-5xl md:text-7xl text-neutral-900 mb-6 tracking-tight">
-                        Boat and Accommodation
-                    </h1>
-                    <p className="font-avenir text-xl md:text-2xl text-neutral-500 font-light max-w-2xl mx-auto">
-                        A complete look at how we travel and where you rest.
-                        <br className="hidden md:block" />
-                        Designed for presence, comfort, and connection.
-                    </p>
+            <main className="flex-grow pt-24 pb-24 w-full">
+                {/* Back Button & Page Header */}
+                <div className="max-w-[1280px] mx-auto px-4 md:px-8 mb-16 md:mb-20">
+                    {/* Back Button */}
+                    <div className="mb-8 md:mb-12">
+                        <Link
+                            href="/#boat-and-accommodations"
+                            className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-neutral-500 hover:text-[#6b4c3b] transition-colors"
+                        >
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 19l-7-7 7-7m8 14l-7-7 7-7" />
+                            </svg>
+                            Back
+                        </Link>
+                    </div>
+
+                    <div className="text-center">
+                        <h1 className="font-canto text-5xl md:text-7xl text-neutral-900 mb-6 tracking-tight">
+                            Boat and Accommodation
+                        </h1>
+                        <p className="font-avenir text-xl md:text-2xl text-neutral-500 font-light max-w-2xl mx-auto">
+                            A complete look at how we travel and where you rest.
+                            <br className="hidden md:block" />
+                            Designed for presence, comfort, and connection.
+                        </p>
+                    </div>
                 </div>
 
-                {/* Boat Collection Slider */}
-                <CollectionSlider
-                    title="Boat Safety & Experience"
-                    variant="boat"
-                    items={boatItems}
-                />
+                {/* Boat Section */}
+                <section className="pl-4 md:pl-8 lg:pl-12 pr-0 mb-24 md:mb-32">
+                    <div className="max-w-[1280px] mx-auto px-4 md:px-8 text-center mb-8 md:mb-12">
+                        <h2 className="font-canto text-3xl md:text-5xl text-neutral-900">
+                            Boat Safety & Experience
+                        </h2>
+                    </div>
+                    <CollectionSlider
+                        variant="boat"
+                        items={boatItems}
+                    />
+                </section>
 
-                {/* Accommodation Collection Slider */}
-                <CollectionSlider
-                    title="Our Guest Houses"
-                    variant="stay"
-                    items={stayItems}
-                />
+                {/* Accommodation Section */}
+                <section className="pl-4 md:pl-8 lg:pl-12 pr-0">
+                    <div className="max-w-[1280px] mx-auto px-4 md:px-8 text-center mb-8 md:mb-12">
+                        <h2 className="font-canto text-3xl md:text-5xl text-neutral-900">
+                            Our Guest Houses
+                        </h2>
+                    </div>
+                    <CollectionSlider
+                        variant="stay"
+                        items={stayItems}
+                    />
+                </section>
             </main>
 
             <FooterSection />

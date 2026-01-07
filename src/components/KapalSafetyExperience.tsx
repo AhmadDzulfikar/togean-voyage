@@ -129,7 +129,7 @@ export default function KapalSafetyExperience() {
     };
 
     return (
-        <section className="bg-white py-16 md:py-24 lg:py-32">
+        <section id="boat-and-accommodations" className="bg-white py-16 md:py-24 lg:py-32">
             {/* Section Header */}
             <div className="text-center mb-10 md:mb-14 px-4">
                 <Link href="/boat-and-accomodations">
