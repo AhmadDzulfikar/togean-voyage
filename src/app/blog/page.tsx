@@ -4,6 +4,7 @@ import Link from "next/link";
 import { blogPosts } from "@/data/blogPosts";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
+import BackToSection from "@/components/BackToSection";
 
 export default function BlogListingPage() {
     // Helper to truncate text
@@ -20,6 +21,7 @@ export default function BlogListingPage() {
             <Navbar />
 
             <main className="flex-grow pt-32 pb-24 px-6 md:px-12 w-full max-w-[1280px] mx-auto">
+                <BackToSection href="/#blog" label="Back to Blog" />
                 {/* Header */}
                 <div className="mb-16 border-b border-neutral-200 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
                     <div>

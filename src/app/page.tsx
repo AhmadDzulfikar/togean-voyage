@@ -25,20 +25,38 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+
         {/* Destination Section */}
-        <SpotlightCarousel />
+        <div id="destinations" className="scroll-mt-24 md:scroll-mt-28">
+          <SpotlightCarousel />
+        </div>
+
         {/* Program Section */}
-        <ProgramCarousel />
+        <div id="programs" className="scroll-mt-24 md:scroll-mt-28">
+          <ProgramCarousel />
+        </div>
+
         {/* Safety & Experience Ship Section */}
         <KapalSafetyExperience />
+
         {/* Accommodation Section */}
         <AccommodationSection />
+
         {/* Wildlife Section */}
-        <WildlifeCarousel />
+        <div id="wildlife" className="scroll-mt-24 md:scroll-mt-28">
+          <WildlifeCarousel />
+        </div>
+
         {/* Local Community Section */}
-        <LocalCommunity />
+        <div id="local-community" className="scroll-mt-24 md:scroll-mt-28">
+          <LocalCommunity />
+        </div>
+
         {/* Blog Section */}
-        <BlogSection />
+        <div id="blog" className="scroll-mt-24 md:scroll-mt-28">
+          <BlogSection />
+        </div>
+
         {/* Footer Section */}
         <FooterSection />
       </main>

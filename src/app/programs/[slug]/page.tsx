@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { programs } from "@/data/programs";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import BackToSection from "@/components/BackToSection";
 import FooterSection from "@/components/FooterSection";
 
 interface PageProps {
@@ -32,6 +33,9 @@ export default async function ProgramDetailPage({ params }: PageProps) {
             <main className="pb-24">
                 {/* Hero Section */}
                 <div className="relative h-[60vh] md:h-[70vh] w-full">
+                    <div className="absolute z-50 top-24 left-4 md:left-8">
+                        <BackToSection href="/#programs" label="Back to Programs" className="text-white hover:text-white/80" />
+                    </div>
                     <Image
                         src={program.image}
                         alt={program.name}

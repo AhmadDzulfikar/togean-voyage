@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { blogPosts } from "@/data/blogPosts";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
+import BackToSection from "@/components/BackToSection";
 
 interface PageProps {
     params: Promise<{
@@ -159,6 +160,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
             <Navbar />
             <main className="pt-32 pb-24 px-4 md:px-8">
                 <article className="max-w-[900px] mx-auto">
+                    <BackToSection href="/#blog" label="Back to Blog" />
                     {/* Header */}
                     <header className="mb-12 text-center">
                         <div className="font-avenir text-sm uppercase tracking-[0.2em] text-neutral-500 mb-6 flex justify-center gap-4">

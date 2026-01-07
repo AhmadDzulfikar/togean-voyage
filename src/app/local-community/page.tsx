@@ -5,6 +5,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { localCommunityExperiences } from "@/data/localCommunityExperiences";
+import BackToSection from "@/components/BackToSection";
 
 export default function LocalCommunityPage() {
     return (
@@ -12,6 +13,7 @@ export default function LocalCommunityPage() {
             <Navbar />
             <main className="bg-white min-h-screen pt-8 pb-24 md:pb-32 px-4 md:px-8">
                 <div className="mx-auto max-w-[1280px]">
+                    <BackToSection href="/#local-community" label="Back to Local Community" />
                     {/* Header */}
                     {/* Header */}
                     <div className="mb-16 md:mb-24 pt-10 md:pt-16">
