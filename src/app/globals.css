@@ -10,9 +10,8 @@ html {
   --accent: #CB9275;
   --accent-dark: #B67F63;
   --accent-light: rgba(203, 146, 117, 0.12);
-}
 
-@theme inline {
+  /* Mapped Variables */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: #CB9275;
