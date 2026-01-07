@@ -92,9 +92,8 @@
   .hero {
     position: relative;
     width: 100%;
-    /* Hook effect: Allow content below to be seen */
-    height: 570px;
-    max-height: 80vh;
+    height: 100svh;
+    min-height: 100svh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
