@@ -132,17 +132,17 @@ export default function KapalSafetyExperience() {
         <section id="boat-and-accommodations" className="bg-white py-16 md:py-24 lg:py-32">
             {/* Section Header */}
             <div className="text-center mb-10 md:mb-14 px-4">
-                <Link href="/boat-and-accomodations">
+                <Link href="/boat-safety-and-experience">
                     <h2 className="font-canto text-3xl md:text-4xl lg:text-5xl mb-4 hover:text-neutral-700 transition-colors cursor-pointer">
-                        On board and ashore: Boat and Accommodation
+                        In the details: Boat Safety & Experience
                     </h2>
                 </Link>
                 <Link
-                    href="/boat-and-accomodations"
+                    href="/boat-safety-and-experience"
                     className="inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-[#6b4c3b] hover:text-[#4a3429] transition-colors group"
                 >
                     <span className="group-hover:underline underline-offset-4">
-                        Curated Comfort: Explore All
+                        Curated essentials: Explore All
                     </span>
                     <svg
                         className="w-4 h-4 transition-transform group-hover:translate-x-1"

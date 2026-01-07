@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 
 // --- Data ---
@@ -188,6 +189,36 @@ export default function AccommodationSection() {
     return (
         <section className="bg-white py-12 md:py-20 lg:py-28">
             <div className="mx-auto max-w-7xl px-4 md:px-8">
+                {/* Section Header */}
+                <div className="text-center mb-10 md:mb-14 px-4">
+                    <Link href="/accommodation">
+                        <h2 className="font-canto text-3xl md:text-4xl lg:text-5xl mb-4 hover:text-neutral-700 transition-colors cursor-pointer">
+                            At rest: Island Guest Houses
+                        </h2>
+                    </Link>
+                    <Link
+                        href="/accommodation"
+                        className="inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-[#6b4c3b] hover:text-[#4a3429] transition-colors group"
+                    >
+                        <span className="group-hover:underline underline-offset-4">
+                            Curated stays: Explore All
+                        </span>
+                        <svg
+                            className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                            />
+                        </svg>
+                    </Link>
+                </div>
+
                 {/* Desktop Layout */}
                 <div className="hidden md:grid grid-cols-2 gap-8 lg:gap-12">
                     {/* Left Column: Carousel */}
