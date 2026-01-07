@@ -179,7 +179,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                     {/* Hero Image */}
                     <div className="relative aspect-[16/9] w-full mb-16 rounded-sm overflow-hidden">
                         <Image
-                            src={post.heroImage}
+                            src={post.image}
                             alt={post.title}
                             fill
                             className="object-cover"

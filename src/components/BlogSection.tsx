@@ -5,51 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { cantoFont, avenirFont } from "@/app/fonts";
-
-// --- Types ---
-export interface BlogPost {
-    slug: string;
-    image: string;
-    locationLabel: string;
-    date: string;
-    category: string;
-    title: string;
-    excerpt: string;
-}
-
-// --- Data ---
-export const blogPosts: BlogPost[] = [
-    {
-        slug: "responsible-wildlife-encounters-reef-etiquette-togean",
-        image: "/blog-1.webp",
-        locationLabel: "Togean",
-        date: "Jan 03, 2026",
-        category: "Journal",
-        title: "Responsible wildlife encounters and reef etiquette in Togean",
-        excerpt:
-            "Discover the vibrant marine life of the Togean Islands. From colorful coral gardens to playful reef fish, learn how to observe these wonders respectfully without disturbing their natural habitat. Our guide ensures a sustainable adventure for everyone.",
-    },
-    {
-        slug: "best-snorkeling-spots-togean-luwuk",
-        image: "/blog-2.webp",
-        locationLabel: "Togean",
-        date: "Feb 15, 2026",
-        category: "Journal",
-        title: "Best snorkeling spots and what you might see",
-        excerpt:
-            "Plunge into the crystal-clear waters of the Togeans. We reveal the top snorkeling locations where you can spot giant clams, sea turtles, and an endless variety of tropical fish. Prepare for an underwater journey like no other.",
-    },
-    {
-        slug: "village-visit-etiquette-and-support-local-communities",
-        image: "/blog-3.webp",
-        locationLabel: "Togean",
-        date: "Mar 10, 2026",
-        category: "Journal",
-        title: "Village visit etiquette and how to support local communities",
-        excerpt:
-            "Experience the warmth of the Bajau people. This guide outlines the cultural dos and don'ts when visiting local villages, ensuring your interactions are respectful and support the livelihood of these unique island communities.",
-    },
-];
+import { blogPosts } from "@/data/blogPosts";
 
 // --- Helper: Truncate Excerpt ---
 function truncateExcerpt(text: string, maxWords: number = 23): string {
