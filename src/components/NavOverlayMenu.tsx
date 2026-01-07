@@ -9,6 +9,7 @@ interface NavOverlayMenuProps {
 }
 
 const MENU_ITEMS = [
+    { label: "Home", href: "/" },
     { label: "Destinations", href: "/destinations" },
     { label: "Programs", href: "/programs" },
     { label: "Wildlife", href: "/wildlife" },
