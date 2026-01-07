@@ -63,6 +63,29 @@ export default function AccommodationPage() {
     const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
     const scrollTo = useCallback((index: number) => emblaApi && emblaApi.scrollTo(index), [emblaApi]);
 
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = React.useRef<HTMLDivElement>(null);
+
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setIsDropdownOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    // Close dropdown on Escape
+    useEffect(() => {
+        const handleEsc = (event: KeyboardEvent) => {
+            if (event.key === "Escape") setIsDropdownOpen(false);
+        };
+        document.addEventListener("keydown", handleEsc);
+        return () => document.removeEventListener("keydown", handleEsc);
+    }, []);
+
     return (
         <div className="bg-white min-h-screen text-neutral-900 flex flex-col">
             <Navbar />
@@ -92,9 +115,56 @@ export default function AccommodationPage() {
                     </div>
                 </div>
 
-                {/* Tabs */}
-                <div className="max-w-4xl mx-auto px-4 md:px-8 mb-12 md:mb-16">
-                    <div className="flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar space-x-8 md:space-x-12 border-b border-neutral-100 pb-1">
+                {/* Filter Controls (Tabs vs Dropdown) */}
+                <div className="max-w-4xl mx-auto px-4 md:px-8 mb-12 md:mb-16 relative z-30">
+
+                    {/* Mobile Dropdown (< md) */}
+                    <div className="md:hidden w-full relative" ref={dropdownRef}>
+                        <button
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            className="w-full flex items-center justify-between px-6 py-4 bg-white border border-neutral-200 rounded-sm font-avenir text-base uppercase tracking-widest text-neutral-900 shadow-sm focus:outline-none focus:border-[#CB9275] focus:ring-1 focus:ring-[#CB9275] transition-all"
+                            aria-expanded={isDropdownOpen}
+                            aria-haspopup="listbox"
+                        >
+                            <span>{activeTab}</span>
+                            <svg
+                                className={`w-5 h-5 text-neutral-400 transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : "rotate-0"}`}
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div
+                            className={`absolute top-full left-0 w-full mt-2 bg-white border border-neutral-100 shadow-xl rounded-sm overflow-hidden transition-all duration-300 ease-in-out origin-top ${isDropdownOpen ? "opacity-100 max-h-[400px] visible translate-y-0" : "opacity-0 max-h-0 invisible -translate-y-2"
+                                }`}
+                            role="listbox"
+                        >
+                            {TABS.map((tab) => (
+                                <button
+                                    key={tab}
+                                    onClick={() => {
+                                        setActiveTab(tab);
+                                        setSelectedIndex(0);
+                                        setIsDropdownOpen(false);
+                                    }}
+                                    className={`w-full text-left px-6 py-4 font-avenir text-sm uppercase tracking-widest transition-colors hover:bg-neutral-50 ${activeTab === tab
+                                            ? "text-[#CB9275] font-semibold bg-neutral-50/50"
+                                            : "text-neutral-600"
+                                        }`}
+                                    role="option"
+                                    aria-selected={activeTab === tab}
+                                >
+                                    {tab}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Desktop Tabs (>= md) */}
+                    <div className="hidden md:flex items-center justify-center overflow-x-auto no-scrollbar space-x-12 border-b border-neutral-100 pb-1">
                         {TABS.map((tab) => (
                             <button
                                 key={tab}
@@ -102,7 +172,7 @@ export default function AccommodationPage() {
                                     setActiveTab(tab);
                                     setSelectedIndex(0); // Reset carousel index
                                 }}
-                                className={`font-avenir text-sm md:text-base uppercase tracking-widest pb-4 whitespace-nowrap transition-all duration-300 relative ${activeTab === tab
+                                className={`font-avenir text-base uppercase tracking-widest pb-4 whitespace-nowrap transition-all duration-300 relative ${activeTab === tab
                                         ? "text-[#CB9275]"
                                         : "text-neutral-400 hover:text-neutral-600"
                                     }`}
