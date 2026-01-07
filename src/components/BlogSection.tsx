@@ -62,46 +62,52 @@ export default function BlogSection() {
                 {/* Desktop Grid */}
                 <div className="hidden md:grid grid-cols-3 divide-x divide-gray-200">
                     {blogPosts.map((post, idx) => (
-                        <div key={post.slug} className={`flex flex-col h-full ${idx === 0 ? 'pr-8' : idx === 1 ? 'px-8' : 'pl-8'}`}>
-                            <Link href={`/blog/${post.slug}`} className="group block overflow-hidden mb-6 relative aspect-[3/2]">
+                        <div key={post.slug} className={`group flex flex-col h-full ${idx === 0 ? 'pr-8' : idx === 1 ? 'px-8' : 'pl-8'}`}>
+                            <Link href={`/blog/${post.slug}`} className="block relative aspect-[3/2] overflow-hidden rounded-sm bg-neutral-100 mb-6">
                                 <Image
                                     src={post.image}
                                     alt={post.title}
                                     fill
-                                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                                 />
                             </Link>
-                            <div className={`${avenirFont.className} text-xs text-gray-500 uppercase tracking-widest mb-3`}>
-                                {post.locationLabel} | {post.date} | {post.category}
-                            </div>
-                            <Link href={`/blog/${post.slug}`} className="block">
-                                <h3 className={`${cantoFont.className} text-2xl leading-tight mb-4 line-clamp-2 hover:text-gray-700 transition-colors`}>
-                                    {post.title}
-                                </h3>
-                            </Link>
-                            <p className={`${avenirFont.className} text-sm leading-relaxed text-gray-800 mb-6 flex-grow`}>
-                                {truncateExcerpt(post.excerpt)}
-                            </p>
-                            <div className="mt-auto flex justify-end">
-                                <Link
-                                    href={`/blog/${post.slug}`}
-                                    className={`${avenirFont.className} group inline-flex items-center text-xs uppercase tracking-[0.15em] hover:text-gray-600 transition-colors border-b border-transparent hover:border-gray-600 pb-0.5`}
-                                >
-                                    Read More
-                                    <svg
-                                        className="w-3 h-3 ml-2 transform transition-transform group-hover:translate-x-1"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={1.5}
-                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                                        />
-                                    </svg>
+
+                            <div className="flex flex-col flex-grow">
+                                <div className="font-avenir text-xs text-neutral-400 uppercase tracking-widest mb-3">
+                                    {post.locationLabel} | {post.date} | {post.category}
+                                </div>
+
+                                <Link href={`/blog/${post.slug}`} className="block">
+                                    <h3 className="font-canto text-2xl text-neutral-900 leading-tight mb-4 group-hover:underline underline-offset-4 decoration-neutral-300 transition-all">
+                                        {post.title}
+                                    </h3>
                                 </Link>
+
+                                <p className="font-avenir text-sm text-neutral-600 leading-relaxed mb-6 flex-grow">
+                                    {truncateExcerpt(post.excerpt)}
+                                </p>
+
+                                <div className="mt-auto flex justify-end">
+                                    <Link
+                                        href={`/blog/${post.slug}`}
+                                        className="font-avenir inline-flex items-center text-xs uppercase tracking-[0.15em] border-b border-transparent hover:border-neutral-900 pb-0.5 transition-colors"
+                                    >
+                                        Read More
+                                        <svg
+                                            className="w-3 h-3 ml-2"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={1.5}
+                                                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                            />
+                                        </svg>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     ))}
