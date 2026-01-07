@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
+import NavOverlayMenu from "./NavOverlayMenu";
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -94,6 +95,9 @@ export default function Navbar() {
 
     return (
         <>
+            {/* Full Screen Overlay Menu */}
+            <NavOverlayMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+
             {/* Spacer: Only needed if position becomes fixed AND we were relative before. 
                 On Home page, we are always fixed, so NO spacer needed (we want overlay).
                 On non-Home, we follow old logic: check isScrolled.
@@ -107,13 +111,13 @@ export default function Navbar() {
                 <div className={`flex items-center justify-between px-5 md:px-10 ${paddingClass}`}>
                     {/* Hamburger Menu */}
                     <button
-                        className="flex flex-col justify-center gap-[5px] bg-transparent border-none cursor-pointer p-2 w-10 h-10"
+                        className="flex flex-col justify-center gap-[5px] bg-transparent border-none cursor-pointer p-2 w-10 h-10 group"
                         aria-label="Open menu"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        onClick={() => setIsMenuOpen(true)}
                     >
-                        <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass}`} />
-                        <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass}`} />
-                        <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass}`} />
+                        <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass} ${isMenuOpen ? "opacity-0" : ""}`} />
+                        <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass} ${isMenuOpen ? "opacity-0" : ""}`} />
+                        <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass} ${isMenuOpen ? "opacity-0" : ""}`} />
                     </button>
 
                     {/* Logo */}
