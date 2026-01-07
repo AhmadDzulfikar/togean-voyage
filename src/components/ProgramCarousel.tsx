@@ -55,7 +55,7 @@ export default function ProgramCarousel() {
                     </h2>
                     <Link
                         href="/programs"
-                        className="inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-[#6b4c3b] hover:text-[#4a3429] transition-colors group font-avenir font-medium"
+                        className="inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-accent hover:text-accent-dark transition-colors group font-avenir font-medium"
                     >
                         <span className="group-hover:underline underline-offset-4">
                             Curated Activities: Explore All
@@ -141,7 +141,7 @@ export default function ProgramCarousel() {
                             key={index}
                             onClick={() => scrollTo(index)}
                             className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${index === selectedIndex
-                                ? "bg-[#6b4c3b] scale-110"
+                                ? "bg-accent scale-110"
                                 : "bg-gray-300 hover:bg-gray-400"
                                 }`}
                             aria-label={`Go to slide ${index + 1}`}

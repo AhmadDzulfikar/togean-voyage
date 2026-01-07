@@ -53,7 +53,7 @@ export default function BlogSection() {
                     </h2>
                     <Link
                         href="/blog"
-                        className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 text-xs uppercase tracking-[0.2em] border border-black px-6 py-2 hover:bg-black hover:text-white transition-colors duration-300"
+                        className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 text-xs uppercase tracking-[0.2em] border border-accent text-accent px-6 py-2 hover:bg-accent hover:text-white transition-colors duration-300"
                     >
                         View All
                     </Link>
@@ -171,7 +171,7 @@ export default function BlogSection() {
                         {scrollSnaps.map((_, index) => (
                             <button
                                 key={index}
-                                className={`w-2 h-2 rounded-full transition-colors duration-300 ${index === selectedIndex ? "bg-black" : "bg-gray-300"
+                                className={`w-2 h-2 rounded-full transition-colors duration-300 ${index === selectedIndex ? "bg-accent" : "bg-gray-300"
                                     }`}
                                 onClick={() => scrollTo(index)}
                                 aria-label={`Go to slide ${index + 1}`}
@@ -183,7 +183,7 @@ export default function BlogSection() {
                     <div className="flex justify-center mt-8">
                         <Link
                             href="/blog"
-                            className="text-xs uppercase tracking-[0.2em] border border-black px-8 py-3 hover:bg-black hover:text-white transition-colors duration-300"
+                            className="text-xs uppercase tracking-[0.2em] border border-accent text-accent px-8 py-3 hover:bg-accent hover:text-white transition-colors duration-300"
                         >
                             View All
                         </Link>

@@ -137,12 +137,10 @@ export default function Navbar() {
                     {/* Book Now Button */}
                     <Link
                         href="/book"
-                        className={`inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-medium tracking-wide transition-all duration-300 font-avenir border 
-                            ${isSolid
-                                ? "border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white"
-                                : isHomePage
-                                    ? "border-white text-white hover:bg-white/10"
-                                    : "border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white"
+                        className={`inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-medium tracking-wide transition-all duration-300 font-avenir shadow-sm border 
+                            ${isHomePage && !isSolid
+                                ? "bg-white text-neutral-900 border-neutral-200 hover:bg-neutral-50"
+                                : "bg-accent text-white border-transparent hover:bg-accent-dark"
                             }`}
                     >
                         {/* WhatsApp Icon */}

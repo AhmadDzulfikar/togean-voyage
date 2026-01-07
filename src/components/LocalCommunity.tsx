@@ -337,7 +337,7 @@ export default function LocalCommunity() {
                     </h2>
                     <Link
                         href="/local-community"
-                        className="inline-flex items-center gap-2 mt-4 md:mt-6 text-sm md:text-base uppercase tracking-wider text-[#6b4c3b] hover:text-[#4a3429] transition-colors group"
+                        className="inline-flex items-center gap-2 mt-4 md:mt-6 text-sm md:text-base uppercase tracking-wider text-accent hover:text-accent-dark transition-colors group"
                     >
                         <span className="group-hover:underline underline-offset-4">
                             Curated Connections: Explore All
