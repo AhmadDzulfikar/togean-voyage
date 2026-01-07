@@ -57,6 +57,23 @@ html {
   .font-avenir {
     font-family: var(--font-avenir-local, var(--font-avenir));
   }
+
+  /* Embla Seamless Transitions */
+  .embla-slide {
+    will-change: transform, opacity, filter;
+    transition: transform 650ms ease, opacity 650ms ease, filter 650ms ease;
+    transform: scale(0.96);
+    filter: grayscale(1);
+    opacity: 0.55;
+    z-index: 0;
+  }
+
+  .embla-slide.is-active {
+    transform: scale(1);
+    filter: grayscale(0);
+    opacity: 1;
+    z-index: 10;
+  }
 }
 
 /* ========================================

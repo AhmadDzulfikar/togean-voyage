@@ -28,28 +28,56 @@ const boatSlides = [
 
 function BoatCarousel({ className }: { className?: string }) {
     const [emblaRef, emblaApi] = useEmblaCarousel({
-        loop: true,
+        loop: false,
         align: "center",
         containScroll: "trimSnaps",
     });
 
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+    const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
+    const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
+
+    const applyActiveStyles = useCallback(() => {
+        if (!emblaApi) return;
+        const slides = emblaApi.slideNodes();
+        const selected = emblaApi.selectedScrollSnap();
+
+        slides.forEach((slide, index) => {
+            if (index === selected) {
+                slide.classList.add("is-active");
+            } else {
+                slide.classList.remove("is-active");
+            }
+        });
+    }, [emblaApi]);
 
     const onSelect = useCallback(() => {
         if (!emblaApi) return;
         setSelectedIndex(emblaApi.selectedScrollSnap());
-    }, [emblaApi]);
+        setPrevBtnDisabled(!emblaApi.canScrollPrev());
+        setNextBtnDisabled(!emblaApi.canScrollNext());
+        applyActiveStyles();
+    }, [emblaApi, applyActiveStyles]);
 
     useEffect(() => {
         if (!emblaApi) return;
+
+        // Initial setup
         setScrollSnaps(emblaApi.scrollSnapList());
+        onSelect(); // Set initial disabled state
+
+        // Events
         emblaApi.on("select", onSelect);
-        onSelect();
+        emblaApi.on("reInit", onSelect);
+        emblaApi.on("settle", applyActiveStyles);
+
         return () => {
             emblaApi.off("select", onSelect);
+            emblaApi.off("reInit", onSelect);
+            emblaApi.off("settle", applyActiveStyles);
         };
-    }, [emblaApi, onSelect]);
+    }, [emblaApi, onSelect, applyActiveStyles]);
 
     const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
     const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
@@ -58,14 +86,11 @@ function BoatCarousel({ className }: { className?: string }) {
     return (
         <div className={`relative group ${className}`}>
             <div className="overflow-hidden h-full rounded-sm" ref={emblaRef}>
-                <div className="flex h-full touch-pan-y">
+                <div className="flex h-full touch-pan-y gap-4 md:gap-6">
                     {boatSlides.map((slide, index) => (
                         <div
                             key={index}
-                            className={`relative flex-[0_0_100%] md:flex-[0_0_70%] h-full px-2 transition-all duration-700 ease-out transform ${index === selectedIndex
-                                ? "opacity-100 grayscale-0 scale-100 z-10"
-                                : "opacity-40 grayscale scale-[0.96] z-0"
-                                }`}
+                            className="embla-slide relative flex-[0_0_88%] md:flex-[0_0_55%] h-full min-w-0"
                         >
                             <div className="relative w-full h-full overflow-hidden rounded-sm bg-neutral-100 shadow-sm">
                                 <Image
@@ -83,8 +108,10 @@ function BoatCarousel({ className }: { className?: string }) {
 
             {/* Navigation Arrows (Desktop Only) */}
             <button
-                className="hidden md:flex absolute top-1/2 left-4 w-12 h-12 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full items-center justify-center text-neutral-900 shadow-lg transition-all opacity-0 group-hover:opacity-100 z-20 -translate-y-1/2"
+                className={`hidden md:flex absolute top-1/2 left-4 w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full items-center justify-center text-neutral-900 shadow-lg transition-all z-20 -translate-y-1/2 ${prevBtnDisabled ? "opacity-40 cursor-not-allowed" : "hover:bg-white opacity-0 group-hover:opacity-100"
+                    }`}
                 onClick={scrollPrev}
+                disabled={prevBtnDisabled}
                 aria-label="Previous slide"
             >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -92,8 +119,10 @@ function BoatCarousel({ className }: { className?: string }) {
                 </svg>
             </button>
             <button
-                className="hidden md:flex absolute top-1/2 right-4 w-12 h-12 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full items-center justify-center text-neutral-900 shadow-lg transition-all opacity-0 group-hover:opacity-100 z-20 -translate-y-1/2"
+                className={`hidden md:flex absolute top-1/2 right-4 w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full items-center justify-center text-neutral-900 shadow-lg transition-all z-20 -translate-y-1/2 ${nextBtnDisabled ? "opacity-40 cursor-not-allowed" : "hover:bg-white opacity-0 group-hover:opacity-100"
+                    }`}
                 onClick={scrollNext}
+                disabled={nextBtnDisabled}
                 aria-label="Next slide"
             >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
