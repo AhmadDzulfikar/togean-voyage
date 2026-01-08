@@ -9,6 +9,25 @@ interface TranslateProviderProps {
 }
 
 /**
+ * Mapping from URL lang code to Google Translate target code
+ * Most are the same, but zh -> zh-CN for Simplified Chinese
+ */
+const LANG_TO_GT: Record<string, string> = {
+    en: "en",
+    fr: "fr",
+    es: "es",
+    ru: "ru",
+    id: "id",
+    ja: "ja",
+    ko: "ko",
+    zh: "zh-CN",  // Chinese Simplified
+    ar: "ar",
+    de: "de",
+    it: "it",
+    tr: "tr",
+};
+
+/**
  * TranslateProvider manages Google Translate integration with HIDDEN banner.
  * 
  * How it works:
@@ -26,10 +45,13 @@ export default function TranslateProvider({ lang, children }: TranslateProviderP
         // Guard: Ensure we are in the browser
         if (typeof window === "undefined") return;
 
+        // Get Google Translate target code (may differ from URL lang)
+        const gtLang = LANG_TO_GT[lang] || lang;
+
         // Target cookie value based on current lang
         // EN = /en/en (or could clear, but /en/en is safer)
-        // FR = /en/fr, ES = /en/es
-        const targetCookie = `/en/${lang}`;
+        // Others = /en/<gtLang>
+        const targetCookie = `/en/${gtLang}`;
         const currentCookie = getCookie("googtrans");
 
         // Check sessionStorage guard to prevent reload loops
@@ -74,7 +96,7 @@ export default function TranslateProvider({ lang, children }: TranslateProviderP
             new window.google.translate.TranslateElement({
                 pageLanguage: 'en',
                 autoDisplay: false,  // Don't auto-show the translate bar
-                includedLanguages: 'en,fr,es',
+                includedLanguages: 'en,fr,es,ru,id,ja,ko,zh-CN,ar,de,it,tr',
                 // @ts-expect-error - Google Translate types not available
                 layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
             }, 'google_translate_element');
