@@ -4,13 +4,19 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { wildLifeSeaDetails } from "@/data/wildlifeSeaDetails";
+import BackLink from "@/components/BackLink";
 
 export default function SeaWildlifeListingPage() {
     return (
         <div className="bg-white min-h-screen text-neutral-900 flex flex-col">
             <Navbar />
 
-            <main className="flex-grow pt-32 pb-24 px-6 md:px-12 w-full max-w-[1280px] mx-auto">
+            <main className="flex-grow pt-24 pb-24 px-6 md:px-12 w-full max-w-[1280px] mx-auto">
+                {/* Back Link */}
+                <div className="mb-8">
+                    <BackLink href="/wildlife#sea" label="BACK TO WILDLIFE" />
+                </div>
+
                 {/* Header */}
                 <div className="mb-16 border-b border-neutral-200 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
                     <div>

@@ -1,11 +1,10 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { wildLifeSeaDetails } from "@/data/wildlifeSeaDetails";
-import BackToSection from "@/components/BackToSection";
+import BackLink from "@/components/BackLink";
 
 export default async function SeaWildlifeDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
@@ -22,7 +21,7 @@ export default async function SeaWildlifeDetailPage({ params }: { params: Promis
             <main className="flex-grow pt-32 pb-24 w-full">
                 {/* HERO SECTION */}
                 <section className="px-6 md:px-12 max-w-[1280px] mx-auto mb-16 md:mb-24">
-                    <BackToSection href="/#wildlife" label="Back to Wildlife" />
+                    <BackLink href="/wildlife/sea" label="Back to Sea Wildlife" />
                     {/* Title Block */}
                     <div className="text-center max-w-4xl mx-auto mb-12">
                         <h1 className="font-canto text-5xl md:text-7xl text-neutral-900 mb-4 tracking-tight">

@@ -1,9 +1,9 @@
-import React from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import ZigzagScrollSections from "@/components/ZigzagScrollSections";
 import { boatDetails } from "@/data/boatDetails";
+import BackLink from "@/components/BackLink";
 
 export default function BoatPage() {
     return (
@@ -16,15 +16,7 @@ export default function BoatPage() {
                 <div className="max-w-[1280px] mx-auto px-4 md:px-8 mb-16 md:mb-24">
                     {/* Back Button */}
                     <div className="mb-12 md:mb-16">
-                        <Link
-                            href="/#boat-safety-experience"
-                            className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-neutral-500 hover:text-[#6b4c3b] transition-colors"
-                        >
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 19l-7-7 7-7m8 14l-7-7 7-7" />
-                            </svg>
-                            Back to Home
-                        </Link>
+                        <BackLink href="/#boat-safety-experience" label="Back to Home" />
                     </div>
 
                     {/* Simple Premium Hero Text */}

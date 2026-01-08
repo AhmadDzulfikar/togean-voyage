@@ -1,10 +1,9 @@
-import React from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { programs } from "@/data/programs";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import BackToSection from "@/components/BackToSection";
+import BackLink from "@/components/BackLink";
 import FooterSection from "@/components/FooterSection";
 
 interface PageProps {
@@ -34,7 +33,7 @@ export default async function ProgramDetailPage({ params }: PageProps) {
                 {/* Hero Section */}
                 <div className="relative h-[60vh] md:h-[70vh] w-full">
                     <div className="absolute z-50 top-24 left-4 md:left-8">
-                        <BackToSection href="/#programs" label="Back to Programs" className="text-white hover:text-white/80" />
+                        <BackLink href="/#programs" label="Back to Programs" variant="light" />
                     </div>
                     <Image
                         src={program.image}

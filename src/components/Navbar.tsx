@@ -11,6 +11,7 @@ export default function Navbar() {
     const isHomePage = pathname === "/";
 
     const [isScrolled, setIsScrolled] = useState(false);
+    // Initial state strictly depends on pathname for SSR match
     const [isTransparent, setIsTransparent] = useState(isHomePage);
     const [navbarHeight, setNavbarHeight] = useState(0);
     const headerRef = useRef<HTMLElement>(null);
@@ -112,8 +113,10 @@ export default function Navbar() {
         ? "bg-white/95 backdrop-blur-sm shadow-sm border-b border-neutral-200"
         : "bg-transparent border-transparent";
 
-    const textColorClass = isSolid ? "text-gray-800" : (isHomePage ? "text-white" : "text-gray-800");
-    const hamburgerColorClass = isSolid ? "bg-gray-800" : (isHomePage ? "bg-white" : "bg-gray-800");
+    // Build-safe colors: Avoid simple "text-gray-800" if inherited. Use explicit neutral-900.
+    // For non-home pages, we force "solid" style initially via state, so this matches that.
+    const textColorClass = isSolid ? "text-neutral-900" : (isHomePage ? "text-white" : "text-neutral-900");
+    const hamburgerColorClass = isSolid ? "bg-neutral-900" : (isHomePage ? "bg-white" : "bg-neutral-900");
     const logoClass = "w-[110px] md:w-[140px] lg:w-[180px] h-auto object-contain transition-all duration-300"; // Keep logo sizing
 
     // Padding: Reduced when solid or on home page transparent mode (per request "Reduce vertical padding")

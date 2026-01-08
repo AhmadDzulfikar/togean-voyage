@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { programs } from "@/data/programs";
-import BackToSection from "@/components/BackToSection";
+import BackLink from "@/components/BackLink";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 
@@ -14,7 +13,9 @@ export default function ProgramsPage() {
             <Navbar />
             <main className="pt-8 pb-24 md:pb-32 px-4 md:px-8">
                 <div className="max-w-[1280px] mx-auto">
-                    <BackToSection href="/#programs" label="Back to Programs" />
+                    <div className="absolute z-50 top-24 left-4 md:left-8">
+                        <BackLink href="/" label="Back to Home" variant="light" />
+                    </div>
                     {/* Page Header */}
                     <div className="mb-16 md:mb-24 pt-10 md:pt-16">
                         <span className="block font-avenir text-sm md:text-base uppercase tracking-[0.2em] text-neutral-500 mb-4">

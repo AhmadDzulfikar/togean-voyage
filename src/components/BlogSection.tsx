@@ -171,7 +171,7 @@ export default function BlogSection() {
                         {scrollSnaps.map((_, index) => (
                             <button
                                 key={index}
-                                className={`w-2 h-2 rounded-full transition-colors duration-300 ${index === selectedIndex ? "bg-accent" : "bg-gray-300"
+                                className={`w-2 h-2 rounded-full transition-colors duration-300 ${index === selectedIndex ? "bg-[#6b4c3b]" : "bg-neutral-300"
                                     }`}
                                 onClick={() => scrollTo(index)}
                                 aria-label={`Go to slide ${index + 1}`}

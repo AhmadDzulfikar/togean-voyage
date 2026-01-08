@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { destinations } from "@/data/destinations";
+import ExploreAllLink from "./ExploreAllLink";
 
 // Carousel slide data
 const slides = destinations.slice(0, 5).map((dest, index) => {
@@ -68,27 +69,7 @@ export default function SpotlightCarousel() {
                 <h2 className="spotlight-carousel__heading text-3xl md:text-4xl lg:text-5xl mb-4">
                     In the spotlight: Signature Destinations
                 </h2>
-                <Link
-                    href="/destinations"
-                    className="spotlight-carousel__subheading inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-[#6b4c3b] hover:text-[#4a3429] transition-colors group"
-                >
-                    <span className="group-hover:underline underline-offset-4">
-                        Curated Experiences: Signature Destinations
-                    </span>
-                    <svg
-                        className="w-4 h-4 transition-transform group-hover:translate-x-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                        />
-                    </svg>
-                </Link>
+                <ExploreAllLink href="/destinations" label="Curated Experiences: Signature Destinations" />
             </div>
 
             {/* Carousel Container */}
@@ -257,6 +238,6 @@ export default function SpotlightCarousel() {
                     ))}
                 </div>
             </div>
-        </section>
+        </section >
     );
 }

@@ -5,15 +5,17 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { destinations } from "@/data/destinations";
-import BackToSection from "@/components/BackToSection";
+import BackLink from "@/components/BackLink";
 
 export default function DestinationsPage() {
     return (
         <>
             <Navbar />
             <main className="bg-white min-h-screen pt-8 pb-24 md:pb-32 px-4 md:px-8">
+                <div className="absolute top-24 left-4 md:left-8 z-50">
+                    <BackLink href="/" label="Back to Home" variant="light" />
+                </div>
                 <div className="mx-auto max-w-[1280px]">
-                    <BackToSection href="/#destinations" label="Back to Destinations" />
                     {/* Header */}
                     {/* Header */}
                     <div className="mb-16 md:mb-24 pt-10 md:pt-16">

@@ -36,10 +36,28 @@ export default function WildlifeGallery({ species }: WildlifeGalleryProps) {
             y: 0,
             transition: {
                 duration: 0.6,
-                // ease: "easeOut" - removing explicit ease to fix type strictness or use cubic-bezier if needed
             },
         },
     };
+
+    // Handle hash change on mount/update to switch tabs
+    React.useEffect(() => {
+        const handleHashChange = () => {
+            const hash = window.location.hash;
+            if (hash === "#land") {
+                setActiveHabitat("land");
+            } else if (hash === "#sea") {
+                setActiveHabitat("sea");
+            }
+        };
+
+        // Check on mount
+        handleHashChange();
+
+        // Check on hash change (if user clicks back/forward)
+        window.addEventListener("hashchange", handleHashChange);
+        return () => window.removeEventListener("hashchange", handleHashChange);
+    }, []);
 
     return (
         <section className="w-full max-w-[1280px] mx-auto px-6 pb-32">
@@ -83,6 +101,7 @@ export default function WildlifeGallery({ species }: WildlifeGalleryProps) {
 
             {/* Gallery Grid */}
             <motion.div
+                id={activeHabitat} // Dynamic ID for hash linking
                 key={activeHabitat} // Trigger re-render of container animation on toggle
                 variants={containerVariants}
                 initial="hidden"

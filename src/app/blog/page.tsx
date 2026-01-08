@@ -1,10 +1,9 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { blogPosts } from "@/data/blogPosts";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
-import BackToSection from "@/components/BackToSection";
+import BackLink from "@/components/BackLink";
 
 export default function BlogListingPage() {
     // Helper to truncate text
@@ -20,8 +19,10 @@ export default function BlogListingPage() {
         <div className="bg-white min-h-screen text-neutral-900 flex flex-col">
             <Navbar />
 
-            <main className="flex-grow pt-32 pb-24 px-6 md:px-12 w-full max-w-[1280px] mx-auto">
-                <BackToSection href="/#blog" label="Back to Blog" />
+            <main className="flex-grow pt-32 pb-24 px-6 md:px-12 w-full max-w-[1280px] mx-auto relative">
+                <div className="absolute z-50 top-24 left-4 md:left-8">
+                    <BackLink href="/" label="Back to Home" variant="light" />
+                </div>
                 {/* Header */}
                 <div className="mb-16 border-b border-neutral-200 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
                     <div>

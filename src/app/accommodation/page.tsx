@@ -7,6 +7,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { accommodations, Accommodation } from "@/data/accommodations";
+import BackLink from "@/components/BackLink";
 
 const TABS = ["All", "Pulau Puat", "Malengue", "Walea Kodi"] as const;
 type TabOption = (typeof TABS)[number];
@@ -94,15 +95,7 @@ export default function AccommodationPage() {
                 {/* Back Button & Header */}
                 <div className="max-w-[1280px] mx-auto px-4 md:px-8 mb-12">
                     <div className="mb-12 md:mb-16">
-                        <Link
-                            href="/#accommodation" // Anchors to home section
-                            className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-neutral-500 hover:text-[#6b4c3b] transition-colors"
-                        >
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 19l-7-7 7-7m8 14l-7-7 7-7" />
-                            </svg>
-                            Back to Home
-                        </Link>
+                        <BackLink href="/#accommodation" label="Back to Home" />
                     </div>
 
                     <div className="text-center max-w-4xl mx-auto">
@@ -151,8 +144,8 @@ export default function AccommodationPage() {
                                         setIsDropdownOpen(false);
                                     }}
                                     className={`w-full text-left px-6 py-4 font-avenir text-sm uppercase tracking-widest transition-colors hover:bg-neutral-50 ${activeTab === tab
-                                            ? "text-[#CB9275] font-semibold bg-neutral-50/50"
-                                            : "text-neutral-600"
+                                        ? "text-[#CB9275] font-semibold bg-neutral-50/50"
+                                        : "text-neutral-600"
                                         }`}
                                     role="option"
                                     aria-selected={activeTab === tab}
@@ -173,8 +166,8 @@ export default function AccommodationPage() {
                                     setSelectedIndex(0); // Reset carousel index
                                 }}
                                 className={`font-avenir text-base uppercase tracking-widest pb-4 whitespace-nowrap transition-all duration-300 relative ${activeTab === tab
-                                        ? "text-[#CB9275]"
-                                        : "text-neutral-400 hover:text-neutral-600"
+                                    ? "text-[#CB9275]"
+                                    : "text-neutral-400 hover:text-neutral-600"
                                     }`}
                             >
                                 {tab}

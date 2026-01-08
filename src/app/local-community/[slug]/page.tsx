@@ -4,7 +4,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { localCommunityExperiences } from "@/data/localCommunityExperiences";
-import BackToSection from "@/components/BackToSection";
+import BackLink from "@/components/BackLink";
 
 export function generateStaticParams() {
     return localCommunityExperiences.map((exp) => ({
@@ -27,7 +27,7 @@ export default async function LocalCommunityDetailPage({ params }: { params: Pro
                 {/* Hero Section */}
                 <section className="relative h-[70vh] min-h-[500px] w-full flex items-end overflow-hidden">
                     <div className="absolute z-50 top-24 left-4 md:left-8">
-                        <BackToSection href="/#local-community" label="Back to Local Community" className="text-white hover:text-white/80" />
+                        <BackLink href="/local-community" label="Back to Local Community" variant="light" />
                     </div>
                     <div className="absolute inset-0 z-0">
                         <Image

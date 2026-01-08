@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { destinationDetails } from "../../../data/destinationDetails";
-import BackToSection from "@/components/BackToSection";
+import BackLink from "@/components/BackLink";
 
 export function generateStaticParams() {
     return Object.keys(destinationDetails).map((slug) => ({
@@ -23,7 +23,7 @@ export default async function DestinationPage({ params }: { params: Promise<{ sl
             {/* Hero Section */}
             <section className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden">
                 <div className="absolute z-50 top-24 left-4 md:left-8">
-                    <BackToSection href="/#destinations" label="Back to Destinations" className="text-white hover:text-white/80" />
+                    <BackLink href="/destinations" label="Back to Destinations" variant="light" />
                 </div>
                 <div className="absolute inset-0 z-0">
                     <Image

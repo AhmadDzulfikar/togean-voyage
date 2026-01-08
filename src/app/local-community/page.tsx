@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import BackLink from "@/components/BackLink";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import ZigzagScrollSections, { ZigzagItem } from "@/components/ZigzagScrollSections";
@@ -62,15 +62,7 @@ export default function LocalCommunityPage() {
 
                     {/* Back Button (Absolute Top-Left within Hero) */}
                     <div className="absolute top-24 left-4 md:left-8 z-20">
-                        <Link
-                            href="/#local-community"
-                            className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-white/80 hover:text-white transition-colors"
-                        >
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 19l-7-7 7-7m8 14l-7-7 7-7" />
-                            </svg>
-                            Back
-                        </Link>
+                        <BackLink href="/#local-community" label="Back" variant="light" />
                     </div>
 
                     {/* Hero Content */}
