@@ -14,7 +14,7 @@ export default function Hero() {
                 playsInline
                 preload="auto"
             >
-                <source src="/vidfootage.webm" type="video/webm" />
+                <source src="/vidfootage.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
 
