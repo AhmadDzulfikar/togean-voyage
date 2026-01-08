@@ -36,7 +36,7 @@ export default function ProgramsPage() {
                                 <div className="flex flex-col md:flex-row gap-8 md:gap-14 lg:gap-20 items-stretch">
                                     {/* Image Block */}
                                     <div className="w-full md:w-[480px] lg:w-[520px] shrink-0">
-                                        <Link href={`/programs/${program.slug}`} className="block overflow-hidden relative aspect-[16/10] bg-neutral-200">
+                                        <Link href={`/programs/${program.slug}?from=list`} className="block overflow-hidden relative aspect-[16/10] bg-neutral-200">
                                             <Image
                                                 src={program.image}
                                                 alt={program.name}
@@ -55,7 +55,7 @@ export default function ProgramsPage() {
                                             </span>
                                         )}
                                         <h2 className="font-canto text-3xl md:text-4xl lg:text-[2.75rem] text-neutral-900 leading-tight mb-4 md:mb-6">
-                                            <Link href={`/programs/${program.slug}`} className="hover:text-[#6b4c3b] transition-colors">
+                                            <Link href={`/programs/${program.slug}?from=list`} className="hover:text-[#6b4c3b] transition-colors">
                                                 {program.name}
                                             </Link>
                                         </h2>
@@ -65,7 +65,7 @@ export default function ProgramsPage() {
 
                                         <div className="mt-auto">
                                             <Link
-                                                href={`/programs/${program.slug}`}
+                                                href={`/programs/${program.slug}?from=list`}
                                                 className="inline-flex items-center gap-2 font-avenir text-sm uppercase tracking-[0.15em] text-[#6b4c3b] hover:text-[#4a3429] transition-colors group/link"
                                             >
                                                 View Detail

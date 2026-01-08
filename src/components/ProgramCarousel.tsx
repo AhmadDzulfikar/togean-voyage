@@ -68,7 +68,7 @@ export default function ProgramCarousel() {
                                     className="flex-[0_0_100%] md:flex-[0_0_22%] min-w-0 pl-4 md:pl-6 relative"
                                 >
                                     <Link
-                                        href={`/programs/${program.slug}`}
+                                        href={`/programs/${program.slug}?from=home`}
                                         className="block aspect-square relative overflow-hidden group/card cursor-pointer rounded-sm"
                                         aria-label={`View program: ${program.name}`}
                                     >

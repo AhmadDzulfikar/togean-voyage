@@ -10,6 +10,7 @@ interface PageProps {
     params: Promise<{
         slug: string;
     }>;
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export async function generateStaticParams() {
@@ -18,13 +19,17 @@ export async function generateStaticParams() {
     }));
 }
 
-export default async function ProgramDetailPage({ params }: PageProps) {
+export default async function ProgramDetailPage({ params, searchParams }: PageProps) {
     const { slug } = await params;
+    const { from } = await searchParams;
     const program = programs.find((p) => p.slug === slug);
 
     if (!program) {
         notFound();
     }
+
+    const backHref = from === "list" ? "/programs" : "/#programs";
+    const backLabel = from === "list" ? "BACK TO PROGRAMS" : "BACK TO HOME";
 
     return (
         <div className="bg-white min-h-screen text-neutral-900">
@@ -33,7 +38,7 @@ export default async function ProgramDetailPage({ params }: PageProps) {
                 {/* Hero Section */}
                 <div className="relative h-[60vh] md:h-[70vh] w-full">
                     <div className="absolute z-50 top-24 left-4 md:left-8">
-                        <BackLink href="/#programs" label="Back to Programs" variant="light" />
+                        <BackLink href={backHref} label={backLabel} variant="light" />
                     </div>
                     <Image
                         src={program.image}
