@@ -10,7 +10,7 @@ interface BackLinkProps {
 
 export default function BackLink({ href, label, variant = "dark", className = "" }: BackLinkProps) {
     const colorClasses = variant === "dark"
-        ? "text-[#6b4c3b] hover:text-[#4a3429]"
+        ? "text-[#6b4c3b] visited:text-[#6b4c3b] active:text-[#4a3429] hover:text-[#4a3429]"
         : "text-white hover:text-white/80";
 
     return (

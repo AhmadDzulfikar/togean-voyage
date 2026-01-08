@@ -20,8 +20,8 @@ export default function BlogListingPage() {
             <Navbar />
 
             <main className="flex-grow pt-32 pb-24 px-6 md:px-12 w-full max-w-[1280px] mx-auto relative">
-                <div className="absolute z-50 top-24 left-4 md:left-8">
-                    <BackLink href="/" label="Back to Home" variant="light" />
+                <div className="pt-6 md:pt-8 mb-8">
+                    <BackLink href="/#blog" label="BACK TO BLOG" />
                 </div>
                 {/* Header */}
                 <div className="mb-16 border-b border-neutral-200 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">

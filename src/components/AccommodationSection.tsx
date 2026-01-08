@@ -198,7 +198,7 @@ export default function AccommodationSection() {
                     </Link>
                     <Link
                         href="/accommodation"
-                        className="inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-[#6b4c3b] hover:text-[#4a3429] transition-colors group"
+                        className="inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-[#6b4c3b] hover:text-[#4a3429] transition-colors group font-avenir"
                     >
                         <span className="group-hover:underline underline-offset-4">
                             Curated stays: Explore All

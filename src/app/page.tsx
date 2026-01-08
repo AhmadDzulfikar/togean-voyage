@@ -39,7 +39,9 @@ export default function Home() {
         </div>
 
         {/* Safety & Experience Ship Section */}
-        <KapalSafetyExperience />
+        <div id="boat" className="scroll-mt-24 md:scroll-mt-28">
+          <KapalSafetyExperience />
+        </div>
 
         {/* Accommodation Section */}
         <AccommodationSection />

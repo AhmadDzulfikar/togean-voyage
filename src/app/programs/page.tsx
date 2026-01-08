@@ -13,8 +13,8 @@ export default function ProgramsPage() {
             <Navbar />
             <main className="pt-8 pb-24 md:pb-32 px-4 md:px-8">
                 <div className="max-w-[1280px] mx-auto">
-                    <div className="absolute z-50 top-24 left-4 md:left-8">
-                        <BackLink href="/" label="Back to Home" variant="light" />
+                    <div className="pt-6 md:pt-8 mb-8">
+                        <BackLink href="/#programs" label="BACK TO HOME" />
                     </div>
                     {/* Page Header */}
                     <div className="mb-16 md:mb-24 pt-10 md:pt-16">

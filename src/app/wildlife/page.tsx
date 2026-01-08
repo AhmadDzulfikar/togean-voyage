@@ -30,7 +30,7 @@ export default function WildlifePage() {
             {/* SECTION 1: HERO (FULL 1 SCREEN) */}
             <header className="relative min-h-[100vh] w-full flex items-center justify-center overflow-hidden">
                 <div className="absolute z-50 top-24 left-4 md:left-8">
-                    <BackLink href="/" label="BACK TO HOME" variant="light" />
+                    <BackLink href="/#wildlife" label="BACK TO HOME" variant="light" />
                 </div>
                 {/* Background Image */}
                 <div className="absolute inset-0 w-full h-full">

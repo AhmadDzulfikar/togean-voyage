@@ -12,23 +12,20 @@ export default function DestinationsPage() {
         <>
             <Navbar />
             <main className="bg-white min-h-screen pt-8 pb-24 md:pb-32 px-4 md:px-8">
-                <div className="absolute top-24 left-4 md:left-8 z-50">
-                    <BackLink href="/" label="Back to Home" variant="light" />
-                </div>
                 <div className="mx-auto max-w-[1280px]">
-                    {/* Header */}
-                    {/* Header */}
-                    <div className="mb-16 md:mb-24 pt-10 md:pt-16">
-                        <span className="block font-avenir text-sm md:text-base uppercase tracking-[0.2em] text-neutral-500 mb-4">
-                            Togean Voyages
-                        </span>
-                        <h1 className="font-canto text-4xl md:text-5xl lg:text-6xl text-[#6b4c3b] mb-4">
-                            Destinations
-                        </h1>
-                        <span className="block font-avenir text-neutral-500 text-lg">
-                            {destinations.length} Destinations
-                        </span>
+                    <div className="pt-6 md:pt-8 mb-8">
+                        <BackLink href="/#destinations" label="BACK TO HOME" />
                     </div>
+                    {/* Header */}
+                    <span className="block font-avenir text-sm md:text-base uppercase tracking-[0.2em] text-neutral-500 mb-4">
+                        Togean Voyages
+                    </span>
+                    <h1 className="font-canto text-4xl md:text-5xl lg:text-6xl text-[#6b4c3b] mb-4">
+                        Destinations
+                    </h1>
+                    <span className="block font-avenir text-neutral-500 text-lg">
+                        {destinations.length} Destinations
+                    </span>
 
                     {/* Destinations List */}
                     <div className="flex flex-col gap-0">
@@ -84,7 +81,7 @@ export default function DestinationsPage() {
                         ))}
                     </div>
                 </div>
-            </main>
+            </main >
             <FooterSection />
         </>
     );

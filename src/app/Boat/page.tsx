@@ -10,13 +10,13 @@ export default function BoatPage() {
         <div className="bg-white min-h-screen text-neutral-900 flex flex-col">
             <Navbar />
 
-            <main className="flex-grow pt-24 pb-24 w-full">
+            <main className="flex-grow pt-8 pb-24 w-full">
 
                 {/* Back Button & Hero Container */}
                 <div className="max-w-[1280px] mx-auto px-4 md:px-8 mb-16 md:mb-24">
                     {/* Back Button */}
-                    <div className="mb-12 md:mb-16">
-                        <BackLink href="/#boat-safety-experience" label="Back to Home" />
+                    <div className="pt-6 md:pt-8 mb-12 md:mb-16">
+                        <BackLink href="/#boat" label="BACK TO BOAT" />
                     </div>
 
                     {/* Simple Premium Hero Text */}

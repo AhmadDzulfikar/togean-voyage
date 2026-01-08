@@ -268,7 +268,7 @@ export default function KapalSafetyExperience() {
                 </Link>
                 <Link
                     href="/Boat"
-                    className="inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-[#CB9275] hover:text-[#B67F63] transition-colors group font-avenir"
+                    className="inline-flex items-center gap-2 text-sm md:text-base uppercase tracking-wider text-[#6B4C3B] hover:text-[#4A3429] transition-colors group font-avenir"
                 >
                     <span className="group-hover:underline underline-offset-4">
                         Curated essentials: Explore All
