@@ -91,7 +91,7 @@ export default function AccommodationPage() {
         <div className="bg-white min-h-screen text-neutral-900 flex flex-col">
             <Navbar />
 
-            <main className="flex-grow pt-24 pb-24 w-full">
+            <main className="flex-grow pt-8 md:pt-10 pb-24 md:pb-32 w-full">
                 {/* Back Button & Header */}
                 <div className="max-w-[1280px] mx-auto px-4 md:px-8 mb-12">
                     <div className="mb-12 md:mb-16">

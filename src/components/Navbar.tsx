@@ -101,29 +101,28 @@ export default function Navbar() {
     }, []);
 
     // Derived state for styles
-    const isSolid = isHomePage ? !isTransparent : isScrolled;
+    // Logic: If NOT home page, or if (home page AND NOT transparent), then SOLID.
+    // This allows non-home pages to be solid immediately on SSR/mount before scroll logic runs.
+    const isSolid = !isHomePage || !isTransparent;
 
     // On Home page: Always fixed.
     // On Other pages: Fixed when scrolled, Relative when top.
     const positionClass = isHomePage
         ? "fixed top-0 left-0 right-0"
-        : isScrolled ? "fixed top-0 left-0 right-0" : "relative";
+        : isScrolled
+            ? "fixed top-0 left-0 right-0"
+            : "relative";
 
     const bgClass = isSolid
         ? "bg-white/95 backdrop-blur-sm shadow-sm border-b border-neutral-200"
         : "bg-transparent border-transparent";
 
     // Build-safe colors: Avoid simple "text-gray-800" if inherited. Use explicit neutral-900.
-    // For non-home pages, we force "solid" style initially via state, so this matches that.
-    const textColorClass = isSolid ? "text-neutral-900" : (isHomePage ? "text-white" : "text-neutral-900");
-    const hamburgerColorClass = isSolid ? "bg-neutral-900" : (isHomePage ? "bg-white" : "bg-neutral-900");
+    const textColorClass = isSolid ? "text-neutral-900" : "text-white";
+    const hamburgerColorClass = isSolid ? "bg-neutral-900" : "bg-white";
     const logoClass = "w-[110px] md:w-[140px] lg:w-[180px] h-auto object-contain transition-all duration-300"; // Keep logo sizing
 
-    // Padding: Reduced when solid or on home page transparent mode (per request "Reduce vertical padding")
-    // Request: "from: py-6 to: py-3 (desktop), py-2 (mobile)"
-    // Previous default was py-4 md:py-6. 
-    // Let's make it tighter overall or just when fixed.
-    // User asked: "Reduce vertical padding ... Navbar height should be reduced ... keep layout same just tighter spacing"
+    // Padding: Reduced as per request "py-2 md:py-3"
     const paddingClass = "py-2 md:py-3";
 
     return (
@@ -132,8 +131,13 @@ export default function Navbar() {
             <NavOverlayMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
             {/* Spacer: Only needed if position becomes fixed AND we were relative before. 
-                On Home page, we are always fixed, so NO spacer needed (we want overlay).
-                On non-Home, we follow old logic: check isScrolled.
+                On Home page, we are always fixed, so NO spacer needed.
+                On non-Home, we are relative at top, so NO spacer needed at top.
+                When non-Home becomes fixed (isScrolled), we might need spacer if layout jumps, 
+                but usually on non-home pages, the content flows under naturally or we accept the jump?
+                Wait, standard practice: if switching rel->fixed, you need a placeholder.
+                User said "For non-home pages: ... At top of home: transparent ... If you currently compute ...".
+                Let's keep spacer logic simple: if isScrolled AND !isHomePage, show spacer.
             */}
             {!isHomePage && isScrolled && <div style={{ height: navbarHeight }} />}
 

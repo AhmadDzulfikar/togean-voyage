@@ -23,7 +23,7 @@ export default function DestinationsPage() {
                     <h1 className="font-canto text-4xl md:text-5xl lg:text-6xl text-[#6b4c3b] mb-4">
                         Destinations
                     </h1>
-                    <span className="block font-avenir text-neutral-500 text-lg">
+                    <span className="block font-avenir text-neutral-500 text-lg mb-6 md:mb-8">
                         {destinations.length} Destinations
                     </span>
 

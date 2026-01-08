@@ -4,7 +4,6 @@ import React, { useCallback, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
-import { cantoFont, avenirFont } from "@/app/fonts";
 import { blogPosts } from "@/data/blogPosts";
 
 // --- Helper: Truncate Excerpt ---
@@ -45,10 +44,7 @@ export default function BlogSection() {
             <div className="mx-auto px-4 md:px-8 max-w-[1200px]">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row items-center justify-center md:relative mb-12">
-                    <h2
-                        className="text-[30px] text-center"
-                        style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                    >
+                    <h2 className="font-canto text-[30px] text-center">
                         Find inspiration here
                     </h2>
                     <Link
@@ -128,21 +124,21 @@ export default function BlogSection() {
                                                 className="object-cover"
                                             />
                                         </Link>
-                                        <div className={`${avenirFont.className} text-xs text-gray-500 uppercase tracking-widest mb-3`}>
+                                        <div className="font-avenir text-xs text-gray-500 uppercase tracking-widest mb-3">
                                             {post.locationLabel} | {post.date} | {post.category}
                                         </div>
                                         <Link href={`/blog/${post.slug}`} className="block">
-                                            <h3 className={`${cantoFont.className} text-2xl leading-tight mb-3 line-clamp-3`}>
+                                            <h3 className="font-canto text-2xl leading-tight mb-3 line-clamp-3">
                                                 {post.title}
                                             </h3>
                                         </Link>
-                                        <p className={`${avenirFont.className} text-sm leading-relaxed text-gray-800 mb-6`}>
+                                        <p className="font-avenir text-sm leading-relaxed text-gray-800 mb-6">
                                             {truncateExcerpt(post.excerpt)}
                                         </p>
                                         <div className="mt-auto flex justify-end">
                                             <Link
                                                 href={`/blog/${post.slug}`}
-                                                className={`${avenirFont.className} inline-flex items-center text-xs uppercase tracking-[0.15em] border-b border-transparent pb-0.5`}
+                                                className="font-avenir inline-flex items-center text-xs uppercase tracking-[0.15em] border-b border-transparent pb-0.5"
                                             >
                                                 Read More
                                                 <svg
