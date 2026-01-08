@@ -193,9 +193,34 @@ export default function LanguageSwitcher() {
                 </svg>
             </button>
 
+<<<<<<< HEAD
             {/* Portal-rendered dropdown */}
             {dropdownMenu}
         </>
+=======
+            {/* Dropdown Menu - scrollable if too many items */}
+            <div
+                className={`absolute top-full left-0 mt-2 w-40 max-h-80 overflow-y-auto bg-[#CB9275] shadow-lg rounded-sm flex flex-col transition-all duration-300 origin-top
+          ${isOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-0 invisible"}
+        `}
+                role="menu"
+            >
+                {LANGUAGES.map((lang) => (
+                    <button
+                        key={lang.code}
+                        onClick={() => handleLanguageSelect(lang.code)}
+                        className={`text-left px-4 py-3 text-xs md:text-sm text-white hover:bg-black/10 transition-colors uppercase tracking-widest flex items-center gap-2
+               ${currentLangCode === lang.code ? "bg-black/20 font-semibold" : ""}
+            `}
+                        role="menuitem"
+                    >
+                        <span className="w-6 shrink-0">{lang.code.toUpperCase()}</span>
+                        <span className="opacity-70 text-[10px]">{lang.label}</span>
+                    </button>
+                ))}
+            </div>
+        </div>
+>>>>>>> 49f957196c1b0bacc6e5552e66c58a8d15a0a39e
     );
 }
 
