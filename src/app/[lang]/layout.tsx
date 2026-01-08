@@ -12,5 +12,18 @@ export default async function Layout({
 }
 
 export async function generateStaticParams() {
-    return [{ lang: "en" }, { lang: "fr" }, { lang: "es" }];
+    return [
+        { lang: "en" },
+        { lang: "fr" },
+        { lang: "es" },
+        { lang: "ru" },
+        { lang: "id" },
+        { lang: "ja" },
+        { lang: "ko" },
+        { lang: "zh" },
+        { lang: "ar" },
+        { lang: "de" },
+        { lang: "it" },
+        { lang: "tr" },
+    ];
 }

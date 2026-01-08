@@ -3,10 +3,25 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter, usePathname, useParams } from "next/navigation";
 
+/**
+ * Language configuration
+ * - code: 2-letter URL prefix (lowercase in URL, uppercase in UI)
+ * - label: Display name in dropdown
+ * - gt: Google Translate target code (may differ from URL code)
+ */
 const LANGUAGES = [
-    { code: "en", label: "ENGLISH" },
-    { code: "fr", label: "FRANCE" },
-    { code: "es", label: "SPANISH" },
+    { code: "en", label: "ENGLISH", gt: "en" },
+    { code: "fr", label: "FRANCE", gt: "fr" },
+    { code: "es", label: "SPANISH", gt: "es" },
+    { code: "ru", label: "RUSSIAN", gt: "ru" },
+    { code: "id", label: "INDONESIAN", gt: "id" },
+    { code: "ja", label: "JAPANESE", gt: "ja" },
+    { code: "ko", label: "KOREAN", gt: "ko" },
+    { code: "zh", label: "CHINESE", gt: "zh-CN" },
+    { code: "ar", label: "ARABIC (SAUDI)", gt: "ar" },
+    { code: "de", label: "GERMAN", gt: "de" },
+    { code: "it", label: "ITALIAN", gt: "it" },
+    { code: "tr", label: "TURKISH", gt: "tr" },
 ];
 
 /**
@@ -91,9 +106,9 @@ export default function LanguageSwitcher() {
                 </svg>
             </button>
 
-            {/* Dropdown Menu */}
+            {/* Dropdown Menu - scrollable if too many items */}
             <div
-                className={`absolute top-full left-0 mt-2 w-32 bg-[#CB9275] shadow-lg rounded-sm overflow-hidden flex flex-col transition-all duration-300 origin-top
+                className={`absolute top-full left-0 mt-2 w-40 max-h-80 overflow-y-auto bg-[#CB9275] shadow-lg rounded-sm flex flex-col transition-all duration-300 origin-top
           ${isOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-0 invisible"}
         `}
                 role="menu"
@@ -107,7 +122,7 @@ export default function LanguageSwitcher() {
             `}
                         role="menuitem"
                     >
-                        <span className="w-5">{lang.code.toUpperCase()}</span>
+                        <span className="w-6 shrink-0">{lang.code.toUpperCase()}</span>
                         <span className="opacity-70 text-[10px]">{lang.label}</span>
                     </button>
                 ))}
@@ -115,3 +130,6 @@ export default function LanguageSwitcher() {
         </div>
     );
 }
+
+// Export languages for use in other components if needed
+export { LANGUAGES };
