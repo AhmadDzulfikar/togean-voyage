@@ -4,6 +4,29 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ========================================
+   HIDE GOOGLE TRANSLATE INJECTED UI
+   This ensures our custom language dropdown is the only visible
+   translation control. The googtrans cookie still triggers
+   auto-translation, but no Google banner/popup appears.
+======================================== */
+iframe.goog-te-banner-frame,
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+.goog-te-gadget,
+.skiptranslate,
+#goog-gt-tt,
+.goog-te-spinner-pos,
+.goog-te-menu-frame {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

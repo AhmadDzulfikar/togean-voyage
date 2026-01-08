@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 import NavOverlayMenu from "./NavOverlayMenu";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -146,19 +147,23 @@ export default function Navbar() {
                 className={`transition-all duration-300 ease-out z-50 w-full ${positionClass} ${bgClass} ${isHidden ? "-translate-y-full" : "translate-y-0"} md:translate-y-0`}
             >
                 <div className={`flex items-center justify-between px-5 md:px-10 ${paddingClass}`}>
-                    {/* Hamburger Menu */}
-                    <button
-                        className="flex flex-col justify-center gap-[5px] bg-transparent border-none cursor-pointer p-2 w-10 h-10 group"
-                        aria-label="Open menu"
-                        onClick={() => {
-                            setIsMenuOpen(true);
-                            setIsHidden(false); // Force show when opening menu
-                        }}
-                    >
-                        <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass} ${isMenuOpen ? "opacity-0" : ""}`} />
-                        <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass} ${isMenuOpen ? "opacity-0" : ""}`} />
-                        <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass} ${isMenuOpen ? "opacity-0" : ""}`} />
-                    </button>
+                    {/* Left: Hamburger & Language */}
+                    <div className="flex items-center gap-2 md:gap-4">
+                        <button
+                            className="flex flex-col justify-center gap-[5px] bg-transparent border-none cursor-pointer p-2 w-10 h-10 group"
+                            aria-label="Open menu"
+                            onClick={() => {
+                                setIsMenuOpen(true);
+                                setIsHidden(false); // Force show when opening menu
+                            }}
+                        >
+                            <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass} ${isMenuOpen ? "opacity-0" : ""}`} />
+                            <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass} ${isMenuOpen ? "opacity-0" : ""}`} />
+                            <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass} ${isMenuOpen ? "opacity-0" : ""}`} />
+                        </button>
+
+                        <LanguageSwitcher />
+                    </div>
 
                     {/* Logo */}
                     <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
