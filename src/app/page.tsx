@@ -18,6 +18,7 @@ import AccommodationSection from "@/components/AccommodationSection";
 import LocalCommunity from "@/components/LocalCommunity";
 import BlogSection from "@/components/BlogSection";
 import FooterSection from "@/components/FooterSection";
+import MobileTripCtaBar from "@/components/MobileTripCtaBar";
 
 export default function Home() {
   return (
@@ -59,6 +60,8 @@ export default function Home() {
 
         {/* Footer Section */}
         <FooterSection />
+
+        <MobileTripCtaBar targetId="wildlife" />
       </main>
     </>
   );
