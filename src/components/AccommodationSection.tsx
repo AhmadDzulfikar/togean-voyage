@@ -192,7 +192,7 @@ export default function AccommodationSection() {
                 {/* Section Header */}
                 <div className="text-center mb-10 md:mb-14 px-4">
                     <Link href="/accommodation">
-                        <h2 className="font-canto text-3xl md:text-4xl lg:text-5xl mb-4 hover:text-neutral-700 transition-colors cursor-pointer">
+                        <h2 className="font-canto text-3xl md:text-4xl lg:text-5xl mb-4 text-neutral-900 hover:text-neutral-700 transition-colors cursor-pointer">
                             At rest: Island Guest Houses
                         </h2>
                     </Link>
