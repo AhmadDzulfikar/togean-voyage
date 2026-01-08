@@ -19,6 +19,7 @@ import LocalCommunity from "@/components/LocalCommunity";
 import BlogSection from "@/components/BlogSection";
 import FooterSection from "@/components/FooterSection";
 import MobileTripCtaBar from "@/components/MobileTripCtaBar";
+import HomepageCta from "@/components/HomepageCta";
 
 export default function Home() {
   return (
@@ -57,6 +58,9 @@ export default function Home() {
         <div id="blog" className="scroll-mt-24 md:scroll-mt-28">
           <BlogSection />
         </div>
+
+        {/* Homepage CTA */}
+        <HomepageCta />
 
         {/* Footer Section */}
         <FooterSection />
