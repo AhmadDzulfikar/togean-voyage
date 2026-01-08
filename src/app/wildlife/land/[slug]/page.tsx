@@ -39,7 +39,7 @@ export default async function LandWildlifeDetailPage({ params }: { params: Promi
         <div className="bg-white min-h-screen text-neutral-900 flex flex-col">
             <Navbar />
 
-            <main className="flex-grow pt-32 pb-24 w-full">
+            <main className="flex-grow pt-[calc(env(safe-area-inset-top)+24px)] md:pt-10 pb-24 w-full">
                 {/* HERO SECTION */}
                 <section className="px-6 md:px-12 max-w-[1280px] mx-auto mb-16 md:mb-24">
                     <BackLink href="/wildlife/land" label="Back to Land Wildlife" />

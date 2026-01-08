@@ -157,7 +157,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
     return (
         <div className="bg-white min-h-screen text-neutral-900">
             <Navbar />
-            <main className="pt-24 pb-24 px-4 md:px-8">
+            <main className="pt-[calc(env(safe-area-inset-top)+24px)] md:pt-10 pb-24 px-4 md:px-8">
                 <article className="max-w-[900px] mx-auto">
                     <div className="pt-6 md:pt-8 mb-8">
                         <BackLink href="/blog" label="Back to Blog" />
