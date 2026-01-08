@@ -11,7 +11,7 @@ export default function SeaWildlifeListingPage() {
         <div className="bg-white min-h-screen text-neutral-900 flex flex-col">
             <Navbar />
 
-            <main className="flex-grow pt-24 pb-24 px-6 md:px-12 w-full max-w-[1280px] mx-auto">
+            <main className="flex-grow pt-[calc(env(safe-area-inset-top)+24px)] md:pt-10 pb-24 px-6 md:px-12 w-full max-w-[1280px] mx-auto">
                 {/* Back Link */}
                 <div className="mb-8">
                     <BackLink href="/wildlife#sea" label="BACK TO WILDLIFE" />

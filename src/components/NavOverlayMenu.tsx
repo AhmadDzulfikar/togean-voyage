@@ -21,7 +21,7 @@ const RIGHT_ITEMS = [
     { label: "Boat Safety & Experience", href: "/boat" },
     { label: "Accommodation", href: "/accommodation" },
     { label: "Blog", href: "/blog" },
-    { label: "How to Booking?", href: "/how-to-booking" },
+    { label: "How to Book?", href: "/how-to-booking" },
 ];
 
 export default function NavOverlayMenu({ isOpen, onClose }: NavOverlayMenuProps) {

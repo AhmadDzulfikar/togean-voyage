@@ -19,7 +19,7 @@ export default function BlogListingPage() {
         <div className="bg-white min-h-screen text-neutral-900 flex flex-col">
             <Navbar />
 
-            <main className="flex-grow pt-32 pb-24 px-6 md:px-12 w-full max-w-[1280px] mx-auto relative">
+            <main className="flex-grow pt-[calc(env(safe-area-inset-top)+24px)] md:pt-10 pb-24 px-6 md:px-12 w-full max-w-[1280px] mx-auto relative">
                 <div className="pt-6 md:pt-8 mb-8">
                     <BackLink href="/#blog" label="BACK TO BLOG" />
                 </div>
