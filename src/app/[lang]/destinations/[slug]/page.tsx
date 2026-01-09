@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { destinationDetails } from "../../../data/destinationDetails";
+import { destinationDetails } from "@/data/destinationDetails";
 import BackLink from "@/components/BackLink";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";

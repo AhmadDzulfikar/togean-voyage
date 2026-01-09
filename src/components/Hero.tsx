@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Hero() {
     return (
-        <section className="hero relative">
+        <section id="hero-section" className="hero relative">
             {/* Background Video */}
             <video
                 className="hero__video"

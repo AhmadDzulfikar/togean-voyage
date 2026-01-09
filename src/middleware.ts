@@ -46,6 +46,6 @@ export const config = {
          * - robots.txt, sitemap.xml, manifest.webmanifest (SEO files)
          * - assets (if you have an assets folder)
          */
-        '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|manifest.webmanifest|.*\\.png$|.*\\.jpg$|.*\\.jpeg$|.*\\.svg$|.*\\.webp$|.*\\.gif$|.*\\.woff$|.*\\.woff2$|.*\\.ttf$|.*\\.otf$).*)',
+        '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|manifest.webmanifest|.*\\.png$|.*\\.jpg$|.*\\.jpeg$|.*\\.svg$|.*\\.webp$|.*\\.gif$|.*\\.mp4$|.*\\.webm$|.*\\.woff$|.*\\.woff2$|.*\\.ttf$|.*\\.otf$).*)',
     ],
 };

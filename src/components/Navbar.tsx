@@ -8,11 +8,16 @@ import NavOverlayMenu from "./NavOverlayMenu";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
+    // Component for main navigation
     const pathname = usePathname();
-    const isHomePage = pathname === "/";
 
-    const [isScrolled, setIsScrolled] = useState(false);
-    // Initial state strictly depends on pathname for SSR match
+    // Strict Homepage Detection
+    // Must match /[lang] where lang is in the supported list
+    const locales = ['en', 'fr', 'es', 'ru', 'id', 'ja', 'ko', 'zh', 'ar', 'de', 'it', 'tr'];
+    const segments = pathname.split('/').filter(Boolean);
+    const isHomePage = segments.length === 0 || (segments.length === 1 && locales.includes(segments[0]));
+
+    // isTransparent = true when Hero is visible (only applies to Home)
     const [isTransparent, setIsTransparent] = useState(isHomePage);
     const [navbarHeight, setNavbarHeight] = useState(0);
     const headerRef = useRef<HTMLElement>(null);
@@ -20,7 +25,7 @@ export default function Navbar() {
     const [isHidden, setIsHidden] = useState(false);
     const lastScrollY = useRef(0);
 
-    // Mobile Hide-on-scroll logic
+    // Mobile Hide-on-scroll logic (keep as requested, good UX)
     useEffect(() => {
         const handleScroll = () => {
             const currentY = window.scrollY;
@@ -48,42 +53,29 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Handle scroll for non-home pages or fallback
-    useEffect(() => {
-        if (isHomePage) return;
-
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 0);
-        };
-
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        handleScroll();
-
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [isHomePage]);
-
-    // Handle IntersectionObserver for Home page
+    // IntersectionObserver for Hero Section
+    // Detects if Hero is visible. If yes, navbar is transparent.
     useEffect(() => {
         if (!isHomePage) {
             setIsTransparent(false);
             return;
         }
 
-        // Initial check
+        // Initial check - assume transparent on mount if home (avoids flash)
         setIsTransparent(true);
 
         const observer = new IntersectionObserver(
             ([entry]) => {
-                // If sentinel is intersecting (visible), we are in hero -> transparent
-                // If sentinel is NOT intersecting, we passed hero -> solid
+                // If hero is intersecting (any part visible), we are transparent
+                // When hero moves completely out of view, we become solid
                 setIsTransparent(entry.isIntersecting);
             },
-            { threshold: 0 } // Trigger as soon as even 1px is visible
+            { threshold: 0 } // Trigger when any pixel of hero is visible
         );
 
-        const sentinel = document.getElementById("hero-sentinel");
-        if (sentinel) {
-            observer.observe(sentinel);
+        const heroSection = document.getElementById("hero-section");
+        if (heroSection) {
+            observer.observe(heroSection);
         }
 
         return () => observer.disconnect();
@@ -102,28 +94,28 @@ export default function Navbar() {
     }, []);
 
     // Derived state for styles
-    // Logic: If NOT home page, or if (home page AND NOT transparent), then SOLID.
-    // This allows non-home pages to be solid immediately on SSR/mount before scroll logic runs.
     const isSolid = !isHomePage || !isTransparent;
 
-    // On Home page: Always fixed.
-    // On Other pages: Fixed when scrolled, Relative when top.
-    const positionClass = isHomePage
-        ? "fixed top-0 left-0 right-0"
-        : isScrolled
-            ? "fixed top-0 left-0 right-0"
-            : "relative";
+    // Navbar fixed positioning
+    const positionClass = "fixed top-0 left-0 right-0";
 
+    // Styles based on state
+    // Transparent: No bg, no shadow, no border
+    // Solid: White bg, shadow, border
     const bgClass = isSolid
         ? "bg-white/95 backdrop-blur-sm shadow-sm border-b border-neutral-200"
-        : "bg-transparent border-transparent";
+        : "bg-transparent border-transparent shadow-none backdrop-blur-none";
 
-    // Build-safe colors: Avoid simple "text-gray-800" if inherited. Use explicit neutral-900.
+    // Text colors
+    // When transparent (over hero), text should be white to contrast with video
+    // When solid, text is dark
     const textColorClass = isSolid ? "text-neutral-900" : "text-white";
     const hamburgerColorClass = isSolid ? "bg-neutral-900" : "bg-white";
-    const logoClass = "w-[110px] md:w-[140px] lg:w-[180px] h-auto object-contain transition-all duration-300"; // Keep logo sizing
 
-    // Padding: Reduced as per request "py-2 md:py-3"
+    // Logo: Invert brightness when on transparent dark background
+    const logoClass = "w-[110px] md:w-[140px] lg:w-[180px] h-auto object-contain transition-all duration-300";
+
+    // Padding
     const paddingClass = "py-2 md:py-3";
 
     return (
@@ -131,16 +123,12 @@ export default function Navbar() {
             {/* Full Screen Overlay Menu */}
             <NavOverlayMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
-            {/* Spacer: Only needed if position becomes fixed AND we were relative before. 
-                On Home page, we are always fixed, so NO spacer needed.
-                On non-Home, we are relative at top, so NO spacer needed at top.
-                When non-Home becomes fixed (isScrolled), we might need spacer if layout jumps, 
-                but usually on non-home pages, the content flows under naturally or we accept the jump?
-                Wait, standard practice: if switching rel->fixed, you need a placeholder.
-                User said "For non-home pages: ... At top of home: transparent ... If you currently compute ...".
-                Let's keep spacer logic simple: if isScrolled AND !isHomePage, show spacer.
+            {/* Spacer: Only needed on non-home pages where navbar is solid/fixed 
+                and might overlap content. On Home, layout starts under navbar anyway? 
+                Actually, usually home hero starts at top:0, so no spacer needed.
+                Non-home pages: content starts at top. If fixed navbar, we need spacer.
             */}
-            {!isHomePage && isScrolled && <div style={{ height: navbarHeight }} />}
+            {!isHomePage && <div style={{ height: navbarHeight }} />}
 
             <header
                 ref={headerRef}
@@ -162,7 +150,7 @@ export default function Navbar() {
                             <span className={`block w-6 h-0.5 transition-all duration-300 ${hamburgerColorClass} ${isMenuOpen ? "opacity-0" : ""}`} />
                         </button>
 
-                        <LanguageSwitcher />
+                        <LanguageSwitcher isTransparent={!isSolid} />
                     </div>
 
                     {/* Logo */}
@@ -184,8 +172,8 @@ export default function Navbar() {
                         href="/book"
                         className={`hidden md:inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-medium tracking-wide transition-all duration-300 font-avenir shadow-sm border 
                             ${isHomePage && !isSolid
-                                ? "bg-white text-neutral-900 border-neutral-200 hover:bg-neutral-50"
-                                : "bg-[#CB9275] text-white border-transparent hover:bg-[#B67F63]"
+                                ? "bg-white text-neutral-900 border-white hover:bg-neutral-100" // Transparent state: White button
+                                : "bg-[#CB9275] text-white border-transparent hover:bg-[#B67F63]" // Solid state: Tan button
                             }`}
                     >
                         {/* WhatsApp Icon */}
