@@ -10,26 +10,28 @@ interface PageProps {
     params: Promise<{
         slug: string;
     }>;
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export async function generateStaticParams() {
-    return programs.map((program) => ({
-        slug: program.slug,
-    }));
+    const locales = ['en', 'fr', 'es', 'ru', 'id', 'ja', 'ko', 'zh', 'ar', 'de', 'it', 'tr'];
+    return locales.flatMap((lang) =>
+        programs.map((program) => ({
+            lang,
+            slug: program.slug,
+        }))
+    );
 }
 
-export default async function ProgramDetailPage({ params, searchParams }: PageProps) {
+export default async function ProgramDetailPage({ params }: PageProps) {
     const { slug } = await params;
-    const { from } = await searchParams;
     const program = programs.find((p) => p.slug === slug);
 
     if (!program) {
         notFound();
     }
 
-    const backHref = from === "list" ? "/programs" : "/#programs";
-    const backLabel = from === "list" ? "BACK TO PROGRAMS" : "BACK TO HOME";
+    const backHref = "/programs";
+    const backLabel = "BACK TO PROGRAMS";
 
     return (
         <div className="bg-white min-h-screen text-neutral-900">

@@ -6,6 +6,16 @@ import FooterSection from "@/components/FooterSection";
 import { wildLifeSeaDetails } from "@/data/wildlifeSeaDetails";
 import BackLink from "@/components/BackLink";
 
+export async function generateStaticParams() {
+    const locales = ['en', 'fr', 'es', 'ru', 'id', 'ja', 'ko', 'zh', 'ar', 'de', 'it', 'tr'];
+    return locales.flatMap((lang) => 
+        wildLifeSeaDetails.map((species) => ({
+            lang,
+            slug: species.slug,
+        }))
+    );
+}
+
 export default async function SeaWildlifeDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const species = wildLifeSeaDetails.find((s) => s.slug === slug);

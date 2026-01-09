@@ -8,9 +8,13 @@ import { wildlifeLandDetails } from "@/data/wildlifeLandDetails";
 import BackLink from "@/components/BackLink";
 
 export async function generateStaticParams() {
-    return wildlifeLandDetails.map((species) => ({
-        slug: species.slug,
-    }));
+    const locales = ['en', 'fr', 'es', 'ru', 'id', 'ja', 'ko', 'zh', 'ar', 'de', 'it', 'tr'];
+    return locales.flatMap((lang) =>
+        wildlifeLandDetails.map((species) => ({
+            lang,
+            slug: species.slug,
+        }))
+    );
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

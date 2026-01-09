@@ -7,9 +7,13 @@ import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 
 export function generateStaticParams() {
-    return Object.keys(destinationDetails).map((slug) => ({
-        slug,
-    }));
+    const locales = ['en', 'fr', 'es', 'ru', 'id', 'ja', 'ko', 'zh', 'ar', 'de', 'it', 'tr'];
+    return locales.flatMap((lang) =>
+        Object.keys(destinationDetails).map((slug) => ({
+            lang,
+            slug,
+        }))
+    );
 }
 
 export default async function DestinationPage({ params }: { params: Promise<{ slug: string }> }) {

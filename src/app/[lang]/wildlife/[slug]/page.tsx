@@ -5,6 +5,16 @@ import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { wildlifeSpecies } from "@/data/wildlifeSpecies";
 
+export async function generateStaticParams() {
+    const locales = ['en', 'fr', 'es', 'ru', 'id', 'ja', 'ko', 'zh', 'ar', 'de', 'it', 'tr'];
+    return locales.flatMap((lang) => 
+        wildlifeSpecies.map((species) => ({
+            lang,
+            slug: species.slug,
+        }))
+    );
+}
+
 export default async function WildlifeDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const species = wildlifeSpecies.find((s) => s.slug === slug);

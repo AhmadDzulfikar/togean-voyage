@@ -13,9 +13,13 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-    return blogPosts.map((post) => ({
-        slug: post.slug,
-    }));
+    const locales = ['en', 'fr', 'es', 'ru', 'id', 'ja', 'ko', 'zh', 'ar', 'de', 'it', 'tr'];
+    return locales.flatMap((lang) =>
+        blogPosts.map((post) => ({
+            lang,
+            slug: post.slug,
+        }))
+    );
 }
 
 export default async function BlogDetailPage({ params }: PageProps) {
