@@ -7,20 +7,20 @@ export interface Destination {
 
 export const destinations: Destination[] = [
     {
-        name: "Pulau Puat",
-        slug: "pulau-puat",
+        name: "Pulau Puah",
+        slug: "pulau-puah",
         image: "/destinations/destination_pulau_puat.webp",
         description: "An isolated paradise where a turquoise lagoon meets the open sea, offering sunrise views over a pristine coral reef edge.",
     },
     {
-        name: "Malengue",
-        slug: "malengue",
+        name: "Malenge",
+        slug: "malenge",
         image: "/destinations/destination_malengue.webp",
         description: "A lush coastline framing a calm bay, perfect for witnessing timeless wooden boats drift by in the warm afternoon glow.",
     },
     {
-        name: "Walea Kodi",
-        slug: "walea-kodi",
+        name: "Waleakodi",
+        slug: "waleakodi",
         image: "/destinations/destination_walea_kodi.webp",
         description: "Crystal-clear shallow waters reveal a vibrant coral garden, creating a serene tropical sanctuary for underwater exploration.",
     },

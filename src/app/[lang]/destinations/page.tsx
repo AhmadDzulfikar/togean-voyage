@@ -56,7 +56,7 @@ export default function DestinationsPage() {
                                             Togean Archipelago
                                         </span>
 
-                                        <h2 className="font-canto text-3xl md:text-4xl text-[#1a1a1a] mb-4 md:mb-6">
+                                        <h2 className="font-canto text-3xl md:text-4xl text-black mb-4 md:mb-6">
                                             <Link href={`/destinations/${destination.slug}`} className="hover:text-opacity-80 transition-colors">
                                                 {destination.name}
                                             </Link>

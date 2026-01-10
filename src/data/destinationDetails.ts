@@ -21,11 +21,11 @@ export interface DestinationDetail {
 }
 
 export const destinationDetails: Record<string, DestinationDetail> = {
-    "pulau-puat": {
-        slug: "pulau-puat",
-        name: "Pulau Puat",
+    "pulau-puah": {
+        slug: "pulau-puah",
+        name: "Pulau Puah",
         tagline: "A pristine barrier reef standing guard over the open ocean.",
-        intro: "Located at the furthest edge of the archipelago, Pulau Puat offers a rare glimpse into a healthy, thriving reef system where the ocean feels practically untouched. The lagoon waters remain calm and clear, providing exceptional visibility for those willing to venture this far.",
+        intro: "Located at the furthest edge of the archipelago, Pulau Puah offers a rare glimpse into a healthy, thriving reef system where the ocean feels practically untouched. The lagoon waters remain calm and clear, providing exceptional visibility for those willing to venture this far.",
         whyItMatters: [
             "Home to one of the most diverse coral gardens in the region with vibrant marine life",
             "Offers sheltered snorkeling conditions even when the open sea is restless",
@@ -53,7 +53,7 @@ export const destinationDetails: Record<string, DestinationDetail> = {
         routeFit: {
             idealTiming: "Morning for the clearest water and calmest seas",
             suggestedDuration: "2 to 3 hours",
-            pairsWellWith: ["Bomba", "Malengue"],
+            pairsWellWith: ["Bomba", "Malenge"],
             notes: [
                 "Accessible only by boat, requiring a short journey from the main islands",
                 "Best visited during high tide for easier beach access and swimming"
@@ -71,11 +71,11 @@ export const destinationDetails: Record<string, DestinationDetail> = {
             mood: "/destinations/pulau-puat/mood.webp"
         }
     },
-    "malengue": {
-        slug: "malengue",
-        name: "Malengue",
+    "malenge": {
+        slug: "malenge",
+        name: "Malenge",
         tagline: "A lush, green sanctuary where the jungle meets the sea.",
-        intro: "Malengue is defined by its dense tropical foliage that spills right down to the water's edge, creating a sense of absolute seclusion. The island is a haven for those seeking a deeper connection with the land and the simple rhythm of island life.",
+        intro: "Malenge is defined by its dense tropical foliage that spills right down to the water's edge, creating a sense of absolute seclusion. The island is a haven for those seeking a deeper connection with the land and the simple rhythm of island life.",
         whyItMatters: [
             "Features a unique blend of dense jungle trekking and coastal exploration",
             "Known for its calm bays that are perfect for swimming and paddleboarding",
@@ -103,7 +103,7 @@ export const destinationDetails: Record<string, DestinationDetail> = {
         routeFit: {
             idealTiming: "Late morning to early afternoon",
             suggestedDuration: "3 to 4 hours",
-            pairsWellWith: ["Pulau Puat", "Walea Kodi"],
+            pairsWellWith: ["Pulau Puah", "Waleakodi"],
             notes: [
                 "Wear comfortable walking shoes if you plan to trek inland",
                 "Respect local customs when visiting villages by dressing modestly"
@@ -121,11 +121,11 @@ export const destinationDetails: Record<string, DestinationDetail> = {
             mood: "/destinations/malengue/mood.webp"
         }
     },
-    "walea-kodi": {
-        slug: "walea-kodi",
-        name: "Walea Kodi",
+    "waleakodi": {
+        slug: "waleakodi",
+        name: "Waleakodi",
         tagline: "Crystal clear waters and untouched coral flats stretching to the horizon.",
-        intro: "Walea Kodi is famous for its breathtaking clarity, where the water is so transparent that boats appear to float on air. This destination is a paradise for underwater enthusiasts, offering some of the best visibility in the entire Togeans.",
+        intro: "Waleakodi is famous for its breathtaking clarity, where the water is so transparent that boats appear to float on air. This destination is a paradise for underwater enthusiasts, offering some of the best visibility in the entire Togeans.",
         whyItMatters: [
             "Renowned for exceptional water clarity and visibility often exceeding 30 meters",
             "Hosts a vibrant marine ecosystem with high chances of spotting pelagic species",
@@ -153,7 +153,7 @@ export const destinationDetails: Record<string, DestinationDetail> = {
         routeFit: {
             idealTiming: "Midday when the sun is highest for maximum visibility",
             suggestedDuration: "2 to 4 hours",
-            pairsWellWith: ["Malengue", "Una Una"],
+            pairsWellWith: ["Malenge", "Una Una"],
             notes: [
                 "Currents can be strong, so fins are highly recommended for snorkelers",
                 "Best enjoyed when the sun is overhead to fully appreciate the water color"
@@ -203,7 +203,7 @@ export const destinationDetails: Record<string, DestinationDetail> = {
         routeFit: {
             idealTiming: "Early morning for trekking or midday for diving",
             suggestedDuration: "Full day excursion",
-            pairsWellWith: ["Walea Kodi", "Kadidiri"],
+            pairsWellWith: ["Waleakodi", "Kadidiri"],
             notes: [
                 "Requires a longer boat ride, so plan for a full day trip",
                 "Hiking requires good fitness and appropriate footwear"
@@ -303,7 +303,7 @@ export const destinationDetails: Record<string, DestinationDetail> = {
         routeFit: {
             idealTiming: "Morning or late afternoon",
             suggestedDuration: "3 to 4 hours",
-            pairsWellWith: ["Kadidiri", "Pulau Puat"],
+            pairsWellWith: ["Kadidiri", "Pulau Puah"],
             notes: [
                 "Mosquitoes can be active near the mangroves, so cover up",
                 "Tides affect access to some mangrove channels"
