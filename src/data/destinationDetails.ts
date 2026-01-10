@@ -24,46 +24,46 @@ export const destinationDetails: Record<string, DestinationDetail> = {
     "pulau-puah": {
         slug: "pulau-puah",
         name: "Pulau Puah",
-        tagline: "A pristine barrier reef standing guard over the open ocean.",
-        intro: "Located at the furthest edge of the archipelago, Pulau Puah offers a rare glimpse into a healthy, thriving reef system where the ocean feels practically untouched. The lagoon waters remain calm and clear, providing exceptional visibility for those willing to venture this far.",
+        tagline: "A secluded island of absolute tranquility and pristine nature.",
+        intro: "Pulau Puah is a largely undeveloped gem in the southeastern Togeans, boasting untouched white-sand beaches and thriving coral reefs. Far from crowds, it offers a rare chance to enjoy nature’s silence on a pristine tropical shore where tranquility reigns supreme.",
         whyItMatters: [
-            "Home to one of the most diverse coral gardens in the region with vibrant marine life",
-            "Offers sheltered snorkeling conditions even when the open sea is restless",
-            "A quiet refuge for nature lovers, far from the busy main boat channels"
+            "A true off-the-beaten-path escape with empty beaches ideal for private swimming.",
+            "Surrounded by healthy coral gardens, making it a dream for snorkelers to spot turtles.",
+            "Offers an exclusive private island feel, perfect for picnics without another soul in sight."
         ],
         experiences: [
             {
-                title: "Barrier Reef Snorkeling",
-                text: "Drift along the reef edge where the shallow coral gardens meet the deep blue drop-off, observing schools of fish in their natural habitat."
+                title: "Deserted Beach Picnic",
+                text: "Enjoy a BBQ picnic of fresh seafood on the powdery sand, with just you, the palms, and the gentle waves."
             },
             {
-                title: "Lagoon Exploration",
-                text: "Paddle through the silent turquoise waters of the inner lagoon, sheltered from open sea swells and perfect for a peaceful morning."
+                title: "Coral Reef Snorkeling",
+                text: "Swim right off the beach to encounter vibrant coral formations and diverse marine life in remarkably clear waters."
             },
             {
-                title: "Sandbar Walks",
-                text: "Walk along the untouched stretch of white sand that appears only at low tide, revealing a path through the sea."
+                title: "Jungle Stroll",
+                text: "Take a short walk inland beneath towering coconut palms to glimpse the untouched rainforest ecosystem thriving in silence."
             },
             {
-                title: "Coastal Bird Watching",
-                text: "Spot sea eagles and other coastal birds nesting in the dense vegetation that fringes the island's rocky shores."
+                title: "Sunset on the Boat",
+                text: "Linger offshore to watch the sunset paint the sky in breathtaking orange and purple hues over the silhouetted island."
             }
         ],
-        signatureMoment: "Watching the sunrise illuminate the underwater coral garden from the surface, revealing a world of color beneath the waves.",
+        signatureMoment: "Enjoying a deserted beach picnic on powdery white sand, realizing you have the entire island to yourself.",
         routeFit: {
-            idealTiming: "Morning for the clearest water and calmest seas",
-            suggestedDuration: "2 to 3 hours",
-            pairsWellWith: ["Bomba", "Malenge"],
+            idealTiming: "Midday stopover on an island-hopping route.",
+            suggestedDuration: "Half-day (lunch or swim).",
+            pairsWellWith: ["Malenge", "Walea Kodi"],
             notes: [
-                "Accessible only by boat, requiring a short journey from the main islands",
-                "Best visited during high tide for easier beach access and swimming"
+                "Accessible only by private boat or tour; no public ferries.",
+                "No shops or facilities—bring all water and supplies.",
+                "Visit in calm seas for a safe landing."
             ]
         },
         practicalNotes: [
-            "Bring reef-safe sunscreen to protect the delicate corals",
-            "No facilities on the island, so bring plenty of water and snacks",
-            "Respect the silence; this is a sanctuary for nature",
-            "Wear rash guards for sun protection while snorkeling for long periods"
+            "Leave no trace to preserve the pristine condition.",
+            "Snorkel with a buddy and avoid stepping on coral.",
+            "Visits are weather- and tide-dependent; check with guides."
         ],
         images: {
             hero: "/destinations/pulau-puat/hero.webp",
@@ -74,46 +74,46 @@ export const destinationDetails: Record<string, DestinationDetail> = {
     "malenge": {
         slug: "malenge",
         name: "Malenge",
-        tagline: "A lush, green sanctuary where the jungle meets the sea.",
-        intro: "Malenge is defined by its dense tropical foliage that spills right down to the water's edge, creating a sense of absolute seclusion. The island is a haven for those seeking a deeper connection with the land and the simple rhythm of island life.",
+        tagline: "Tropical jungle paradise meets authentic sea gypsy culture.",
+        intro: "Malenge is a haven of dense jungles and unspoiled beaches, connected to the fascinating Bajo sea gypsy village by a long wooden bridge. Time slows here, inviting you to snorkel vibrant reefs and experience authentic life in a tranquil setting.",
         whyItMatters: [
-            "Features a unique blend of dense jungle trekking and coastal exploration",
-            "Known for its calm bays that are perfect for swimming and paddleboarding",
-            "Home to traditional Bajau settlements that offer a glimpse into local culture"
+            "Home to a traditional sea gypsy community living in stilt houses on Pulau Papan.",
+            "Offers stunning beaches like Sera Beach with coral gardens just offshore for easy snorkeling.",
+            "Lush forests shelter rare Togean macaques and coconut crabs, ideal for easy nature hikes."
         ],
         experiences: [
             {
-                title: "Jungle Trekking",
-                text: "Follow narrow paths through the dense canopy to discover hidden viewpoints that offer sweeping vistas of the archipelago."
+                title: "Pulau Papan Bridge Walk",
+                text: "Stroll across the iconic 1.8km wooden bridge connecting Malenge to the traditional Bajo village over crystal-clear water."
             },
             {
-                title: "Village Visit",
-                text: "Spend time in a local Bajau settlement, observing the traditional boat-building techniques passed down through generations."
+                title: "Sera Beach Retreat",
+                text: "Relax on one of the archipelago’s best beaches, featuring white sand and excellent snorkeling just steps away."
             },
             {
-                title: "Bay Cruising",
-                text: "Take a slow boat ride around the sheltered bays, watching for wildlife along the mangrove-lined shores."
+                title: "Jungle & Wildlife Trek",
+                text: "Hike through the rainforest to spot endemic Togean macaques and enjoy panoramic island views from the hills."
             },
             {
-                title: "Traditional Fishing",
-                text: "Join a local fisherman for a morning outing to learn sustainable fishing methods using handlines and simple nets."
+                title: "Cultural Homestay",
+                text: "Stay in a simple guesthouse to experience daily island life and warm local hospitality firsthand."
             }
         ],
-        signatureMoment: "The sound of the jungle waking up at dawn, a symphony of birds and insects greeting the new day.",
+        signatureMoment: "Walking the wooden bridge to Pulau Papan, suspended over turquoise water, on your way to meet the Bajo people.",
         routeFit: {
-            idealTiming: "Late morning to early afternoon",
-            suggestedDuration: "3 to 4 hours",
-            pairsWellWith: ["Pulau Puah", "Waleakodi"],
+            idealTiming: "Mid-journey escape in the eastern Togeans.",
+            suggestedDuration: "2–3 days.",
+            pairsWellWith: ["Walea Kodi", "Pulau Puah"],
             notes: [
-                "Wear comfortable walking shoes if you plan to trek inland",
-                "Respect local customs when visiting villages by dressing modestly"
+                "Remote with no ATMs or shops; bring essential supplies.",
+                "Electricity is limited to night hours; signal is weak.",
+                "Check ferry schedules as boats may run infrequently."
             ]
         },
         practicalNotes: [
-            "Insect repellent is recommended for jungle walks",
-            "Carry small denominations of cash for purchasing local crafts",
-            "Ask permission before taking photos of people or their homes",
-            "Stay on marked paths to avoid disturbing the local flora"
+            "Dress modestly when visiting villages.",
+            "Accommodation is basic; bring snacks if you have dietary needs.",
+            "Nightlife is stargazing; enjoy the silence and dark skies."
         ],
         images: {
             hero: "/destinations/malengue/hero.webp",
@@ -123,47 +123,47 @@ export const destinationDetails: Record<string, DestinationDetail> = {
     },
     "waleakodi": {
         slug: "waleakodi",
-        name: "Waleakodi",
-        tagline: "Crystal clear waters and untouched coral flats stretching to the horizon.",
-        intro: "Waleakodi is famous for its breathtaking clarity, where the water is so transparent that boats appear to float on air. This destination is a paradise for underwater enthusiasts, offering some of the best visibility in the entire Togeans.",
+        name: "Walea Kodi",
+        tagline: "A far-flung tropical hideaway for ultimate seclusion.",
+        intro: "Walea Kodi is an isolated sanctuary on the northern fringe, offering quiet white-sand beaches and rich protected coral reefs. With minimal development, it’s the perfect place to disconnect and enjoy an exclusive castaway experience far from civilization.",
         whyItMatters: [
-            "Renowned for exceptional water clarity and visibility often exceeding 30 meters",
-            "Hosts a vibrant marine ecosystem with high chances of spotting pelagic species",
-            "A peaceful retreat with limited foot traffic, ensuring a private experience"
+            "One of the most isolated spots, perfect for travelers seeking peace and privacy.",
+            "Surrounded by pristine protected reefs, offering world-class snorkeling and diving with minimal crowds.",
+            "Untouched island scenery where dense greenery meets the shore and reefs remain undisturbed."
         ],
         experiences: [
             {
-                title: "Deep Reef Diving",
-                text: "Explore the deeper sections of the reef where larger schools of fish and pelagic species congregate in the currents."
+                title: "“Robinson Crusoe” Beach Day",
+                text: "Lounge on a private beach with soft white sand and the gentle sound of waves for a deserted island feel."
             },
             {
-                title: "Snorkeling the Flats",
-                text: "Drift over the shallow coral flats that teem with colorful reef fish and intricate coral formations."
+                title: "Coral Garden Snorkeling",
+                text: "Explore the nearby marine reserve to encounter spectacular coral formations and abundant sea life like turtles."
             },
             {
-                title: "Glass Bottom Boat",
-                text: "Experience the underwater world without getting wet, perfect for those who prefer to stay dry."
+                title: "Village Visit in Dolong",
+                text: "Stroll into the tiny fishing hamlet to meet locals and witness an authentic slice of island life."
             },
             {
-                title: "Sunset Drift",
-                text: "Let the gentle current carry you along the reef edge as the sun begins to set, casting golden rays through the water."
+                title: "Sunset & Stargazing",
+                text: "Climb a small hill at dusk to watch a fiery sunset, then stay out to gaze at the Milky Way."
             }
         ],
-        signatureMoment: "The sensation of hovering weightlessly over the reef edge, staring down into the infinite blue deep.",
+        signatureMoment: "Gazing at the Milky Way from a quiet beach, miles from the nearest town, in total silence.",
         routeFit: {
-            idealTiming: "Midday when the sun is highest for maximum visibility",
-            suggestedDuration: "2 to 4 hours",
-            pairsWellWith: ["Malenge", "Una Una"],
+            idealTiming: "End-of-itinerary off-grid escape.",
+            suggestedDuration: "2 days (2 nights).",
+            pairsWellWith: ["Malenge", "Pulau Puah"],
             notes: [
-                "Currents can be strong, so fins are highly recommended for snorkelers",
-                "Best enjoyed when the sun is overhead to fully appreciate the water color"
+                "Reachable by infrequent ferries or resort transfers.",
+                "No ATM, shops, or reliable signal—bring sufficient cash.",
+                "Electricity is limited to generator hours."
             ]
         },
         practicalNotes: [
-            "Bring a rash guard or wetsuit for longer sessions in the water",
-            "Don't touch the coral or marine life to protect the ecosystem",
-            "Hydrate well after spending time in the salt water and sun",
-            "Check current conditions with your guide before entering deep water"
+            "Reserve accommodation and transport in advance.",
+            "Practice eco-conscious behavior to protect the marine reserve.",
+            "Embrace the digital detox; Wi-Fi is generally unavailable."
         ],
         images: {
             hero: "/destinations/walea-kodi/hero.webp",
@@ -174,46 +174,46 @@ export const destinationDetails: Record<string, DestinationDetail> = {
     "una-una": {
         slug: "una-una",
         name: "Una Una",
-        tagline: "A dramatic volcanic island offering a landscape unlike any other.",
-        intro: "Dominated by the active Colo volcano, Una Una stands apart with its black sand beaches and lush, nutrient-rich soils. The underwater topography here is dramatic, with deep walls and huge sponges that thrive in the volcanic waters.",
+        tagline: "A volcanic jewel with spectacular marine life.",
+        intro: "Una Una is a dramatic volcanic island where black sands meet lush greenery, dominated by the active Mount Colo. Its nutrient-rich waters foster some of the region’s most spectacular marine life, making it a top destination for adventure and diving.",
         whyItMatters: [
-            "Unique black sand coastline creates a striking contrast to other islands",
-            "Incredible wall diving sites with huge schools of barracuda and jacks",
-            "A raw, powerful landscape that feels wild and untamed compared to the limestone islands"
+            "Offers the rare chance to trek an active volcano and see its ancient crater.",
+            " cited as the best diving in the Togeans, with healthy reefs and big fish schools.",
+            "A raw, authentic island experience with friendly villagers and no roads or vehicles."
         ],
         experiences: [
             {
-                title: "Volcano Trekking",
-                text: "Hike up the slopes of Mount Colo to witness the steaming vents and panoramic views of the surrounding sea."
+                title: "Volcano Hike to Mount Colo",
+                text: "Trek up the volcano’s slopes to peer into the verdant caldera and enjoy sweeping ocean views."
             },
             {
-                title: "Black Sand Diving",
-                text: "Discover the unique macro life that creates a home against the stark black volcanic sand bottom."
+                title: "Diving or Snorkeling",
+                text: "Dive into an underwater wonderland to see huge fish schools and endless coral gardens in clear water."
             },
             {
-                title: "Wall Exploration",
-                text: "Drift along vertical drop-offs covered in massive sponge formations and vibrant soft corals."
+                title: "Beachcombing Black Sands",
+                text: "Explore unique beaches where black volcanic sand mingles with white, creating beautiful patterns."
             },
             {
-                title: "Village Culture",
-                text: "Visit the resilient communities that have adapted to life in the shadow of the volcano."
+                title: "Sunset at the Resort",
+                text: "Relax beachfront as the sun dips, painting the sky in brilliant colors, followed by a bonfire."
             }
         ],
-        signatureMoment: "Watching the silhouette of the volcano catch the first light of dawn, rising majestically from the sea.",
+        signatureMoment: "Standing on the rim of Mount Colo, feeling the volcanic steam, with the endless blue ocean below.",
         routeFit: {
-            idealTiming: "Early morning for trekking or midday for diving",
-            suggestedDuration: "Full day excursion",
-            pairsWellWith: ["Waleakodi", "Kadidiri"],
+            idealTiming: "Dedicated adventure segment in your itinerary.",
+            suggestedDuration: "2–4 days.",
+            pairsWellWith: ["Kadidiri", "Bomba"],
             notes: [
-                "Requires a longer boat ride, so plan for a full day trip",
-                "Hiking requires good fitness and appropriate footwear"
+                "Access via infrequent ferry or resort transfer; coordinate carefully.",
+                "No ATMs or shops; bring cash and necessities.",
+                "Electricity is generator-run, usually in the evening."
             ]
         },
         practicalNotes: [
-            "Wear sturdy shoes for walking on volcanic rock and trails",
-            "Bring plenty of water as it can get hot on the exposed slopes",
-            "Be prepared for a different aesthetic with dark sand beaches",
-            "Respect the local beliefs regarding the volcano's spirit"
+            "Book dive resorts in advance, especially for transfers.",
+            "Bring travel insurance and a first aid kit.",
+            "Use a rash guard when snorkeling to avoid plankton stings."
         ],
         images: {
             hero: "/destinations/una-una/hero.webp",
@@ -224,46 +224,46 @@ export const destinationDetails: Record<string, DestinationDetail> = {
     "kadidiri": {
         slug: "kadidiri",
         name: "Kadidiri",
-        tagline: "The quintessential tropical paradise with powder-soft white sands.",
-        intro: "Kadidiri is the postcard-perfect image of the Togeans, featuring rows of coconut palms leaning over blindingly white beaches. It is a place to slow down completely, where the biggest decision of the day is which hammock to choose.",
+        tagline: "The vibrant travel hub with perfect white sands.",
+        intro: "Kadidiri is the Togeans’ beloved travel hub, famous for its powder-soft white beaches and vibrant house reefs. It offers a perfect balance of rustic charm and social vibe, where you can dive world-class sites or simply laze in a hammock.",
         whyItMatters: [
-            "Famous for its long stretch of white sandy beach and crystal clear shallows",
-            "Excellent house reef accessible directly from the shore",
-            "A social hub where travelers from around the world gather to share stories"
+            "A tourist-friendly base with a nice social vibe, ideal for beginning your exploration.",
+            "Surrounded by rich coral reefs just off the shore, perfect for easy snorkeling.",
+            "Features storybook tropical scenery with turquoise lagoons and spectacular sunsets."
         ],
         experiences: [
             {
-                title: "Beach relaxation",
-                text: "Spend hours lounging on the soft sand, reading a book or simply watching the clouds drift by."
+                title: "House Reef Snorkeling",
+                text: "Step right off the beach into gin-clear water to float above a thriving coral garden."
             },
             {
-                title: "House Reef Snorkel",
-                text: "Step off the beach and immediately into a vibrant coral garden teeming with life."
+                title: "WWII Bomber Dive",
+                text: "Dive to the B-24 “Liberator” wreck, an eerie history museum encrusted with coral and life."
             },
             {
-                title: "Sunset Cocktails",
-                text: "Enjoy a refreshing drink at a beachside bar as the sky turns into a canvas of oranges and purples."
+                title: "Kayaking & Island Hopping",
+                text: "Paddle to hidden coves or join a boat trip to nearby islets like Bolilanga for more snorkeling."
             },
             {
-                title: "Night Snorkeling",
-                text: "Venture into the shallows after dark with a torch to see nocturnal marine creatures come alive."
+                title: "Sunset Pier Gathering",
+                text: "Gather on the wooden pier with a cold drink to watch the sky ignite at sunset."
             }
         ],
-        signatureMoment: "The golden hour glow reflecting off the calm water as the day quietly transitions into night.",
+        signatureMoment: "Watching the sunset from the pier with other travelers, as the sky turns purple and the stars come out.",
         routeFit: {
-            idealTiming: "Afternoon to sunset",
-            suggestedDuration: "Overnight or late afternoon",
+            idealTiming: "First stop to adjust to island time.",
+            suggestedDuration: "2–4 days.",
             pairsWellWith: ["Una Una", "Bomba"],
             notes: [
-                "Can get busier than other islands, so book accommodation in advance",
-                "Perfect for socializing and meeting other travelers"
+                "20-30 minute boat ride from Wakai (main port).",
+                "Cash only economy; no ATM on the island.",
+                "Electricity and internet are limited; plan accordingly."
             ]
         },
         practicalNotes: [
-            "Sand flies can be present at dusk, so bring repellent",
-            "Water is precious; conserve it when showering",
-            "Cash is necessary as there are no ATMs on the island",
-            "Internet signal is intermittent, perfect for a digital detox"
+            "Book ahead in high season as popular spots fill up.",
+            "Communal dining is a great way to meet fellow travelers.",
+            "Secure food in your room to avoid tempting local wildlife."
         ],
         images: {
             hero: "/destinations/kadidiri/hero.webp",
@@ -274,46 +274,46 @@ export const destinationDetails: Record<string, DestinationDetail> = {
     "bomba": {
         slug: "bomba",
         name: "Bomba",
-        tagline: "Where the maze of mangroves opens up to hidden sandy retreats.",
-        intro: "Bomba offers a different kind of beauty, defined by its extensive mangrove forests and secluded beaches hidden within coves. It is a place of quiet exploration, where the water is calm and the atmosphere is deeply restorative.",
+        tagline: "A quiet southern retreat of mangroves and sunsets.",
+        intro: "Bomba is a peaceful coastal village at the southern tip of Batudaka Island, known for its idyllic white-sand beaches and pristine reefs. It offers a laid-back atmosphere with easy access to snorkeling sites and a glimpse of authentic daily life.",
         whyItMatters: [
-            "Features extensive mangrove systems that are vital to the marine ecosystem",
-            "Home to some of the most private and secluded beaches in the archipelago",
-            "Offers a mix of cultural interaction and pure natural isolation"
+            "An important southern gateway, easily accessible from the mainland port of Ampana.",
+            "Offers stunning scenery with sandy beaches, jungle outcrops, and breathtaking sunsets.",
+            "A hotspot for diving and snorkeling rich reefs that are quieter than northern sites."
         ],
         experiences: [
             {
-                title: "Mangrove Kayaking",
-                text: "Paddle silently through the winding mangrove channels, observing the complex root systems and wildlife."
+                title: "Poya Lisa Island Escape",
+                text: "Spend a day on this tiny private islet to play Robinson Crusoe on its single circle of beach."
             },
             {
-                title: "Hidden Beach Picnic",
-                text: "Take a boat to a secluded cove for a private picnic on a beach that feels entirely your own."
+                title: "Snorkeling the Atolls",
+                text: "Tour nearby shallow atolls like Hotel California Reef to see neon clams and schooling fish."
             },
             {
-                title: "Cave Exploration",
-                text: "Visit the nearby limestone caves that hold secrets of the island's geological past."
+                title: "Sunset Sandbar Trip",
+                text: "Take a boat to a fleeting sandbar for a magical 360° sunset panorama in the middle of the sea."
             },
             {
-                title: "Village Immersion",
-                text: "Walk through the sleepy village of Bomba to see the daily rhythm of island life unfold."
+                title: "Village Stroll",
+                text: "Wander through the village to see friendly locals, traditional houses, and the slow pace of island life."
             }
         ],
-        signatureMoment: "Drifting in a kayak through a narrow mangrove tunnel, surrounded only by the sounds of nature.",
+        signatureMoment: "Standing on a temporary sandbar in the middle of the sea, watching the sun dip below the horizon.",
         routeFit: {
-            idealTiming: "Morning or late afternoon",
-            suggestedDuration: "3 to 4 hours",
-            pairsWellWith: ["Kadidiri", "Pulau Puah"],
+            idealTiming: "Transit point or wind-down spot.",
+            suggestedDuration: "1–2 days.",
+            pairsWellWith: ["Kadidiri", "Luwuk"],
             notes: [
-                "Mosquitoes can be active near the mangroves, so cover up",
-                "Tides affect access to some mangrove channels"
+                "Accessed by boat from Ampana or Wakai.",
+                "No ATMs and very limited signal; bring cash.",
+                "Electricity usually available only at night."
             ]
         },
         practicalNotes: [
-            "Bring insect repellent for mangrove areas",
-            "Wear sun protection even when shaded by trees",
-            "Respect the local community as you pass through their village",
-            "Keep noise to a minimum to observe wildlife effectively"
+            "Book homestays in advance during high season.",
+            "Coordinate diving with resorts regarding schedules.",
+            "Dress modestly in the village and respect local customs."
         ],
         images: {
             hero: "/destinations/bomba/hero.webp",
@@ -324,46 +324,46 @@ export const destinationDetails: Record<string, DestinationDetail> = {
     "luwuk": {
         slug: "luwuk",
         name: "Luwuk",
-        tagline: "The gateway to the wonders of the Togean Islands.",
-        intro: "Often just a transit point, Luwuk surprises with its dramatic coastal cliffs and stunning vistas over the deep blue sea. It serves as the bridge between the mainland and the island paradise, offering a hint of the adventure to come.",
+        tagline: "The scenic coastal gateway to your island adventure.",
+        intro: "Luwuk is a pleasant coastal city and the primary logistics hub for the Togeans, nestled between green hills and the blue bay. It offers dramatic coastal views, modern amenities, and a chance to recharge before or after your remote island journey.",
         whyItMatters: [
-            "The primary gateway and logistics hub for accessing the Togean Islands",
-            "Offers spectacular coastal scenery with elevated viewpoints",
-            "A bustling town that provides a contrast to the quiet island life"
+            "The closest airport and primary staging point for organizing travel to the islands.",
+            "Boasts gorgeous coastal scenery, especially from high viewpoints overlooking the bay.",
+            "Provides modern conveniences like ATMs and markets, contrasting with rustic island life."
         ],
         experiences: [
             {
-                title: "Coastal Drive",
-                text: "Take a drive along the coastal road that hugs the cliffs, offering panoramic views of the ocean."
+                title: "Coastal Drive & Panorama",
+                text: "Drive to Kilo Lima Viewpoint for a thrilling cliffside journey and sweeping views of the town and bay."
             },
             {
                 title: "Kilo Lima Beach",
-                text: "Relax at this popular local beach known for its clear water and lively atmosphere on weekends."
+                text: "Relax at this popular local beach with clear water, perfect for a dip and a fresh coconut."
             },
             {
-                title: "Local Market Visit",
-                text: "Explore the central market to see the abundance of fresh produce and seafood from the region."
+                title: "Traditional Market Visit",
+                text: "Wander through the central market to see fresh exotic fruits, seafood, and the sensory buzz of local commerce."
             },
             {
-                title: "Sunset Viewpoint",
-                text: "Head to a high point in the city to watch the sun dip below the horizon, painting the sky in gold."
+                title: "Waterfall Excursion",
+                text: "Take a trip to Salodik Waterfall for a refreshing swim in natural pools beneath the jungle canopy."
             }
         ],
-        signatureMoment: "Standing on the cliff edge looking out at the vast ocean, anticipating the journey to the islands.",
+        signatureMoment: "Looking out from Kilo Lima Viewpoint at sunrise, seeing the town wake up against the calm blue bay.",
         routeFit: {
-            idealTiming: "Transit day or overnight stay",
-            suggestedDuration: "1 day",
+            idealTiming: "Transit stay before or after the islands.",
+            suggestedDuration: "1 day (1-2 nights).",
             pairsWellWith: ["Bomba", "Una Una"],
             notes: [
-                "Use this as your stocking up point for supplies",
-                "ATMs and better medical facilities are available here"
+                "Stock up on cash and essentials here before departing.",
+                "Daily flights available; arrange transport to Ampana for the ferry.",
+                "Traffic can be busy; allow time for travel."
             ]
         },
         practicalNotes: [
-            "Stock up on cash and essentials before leaving for the islands",
-            "Book your boat tickets in advance during peak season",
-            "Enjoy the variety of food options available in the town",
-            "Traffic can be busy, so allow extra time for travel"
+            "Try local Sulawesi specialties like grilled fish.",
+            "Use the good signal to download maps and contact family.",
+            "Do last-minute shopping for snorkeling gear or toiletries."
         ],
         images: {
             hero: "/destinations/luwuk/hero.webp",
