@@ -77,25 +77,25 @@ export default async function ProgramDetailPage({ params }: PageProps) {
                             <div className="space-y-4">
                                 <h3 className="font-canto text-2xl md:text-3xl text-[#6b4c3b]">Overview</h3>
                                 <p className="font-avenir text-neutral-600 leading-relaxed">
-                                    Experience the best of {program.name.toLowerCase()} in a tailored journey designed to immerse you in the natural beauty of the Togean Islands. Our guides ensure a safe and memorable adventure.
+                                    {program.overview}
                                 </p>
                             </div>
                             <div className="space-y-4">
                                 <h3 className="font-canto text-2xl md:text-3xl text-[#6b4c3b]">What you'll do</h3>
                                 <p className="font-avenir text-neutral-600 leading-relaxed">
-                                    Enjoy curated activities ranging from leisurely exploration to active discovery. Every moment is crafted to provide a premium and authentic experience.
+                                    {program.whatYoullDo}
                                 </p>
                             </div>
                             <div className="space-y-4">
                                 <h3 className="font-canto text-2xl md:text-3xl text-[#6b4c3b]">Best time</h3>
                                 <p className="font-avenir text-neutral-600 leading-relaxed">
-                                    This program is available year-round, with the best visibility and calmest waters typically found between April and November.
+                                    {program.bestTime}
                                 </p>
                             </div>
                             <div className="space-y-4">
                                 <h3 className="font-canto text-2xl md:text-3xl text-[#6b4c3b]">Notes</h3>
                                 <p className="font-avenir text-neutral-600 leading-relaxed">
-                                    Suitable for all skill levels. Equipment is provided where necessary. Please bring appropriate swimwear and sun protection.
+                                    {program.notes}
                                 </p>
                             </div>
                         </div>
