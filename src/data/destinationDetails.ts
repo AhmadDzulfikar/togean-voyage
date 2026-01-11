@@ -66,9 +66,9 @@ export const destinationDetails: Record<string, DestinationDetail> = {
             "Visits are weather- and tide-dependent; check with guides."
         ],
         images: {
-            hero: "/destinations/pulau-puat/hero.webp",
-            secondary: "/destinations/pulau-puat/experience.webp",
-            mood: "/destinations/pulau-puat/mood.webp"
+            hero: "/destinations_real/pulau-puah/hero.webp",
+            secondary: "/destinations_real/pulau-puah/experience.webp",
+            mood: "/destinations_real/pulau-puah/mood.webp"
         }
     },
     "malenge": {
@@ -116,9 +116,9 @@ export const destinationDetails: Record<string, DestinationDetail> = {
             "Nightlife is stargazing; enjoy the silence and dark skies."
         ],
         images: {
-            hero: "/destinations/malengue/hero.webp",
-            secondary: "/destinations/malengue/experience.webp",
-            mood: "/destinations/malengue/mood.webp"
+            hero: "/destinations_real/malenge/hero.webp",
+            secondary: "/destinations_real/malenge/experience.webp",
+            mood: "/destinations_real/malenge/mood.webp"
         }
     },
     "waleakodi": {
@@ -166,9 +166,9 @@ export const destinationDetails: Record<string, DestinationDetail> = {
             "Embrace the digital detox; Wi-Fi is generally unavailable."
         ],
         images: {
-            hero: "/destinations/walea-kodi/hero.webp",
-            secondary: "/destinations/walea-kodi/experience.webp",
-            mood: "/destinations/walea-kodi/mood.webp"
+            hero: "/destinations_real/waleakodi/hero.webp",
+            secondary: "/destinations_real/waleakodi/experience.webp",
+            mood: "/destinations_real/waleakodi/mood.webp"
         }
     },
     "una-una": {
@@ -216,9 +216,9 @@ export const destinationDetails: Record<string, DestinationDetail> = {
             "Use a rash guard when snorkeling to avoid plankton stings."
         ],
         images: {
-            hero: "/destinations/una-una/hero.webp",
-            secondary: "/destinations/una-una/experience.webp",
-            mood: "/destinations/una-una/mood.webp"
+            hero: "/destinations_real/una-una/hero.webp",
+            secondary: "/destinations_real/una-una/experience.webp",
+            mood: "/destinations_real/una-una/mood.webp"
         }
     },
     "kadidiri": {
@@ -266,9 +266,9 @@ export const destinationDetails: Record<string, DestinationDetail> = {
             "Secure food in your room to avoid tempting local wildlife."
         ],
         images: {
-            hero: "/destinations/kadidiri/hero.webp",
-            secondary: "/destinations/kadidiri/experience.webp",
-            mood: "/destinations/kadidiri/mood.webp"
+            hero: "/destinations_real/kadidiri/hero.webp",
+            secondary: "/destinations_real/kadidiri/experience.webp",
+            mood: "/destinations_real/kadidiri/mood.webp"
         }
     },
     "bomba": {
@@ -316,9 +316,9 @@ export const destinationDetails: Record<string, DestinationDetail> = {
             "Dress modestly in the village and respect local customs."
         ],
         images: {
-            hero: "/destinations/bomba/hero.webp",
-            secondary: "/destinations/bomba/experience.webp",
-            mood: "/destinations/bomba/mood.webp"
+            hero: "/destinations_real/bomba/hero.webp",
+            secondary: "/destinations_real/bomba/experience.webp",
+            mood: "/destinations_real/bomba/mood.webp"
         }
     },
     "luwuk": {
@@ -366,9 +366,9 @@ export const destinationDetails: Record<string, DestinationDetail> = {
             "Do last-minute shopping for snorkeling gear or toiletries."
         ],
         images: {
-            hero: "/destinations/luwuk/hero.webp",
-            secondary: "/destinations/luwuk/experience.webp",
-            mood: "/destinations/luwuk/mood.webp"
+            hero: "/destinations_real/luwuk/hero.webp",
+            secondary: "/destinations_real/luwuk/experience.webp",
+            mood: "/destinations_real/luwuk/mood.webp"
         }
     }
 };
